@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8lc5fl81a82g"]
+
+[ext_resource type="Script" path="res://requestScript.gd" id="1_fqwb4"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_fqwb4")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
