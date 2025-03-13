@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qoqlby5jmq2s"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/JCJScene/jcj_scene.gd" id="1_ljgfj"]
+[ext_resource type="PackedScene" uid="uid://dsd0et6opgiw1" path="res://Myassets/Entities/Characters/Huntress/Character1.tscn" id="2_6p8m0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ljgfj")
+
+[node name="Node2D" parent="." instance=ExtResource("2_6p8m0")]
+position = Vector2(201, -69)

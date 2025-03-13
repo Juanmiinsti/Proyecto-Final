@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dakqknikdf5nk"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/modeSelectorScene/mode_selector.gd" id="1_a7ebw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_a7ebw")
+
+[node name="ButtonJCJ" type="Button" parent="."]
+offset_left = 421.0
+offset_top = 440.0
+offset_right = 666.0
+offset_bottom = 492.0
+text = "TEST SCENE"
+
+[node name="ButtonJCIA" type="Button" parent="."]
+offset_left = 418.0
+offset_top = 354.0
+offset_right = 663.0
+offset_bottom = 403.0
+text = "J VS IA"
+
+[node name="ButtonTest" type="Button" parent="."]
+offset_left = 420.0
+offset_top = 275.0
+offset_right = 662.0
+offset_bottom = 330.0
+text = "J VS J"
+
+[connection signal="pressed" from="ButtonJCJ" to="." method="_on_button_jcj_pressed"]
