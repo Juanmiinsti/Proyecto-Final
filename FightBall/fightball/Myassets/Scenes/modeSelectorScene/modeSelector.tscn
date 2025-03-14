@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Myassets/Scenes/modeSelectorScene/mode_selector.gd" id="1_a7ebw"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_a7ebw")
 
 [node name="ButtonJCJ" type="Button" parent="."]

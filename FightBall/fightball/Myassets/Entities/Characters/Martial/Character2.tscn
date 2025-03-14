@@ -143,14 +143,14 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player2" type="CharacterBody2D" parent="."]
 script = ExtResource("1_qxesm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
 position = Vector2(-18.5, 20.5)
 shape = SubResource("RectangleShape2D_1d20v")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player2"]
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(-13, 16)

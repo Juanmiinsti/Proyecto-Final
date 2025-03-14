@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name player2
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -11,11 +11,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Manejo del salto
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("up2player") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Manejo del ataque
-	if Input.is_action_just_pressed("pegar") and not is_attacking:
+	if Input.is_action_just_pressed("hitTwoplayer") and not is_attacking:
 		is_attacking = true
 		$AnimatedSprite2D.play("Attack")
 		await $AnimatedSprite2D.animation_finished
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 	# Movimiento solo si no está atacando
 	if not is_attacking:
-		var direction := Input.get_axis("ui_left", "ui_right")
+		var direction := Input.get_axis("left2player", "right2player")
 		if direction:
 			velocity.x = direction * SPEED
 			if is_on_floor():
