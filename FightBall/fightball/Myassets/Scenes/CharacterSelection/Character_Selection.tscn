@@ -1,17 +1,39 @@
-[gd_scene format=3 uid="uid://vv4211ik6xxt"]
+[gd_scene load_steps=8 format=3 uid="uid://vv4211ik6xxt"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_list.gd" id="1_4hu76"]
+[ext_resource type="PackedScene" uid="uid://50knxno5g2q8" path="res://Myassets/Scenes/CharacterSlot/CharacterSlot.tscn" id="2_2o32p"]
+[ext_resource type="Script" path="res://Resources/character.gd" id="3_xu5k1"]
+[ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="4_h3bmy"]
+[ext_resource type="Resource" uid="uid://bq71uyy5r6yb7" path="res://Myassets/Scenes/CharacterSelection/CharResources/martial.tres" id="5_g44lj"]
+[ext_resource type="Resource" uid="uid://cit0qgsmsyvh8" path="res://Myassets/Scenes/CharacterSelection/CharResources/medieval.tres" id="6_8cden"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhctd"]
+bg_color = Color(0.923515, 0.939592, 0.76552, 1)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 290.0
-offset_top = 420.0
-offset_right = 475.0
-offset_bottom = 485.0
+[node name="characterSelection" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 1023.0
+offset_bottom = 583.0
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 699.0
-offset_top = 423.0
-offset_right = 926.0
-offset_bottom = 480.0
+[node name="Button" type="Button" parent="characterSelection"]
+offset_left = 841.0
+offset_top = 445.0
+offset_right = 987.0
+offset_bottom = 511.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="characterSelection"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 4.0
+offset_right = 770.0
+offset_bottom = 524.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhctd")
+
+[node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer"]
+layout_mode = 2
+script = ExtResource("1_4hu76")
+character_slot = ExtResource("2_2o32p")
+characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])

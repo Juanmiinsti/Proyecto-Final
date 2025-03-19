@@ -2,13 +2,13 @@ extends CharacterBody2D
 class_name  player1
 
 
+@export var character: Character
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 var maxHealth=10
 @onready var currentHealth: int = maxHealth
-
 @onready var p1HealthBar = $"../CanvasLayer/ProgressBar"
 
 var is_attacking = false  # Nueva variable para controlar el ataque
@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pegar") and not is_attacking:
 		take_damage(5) # Permitir otras acciones después del ataque
 		is_attacking = true
-		$AnimatedSprite2D.play("Attack")
-		await $AnimatedSprite2D.animation_finished
+		$AllAnimations.play("Attack_"+character.animation_name)
+		await $AllAnimations.animation_finished
 		is_attacking = false
 		return  # Evita que se ejecute el resto del código mientras ataca
 
@@ -40,12 +40,12 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			if is_on_floor():
-				$AnimatedSprite2D.set_flip_h(direction < 0)
-				$AnimatedSprite2D.play("Run")
+				$AllAnimations.set_flip_h(direction < 0)
+				$AllAnimations.play("Run_"+character.animation_name)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			if is_on_floor():
-				$AnimatedSprite2D.play("Idle")
+				$AllAnimations.play("Idle_"+character.animation_name)
 
 	move_and_slide()
 

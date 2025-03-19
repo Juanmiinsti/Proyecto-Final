@@ -2,6 +2,8 @@ extends Node2D
 
 var test_Scene = preload("res://Myassets/testScenes/game.tscn")
 var jCJ_Scene = preload("res://Myassets/Scenes/JCJScene/JCJScene.tscn")
+var Char_selection = preload("res://Myassets/Scenes/CharacterSelection/Character_Selection.tscn")
+
 
 # Llamado cuando el nodo entra en el árbol de la escena.
 func _ready() -> void:
@@ -15,4 +17,4 @@ func _on_button_test_pressed() -> void:
 	get_tree().change_scene_to_packed(test_Scene)
 
 func _on_button_jcj_pressed() -> void:
-	get_tree().change_scene_to_packed(jCJ_Scene)
+	get_tree().change_scene_to_packed(Char_selection)

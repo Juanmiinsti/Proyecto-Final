@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://bq71uyy5r6yb7"]
+
+[ext_resource type="Texture2D" uid="uid://cu1n5jtqgbyf3" path="res://Resources/MartialHero1/MartialHero.png" id="1_jpqfu"]
+[ext_resource type="Script" path="res://Resources/character.gd" id="2_6uumg"]
+
+[resource]
+script = ExtResource("2_6uumg")
+name = "martial"
+icon = ExtResource("1_jpqfu")
+animation_name = "martial"

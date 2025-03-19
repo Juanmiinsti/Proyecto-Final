@@ -191,7 +191,7 @@ texture_repeat = 1
 position = Vector2(-13, 16)
 scale = Vector2(0.96, 0.95)
 sprite_frames = SubResource("SpriteFrames_pfdm2")
-animation = &"Attack"
+animation = &"Idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
