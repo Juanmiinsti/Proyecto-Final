@@ -1,15 +1,20 @@
 extends CharacterBody2D
 class_name  player1
 
-signal healthChanged
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var maxHealth=30
+var maxHealth=10
 @onready var currentHealth: int = maxHealth
 
+@onready var p1HealthBar = $"../CanvasLayer/ProgressBar"
+
 var is_attacking = false  # Nueva variable para controlar el ataque
+func _ready():
+	p1HealthBar.max_value=maxHealth
+	p1HealthBar.value=currentHealth
 
 func _physics_process(delta: float) -> void:
 	# Aplicar gravedad
@@ -22,7 +27,7 @@ func _physics_process(delta: float) -> void:
 
 	# Manejo del ataque
 	if Input.is_action_just_pressed("pegar") and not is_attacking:
-		take_damage(2) # Permitir otras acciones después del ataque
+		take_damage(5) # Permitir otras acciones después del ataque
 		is_attacking = true
 		$AnimatedSprite2D.play("Attack")
 		await $AnimatedSprite2D.animation_finished
@@ -46,4 +51,4 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int):
 	currentHealth -= amount
-	healthChanged.emit()
+	p1HealthBar.update_health_bar(currentHealth)

@@ -338,7 +338,7 @@ sprite_frames = SubResource("SpriteFrames_pph0s")
 animation = &"Attack"
 
 [node name="Player1" type="CharacterBody2D" parent="."]
-position = Vector2(149, -64)
+position = Vector2(303, -64)
 script = ExtResource("6_a6er2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
@@ -374,12 +374,25 @@ zoom = Vector2(1.9, 1.9)
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.26
-anchor_top = 0.25
-anchor_right = 0.783
-anchor_bottom = 0.837
-offset_left = -189.52
-offset_top = -46.0
-offset_right = -608.016
-offset_bottom = -382.376
+anchor_top = 0.83642
+anchor_right = 0.436215
+anchor_bottom = 0.83642
+offset_left = 349.48
+offset_top = -346.0
+offset_right = 353.48
+offset_bottom = -319.0
+script = ExtResource("4_g5rw5")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.26
+anchor_top = 0.83642
+anchor_right = 0.436215
+anchor_bottom = 0.83642
+offset_left = 21.48
+offset_top = -348.0
+offset_right = 25.48
+offset_bottom = -321.0
 script = ExtResource("4_g5rw5")
 metadata/_edit_use_anchors_ = true

@@ -3,8 +3,16 @@ class_name player2
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var is_attacking = false  # Nueva variable para controlar el ataque
+var maxHealth=10
+@onready var currentHealth: int = maxHealth
 
+@onready var p2HealthBar = $"../CanvasLayer/ProgressBar2"
+
+var is_attacking = false  # Nueva variable para controlar el ataque
+func _ready():
+	p2HealthBar.max_value=maxHealth
+	p2HealthBar.value=currentHealth
+	
 func _physics_process(delta: float) -> void:
 	# Aplicar gravedad
 	if not is_on_floor():
@@ -16,6 +24,7 @@ func _physics_process(delta: float) -> void:
 
 	# Manejo del ataque
 	if Input.is_action_just_pressed("hitTwoplayer") and not is_attacking:
+		take_damage(2)
 		is_attacking = true
 		$AnimatedSprite2D.play("Attack")
 		await $AnimatedSprite2D.animation_finished
@@ -36,3 +45,7 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.play("Idle")
 
 	move_and_slide()
+	
+func take_damage(amount: int):
+	currentHealth -= amount
+	p2HealthBar.update_health_bar(currentHealth)
