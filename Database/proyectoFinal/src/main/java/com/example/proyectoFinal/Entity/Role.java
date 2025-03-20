@@ -20,6 +20,6 @@ public class Role {
     @ManyToMany
     @JoinTable(name = "roles",
                 joinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "user"))
+                inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"))
     private ArrayList<User> users;
 }

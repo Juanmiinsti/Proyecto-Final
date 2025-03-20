@@ -28,7 +28,7 @@ public class User {
     @OneToMany(mappedBy = "userLoser")
     private ArrayList<Match> lossMatches;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "users")
     private ArrayList<Role> roles;
 
 }
