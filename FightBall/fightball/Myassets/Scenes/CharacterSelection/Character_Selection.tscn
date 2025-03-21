@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://vv4211ik6xxt"]
+[gd_scene load_steps=9 format=3 uid="uid://vv4211ik6xxt"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_list.gd" id="1_4hu76"]
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/start.gd" id="1_vnkta"]
 [ext_resource type="PackedScene" uid="uid://50knxno5g2q8" path="res://Myassets/Scenes/CharacterSlot/CharacterSlot.tscn" id="2_2o32p"]
 [ext_resource type="Script" path="res://Resources/character.gd" id="3_xu5k1"]
 [ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="4_h3bmy"]
@@ -18,18 +19,20 @@ offset_top = 22.0
 offset_right = 1023.0
 offset_bottom = 583.0
 
-[node name="Button" type="Button" parent="characterSelection"]
+[node name="start" type="Button" parent="characterSelection"]
+layout_mode = 0
 offset_left = 841.0
 offset_top = 445.0
 offset_right = 987.0
 offset_bottom = 511.0
+script = ExtResource("1_vnkta")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="characterSelection"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 4.0
-offset_right = 770.0
-offset_bottom = 524.0
+offset_left = 427.0
+offset_top = 56.0
+offset_right = 534.0
+offset_bottom = 392.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hhctd")
 
 [node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer"]
@@ -37,3 +40,5 @@ layout_mode = 2
 script = ExtResource("1_4hu76")
 character_slot = ExtResource("2_2o32p")
 characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])
+
+[connection signal="pressed" from="characterSelection/start" to="characterSelection/start" method="_on_start_pressed"]

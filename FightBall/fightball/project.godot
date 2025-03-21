@@ -15,6 +15,10 @@ run/main_scene="res://Myassets/Scenes/MainScene/Mainscene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Persistence="*res://persistence.gd"
+
 [input]
 
 pegar={

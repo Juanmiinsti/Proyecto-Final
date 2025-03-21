@@ -17,4 +17,4 @@ func _button_pressed() -> void:
 	pressed.emit()	
 		
 func deselect():
-	$Select.hide
+	$Select.hide()

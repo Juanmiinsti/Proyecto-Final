@@ -3,8 +3,6 @@ class_name  player1
 
 
 @export var character: Character
-
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var maxHealth=10
@@ -13,6 +11,7 @@ var maxHealth=10
 
 var is_attacking = false  # Nueva variable para controlar el ataque
 func _ready():
+	character=Persistence.character
 	p1HealthBar.max_value=maxHealth
 	p1HealthBar.value=currentHealth
 
