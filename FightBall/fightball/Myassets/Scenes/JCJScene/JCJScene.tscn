@@ -1,17 +1,32 @@
-[gd_scene load_steps=55 format=3 uid="uid://qoqlby5jmq2s"]
+[gd_scene load_steps=78 format=3 uid="uid://qoqlby5jmq2s"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/JCJScene/jcj_scene.gd" id="1_ljgfj"]
-[ext_resource type="Script" path="res://Myassets/Entities/Characters/Huntress/character_body_2d.gd" id="2_trhbl"]
+[ext_resource type="PackedScene" uid="uid://8tj5l7mlmaq6" path="res://Myassets/Entities/PCharacter/PCharacter.tscn" id="2_f7s7o"]
+[ext_resource type="Script" path="res://Myassets/Scripts/character2.gd" id="2_trhbl"]
 [ext_resource type="Texture2D" uid="uid://bkjni8m8w2e0y" path="res://Resources/Huntress/Sprites/Attack1.png" id="3_82n1l"]
 [ext_resource type="Texture2D" uid="uid://c8h7wd6a683so" path="res://Resources/Huntress/Sprites/Idle.png" id="4_06ioq"]
-[ext_resource type="Script" path="res://Myassets/Scenes/JCJScene/progress_bar.gd" id="4_g5rw5"]
+[ext_resource type="Script" path="res://Myassets/Scripts/ProgressBar/progress_bar.gd" id="4_g5rw5"]
 [ext_resource type="Texture2D" uid="uid://c6yusx1iuc77n" path="res://Resources/Huntress/Sprites/Run.png" id="5_qti8d"]
-[ext_resource type="Script" path="res://Myassets/Entities/Characters/Martial/Character.gd" id="6_a6er2"]
+[ext_resource type="Texture2D" uid="uid://dp0n2ym2ypkye" path="res://Resources/Medieval Warrior Pack 3/Sprites/Attack1.png" id="6_qk3s3"]
 [ext_resource type="Resource" uid="uid://bq71uyy5r6yb7" path="res://Myassets/Scenes/CharacterSelection/CharResources/martial.tres" id="7_3tg2c"]
-[ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="7_g788a"]
 [ext_resource type="Texture2D" uid="uid://ccis48slf467v" path="res://Resources/MartialHero1/Attack1.png" id="7_jepp2"]
 [ext_resource type="Texture2D" uid="uid://bq2wdvfjk6my4" path="res://Resources/MartialHero1/Idle.png" id="8_b8bc0"]
 [ext_resource type="Texture2D" uid="uid://bari4ln8syhw4" path="res://Resources/MartialHero1/Run.png" id="9_blead"]
+[ext_resource type="Texture2D" uid="uid://b83gtm2hnq6ry" path="res://Resources/Medieval Warrior Pack 3/Sprites/Idle.png" id="9_e22hi"]
+[ext_resource type="Texture2D" uid="uid://ckvlw4xneit70" path="res://Resources/Medieval Warrior Pack 3/Sprites/Run.png" id="12_uhcxa"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0pl2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyd6n"]
+size = Vector2(612, 172)
+
+[sub_resource type="Animation" id="Animation_2pw16"]
+resource_name = "Run_Martial"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0exr"]
+_data = {
+"Run_Martial": SubResource("Animation_2pw16")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuts6"]
 size = Vector2(31, 47)
@@ -51,6 +66,22 @@ region = Rect2(400, 0, 200, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gtti"]
 atlas = ExtResource("7_jepp2")
 region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewggo"]
+atlas = ExtResource("6_qk3s3")
+region = Rect2(0, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3qoa"]
+atlas = ExtResource("6_qk3s3")
+region = Rect2(135, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ooeg"]
+atlas = ExtResource("6_qk3s3")
+region = Rect2(270, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6twg"]
+atlas = ExtResource("6_qk3s3")
+region = Rect2(405, 0, 135, 135)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pqed"]
 atlas = ExtResource("4_06ioq")
@@ -99,6 +130,46 @@ region = Rect2(400, 0, 200, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhfg5"]
 atlas = ExtResource("8_b8bc0")
 region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd874"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(0, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gj5x"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(135, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7miuj"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(270, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue8ws"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(405, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wti5"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(540, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttaw0"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(675, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d67jv"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(810, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nkbi"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(945, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73wc4"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(1080, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aic06"]
+atlas = ExtResource("9_e22hi")
+region = Rect2(1215, 0, 135, 135)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn0of"]
 atlas = ExtResource("5_qti8d")
@@ -164,6 +235,30 @@ region = Rect2(1200, 0, 200, 200)
 atlas = ExtResource("9_blead")
 region = Rect2(1400, 0, 200, 200)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmw2v"]
+atlas = ExtResource("12_uhcxa")
+region = Rect2(0, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1n4q"]
+atlas = ExtResource("12_uhcxa")
+region = Rect2(135, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8urip"]
+atlas = ExtResource("12_uhcxa")
+region = Rect2(270, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtfyo"]
+atlas = ExtResource("12_uhcxa")
+region = Rect2(405, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gryjt"]
+atlas = ExtResource("12_uhcxa")
+region = Rect2(540, 0, 135, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecj6n"]
+atlas = ExtResource("12_uhcxa")
+region = Rect2(675, 0, 135, 135)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_8n23n"]
 animations = [{
 "frames": [{
@@ -201,6 +296,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack_martial",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewggo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3qoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ooeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6twg")
+}],
+"loop": false,
+"name": &"Attack_medieval",
 "speed": 5.0
 }, {
 "frames": [{
@@ -247,6 +359,41 @@ animations = [{
 }],
 "loop": false,
 "name": &"Idle_martial",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd874")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gj5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7miuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue8ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wti5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttaw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d67jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nkbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73wc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aic06")
+}],
+"loop": true,
+"name": &"Idle_medieval",
 "speed": 5.0
 }, {
 "frames": [{
@@ -306,47 +453,37 @@ animations = [{
 "loop": true,
 "name": &"Run_martial",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmw2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1n4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8urip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtfyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gryjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecj6n")
+}],
+"loop": true,
+"name": &"Run_medieval",
+"speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_se6u3"]
-size = Vector2(31, 47)
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_0pl2h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyd6n"]
-size = Vector2(612, 172)
 
 [node name="Node2D2" type="Node2D"]
 position = Vector2(440, 384)
 script = ExtResource("1_ljgfj")
 
-[node name="Player2" type="CharacterBody2D" parent="."]
-position = Vector2(0, -69)
-script = ExtResource("2_trhbl")
-character = ExtResource("7_3tg2c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-position = Vector2(-18.5, 20.5)
-shape = SubResource("RectangleShape2D_wuts6")
-
-[node name="AllAnimations" type="AnimatedSprite2D" parent="Player2"]
-position = Vector2(-13, 18)
-sprite_frames = SubResource("SpriteFrames_8n23n")
-animation = &"Attack_huntress"
-
-[node name="Player1" type="CharacterBody2D" parent="."]
-position = Vector2(303, -64)
-script = ExtResource("6_a6er2")
-character = ExtResource("7_g788a")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
-position = Vector2(-18.5, 20.5)
-shape = SubResource("RectangleShape2D_se6u3")
-
-[node name="AllAnimations" type="AnimatedSprite2D" parent="Player1"]
-position = Vector2(-14, 10)
-sprite_frames = SubResource("SpriteFrames_8n23n")
-animation = &"Idle_martial"
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_f7s7o")]
+position = Vector2(-5, -32)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, 0)
@@ -372,10 +509,10 @@ anchor_left = 0.26
 anchor_top = 0.83642
 anchor_right = 0.436215
 anchor_bottom = 0.83642
-offset_left = 349.48
-offset_top = -346.0
-offset_right = 353.48
-offset_bottom = -319.0
+offset_left = 11.48
+offset_top = -375.0
+offset_right = 15.48
+offset_bottom = -348.0
 script = ExtResource("4_g5rw5")
 metadata/_edit_use_anchors_ = true
 
@@ -385,9 +522,30 @@ anchor_left = 0.26
 anchor_top = 0.83642
 anchor_right = 0.436215
 anchor_bottom = 0.83642
-offset_left = 21.48
-offset_top = -348.0
-offset_right = 25.48
-offset_bottom = -321.0
+offset_left = 355.48
+offset_top = -372.0
+offset_right = 359.48
+offset_bottom = -345.0
 script = ExtResource("4_g5rw5")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p0exr")
+}
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+position = Vector2(341, -58)
+collision_layer = 2
+script = ExtResource("2_trhbl")
+character = ExtResource("7_3tg2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+position = Vector2(-18.5, 20.5)
+shape = SubResource("RectangleShape2D_wuts6")
+
+[node name="AllAnimations" type="AnimatedSprite2D" parent="Player2"]
+position = Vector2(-15, 15)
+scale = Vector2(1.06111, 1.06481)
+sprite_frames = SubResource("SpriteFrames_8n23n")
+animation = &"Idle_martial"

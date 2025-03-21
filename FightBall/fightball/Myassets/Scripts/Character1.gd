@@ -7,7 +7,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var maxHealth=10
 @onready var currentHealth: int = maxHealth
-@onready var p1HealthBar = $"../CanvasLayer/ProgressBar"
+@onready var p1HealthBar = null
 
 var is_attacking = false  # Nueva variable para controlar el ataque
 func _ready():

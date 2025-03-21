@@ -1,6 +1,6 @@
 extends Node2D
 
-var test_Scene = preload("res://Myassets/testScenes/game.tscn")
+
 var jCJ_Scene = preload("res://Myassets/Scenes/JCJScene/JCJScene.tscn")
 var Char_selection = preload("res://Myassets/Scenes/CharacterSelection/Character_Selection.tscn")
 
@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_test_pressed() -> void:
-	get_tree().change_scene_to_packed(test_Scene)
+	pass
 
 func _on_button_jcj_pressed() -> void:
 	get_tree().change_scene_to_packed(Char_selection)
