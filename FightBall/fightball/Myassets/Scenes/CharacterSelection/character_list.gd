@@ -3,6 +3,7 @@ extends GridContainer
 
 @export var character_slot:PackedScene
 @export var characters:Array[Character]
+@export var numplayer:int
 
 func _ready():
 	load_characters()
@@ -16,4 +17,8 @@ func load_characters():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_pressed(character:Character):
-	Persistence.character=character
+	if numplayer==1:
+		Persistence.character=character
+		Persistence.charname1=character.name
+	else:
+		Persistence.character2=character

@@ -1,11 +1,13 @@
 package com.example.proyectoFinal.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,19 +26,23 @@ public class Character {
     @Column(nullable = false)
     private int damage;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "character")
     private Stadium stadium;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "characters")
-    private ArrayList<Object> objects;
+    private List<Object> objects;
 
-    @ManyToMany(mappedBy = "characters")
-    private ArrayList<Enemy> enemies;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "characters",fetch = FetchType.EAGER)
+    private List<Enemy> enemies;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "charWinner")
-    private ArrayList<Match> winMatches;
-
+    private List<Match> winMatches;
+    @JsonIgnore
     @OneToMany(mappedBy = "charLoser")
-    private ArrayList<Match> lostMatches;
+    private List<Match> lostMatches;
 
 }

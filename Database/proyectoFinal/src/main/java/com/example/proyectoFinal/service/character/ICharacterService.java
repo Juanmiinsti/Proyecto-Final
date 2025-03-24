@@ -1,12 +1,14 @@
 package com.example.proyectoFinal.service.character;
+import com.example.proyectoFinal.Entity.Character;
 
-import com.example.proyectoFinal.service.IEntity;
+import java.util.List;
 
-public interface ICharacterService extends IEntity<Character,Integer> {
-    @Override
-    Character save(Character character);
+public interface ICharacterService  {
+    List<Character> getallCharacters();
+    Character getCharacterById(int id);
+    Character saveCharacter(Character character);
+    Character modifyCharacter(int id,Character character);
+    boolean deleteCharacter(int id);
 
-    @Override
-    Character modify(Character save, Integer integer);
 
 }

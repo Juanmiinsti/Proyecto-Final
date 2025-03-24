@@ -1,5 +1,6 @@
 package com.example.proyectoFinal.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,8 @@ public class Enemy {
     private int max_health;
     @Column
     private int damage;
+
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "kill",
                 joinColumns = @JoinColumn(name = "enemy_id",referencedColumnName = "id"),
