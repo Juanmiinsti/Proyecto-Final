@@ -5,9 +5,9 @@ class_name pCharacter
 @export var character: Character
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var maxHealth=10
-@onready var currentHealth: int = maxHealth
-@export var p1HealthBar :Healthbar
+
+@onready var currentHealth
+@export var HealthBar :Healthbar
 var pegar = "pegar" #que los controles se asignen segun jugador elegido
 var controlsP1=["up1player","pegar","ui_left","ui_right"]
 var controlsP2=["up2player","hitTwoplayer","left2player","right2player"]
@@ -35,7 +35,9 @@ func _physics_process(delta: float) -> void:
 
 	# Manejo del ataque
 	if Input.is_action_just_pressed(controls[1]) and not is_attacking:
-		take_damage(5) # Permitir otras acciones después del ataque
+		print(currentHealth)
+		take_damage(1)
+		print(currentHealth) # Permitir otras acciones después del ataque
 		is_attacking = true
 		$AnimationPlayer.play("Attack_"+character.animation_name)
 		await $AnimationPlayer.animation_finished
@@ -61,4 +63,4 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int):
 	currentHealth -= amount
-	p1HealthBar.update_health_bar(currentHealth)
+	HealthBar.update_health_bar(currentHealth)

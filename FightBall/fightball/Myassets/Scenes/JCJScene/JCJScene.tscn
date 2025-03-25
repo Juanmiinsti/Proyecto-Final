@@ -13,9 +13,9 @@ size = Vector2(612, 172)
 position = Vector2(440, 384)
 script = ExtResource("1_ljgfj")
 
-[node name="player1" parent="." node_paths=PackedStringArray("p1HealthBar") instance=ExtResource("2_f7s7o")]
+[node name="player1" parent="." node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_f7s7o")]
 position = Vector2(-5, -32)
-p1HealthBar = NodePath("../CanvasLayer/ProgressBar")
+HealthBar = NodePath("../CanvasLayer/ProgressBar")
 numPlayer = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -62,7 +62,7 @@ offset_bottom = -345.0
 script = ExtResource("4_g5rw5")
 metadata/_edit_use_anchors_ = true
 
-[node name="player2" parent="." node_paths=PackedStringArray("p1HealthBar") instance=ExtResource("2_f7s7o")]
+[node name="player2" parent="." node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_f7s7o")]
 position = Vector2(329, -37)
-p1HealthBar = NodePath("../CanvasLayer/ProgressBar2")
+HealthBar = NodePath("../CanvasLayer/ProgressBar2")
 numPlayer = 2
