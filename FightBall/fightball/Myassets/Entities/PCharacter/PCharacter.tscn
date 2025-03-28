@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://8tj5l7mlmaq6"]
+[gd_scene load_steps=25 format=3 uid="uid://8tj5l7mlmaq6"]
 
 [ext_resource type="Script" path="res://Myassets/Scripts/Pcharacter/p_character.gd" id="1_by5c1"]
 [ext_resource type="Texture2D" uid="uid://bq2wdvfjk6my4" path="res://Resources/MartialHero1/Idle.png" id="2_22w60"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b83gtm2hnq6ry" path="res://Resources/Medieval Warrior Pack 3/Sprites/Idle.png" id="8_1rard"]
 [ext_resource type="Texture2D" uid="uid://ckvlw4xneit70" path="res://Resources/Medieval Warrior Pack 3/Sprites/Run.png" id="9_hu0cf"]
 [ext_resource type="Texture2D" uid="uid://dp0n2ym2ypkye" path="res://Resources/Medieval Warrior Pack 3/Sprites/Attack1.png" id="10_srarv"]
+[ext_resource type="Script" path="res://hurtbox.gd" id="11_n5lvu"]
+[ext_resource type="Script" path="res://Hitbox.gd" id="11_nqv6n"]
 
 [sub_resource type="Animation" id="Animation_8wca7"]
 resource_name = "Attack_huntress"
@@ -553,6 +555,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cndks"]
+size = Vector2(18.25, 38.125)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_by5c1")
@@ -562,10 +565,28 @@ libraries = {
 "": SubResource("AnimationLibrary_akeul")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cndks")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -5)
+position = Vector2(0, -5)
 texture = ExtResource("2_22w60")
 hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 6.5)
+shape = SubResource("RectangleShape2D_cndks")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("11_n5lvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(2, -15)
+shape = SubResource("RectangleShape2D_cndks")
+debug_color = Color(0.802036, 0.0930998, 0.379063, 0.42)
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("11_nqv6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(31, -5)
+shape = SubResource("RectangleShape2D_cndks")
+disabled = true
+debug_color = Color(0, 0.534731, 0.306819, 0.42)

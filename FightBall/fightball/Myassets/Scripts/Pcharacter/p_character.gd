@@ -13,6 +13,9 @@ var controlsP1=["up1player","pegar","ui_left","ui_right"]
 var controlsP2=["up2player","hitTwoplayer","left2player","right2player"]
 var controls:Array
 @export var numPlayer:int
+@onready var hitbox=$Hitbox
+@export var damage:int
+
 var is_attacking = false  # Nueva variable para controlar el ataque
 func _ready():
 	if numPlayer==1:
@@ -36,11 +39,12 @@ func _physics_process(delta: float) -> void:
 	# Manejo del ataque
 	if Input.is_action_just_pressed(controls[1]) and not is_attacking:
 		print(currentHealth)
-		take_damage(1)
 		print(currentHealth) # Permitir otras acciones después del ataque
 		is_attacking = true
+		$Hitbox/CollisionShape2D.disabled=false;
 		$AnimationPlayer.play("Attack_"+character.animation_name)
 		await $AnimationPlayer.animation_finished
+		$Hitbox/CollisionShape2D.disabled=true;
 		is_attacking = false
 		
 
@@ -52,7 +56,8 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			if is_on_floor():
-				$Sprite2D.scale.x = -1 if direction < 0 else 1  # Voltear personaje
+				$Sprite2D.scale.x = -1 if direction < 0 else 1
+				$Hitbox/CollisionShape2D.position.x=-30 if direction < 0 else 30 # Voltear personaje
 				$AnimationPlayer.play("Run_" + character.animation_name)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
