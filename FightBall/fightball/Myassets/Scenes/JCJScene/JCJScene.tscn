@@ -66,3 +66,31 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(329, -37)
 HealthBar = NodePath("../CanvasLayer/ProgressBar2")
 numPlayer = 2
+
+[node name="win1P2" type="ColorRect" parent="."]
+offset_left = 396.0
+offset_top = -181.0
+offset_right = 417.0
+offset_bottom = -162.0
+
+[node name="win2P2" type="ColorRect" parent="."]
+offset_left = 369.0
+offset_top = -181.0
+offset_right = 390.0
+offset_bottom = -162.0
+rotation = -0.0020408
+
+[node name="win1P1" type="ColorRect" parent="."]
+offset_left = -122.0
+offset_top = -182.0
+offset_right = -102.0
+offset_bottom = -162.0
+
+[node name="win2P1" type="ColorRect" parent="."]
+offset_left = -97.0
+offset_top = -182.0
+offset_right = -77.0
+offset_bottom = -162.0
+
+[connection signal="value_changed" from="CanvasLayer/ProgressBar" to="." method="_on_progress_bar_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ProgressBar2" to="." method="_on_progress_bar_2_value_changed"]

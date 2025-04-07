@@ -21,7 +21,7 @@ public class MatchController {
         List<Match>matches=matchService.getMatches();
         return new ResponseEntity<>(matches, HttpStatus.OK);
     }
-    @PostMapping
+    @PostMapping("/match")
     public ResponseEntity<Match> addMatch(@RequestBody Match match) {
         matchService.saveMatch(match);
         return new ResponseEntity<>(match, HttpStatus.CREATED);
