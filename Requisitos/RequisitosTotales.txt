@@ -1,0 +1,295 @@
+Requisitos para el proyecto de DAM
+
+referentes a Desarrollo de Interfaces
+Curso 2024-2025
+En base a los objetivos del módulo profesional de Desarrollo de Interfaces, definidos en el currículo
+del ciclo formativo de Grado Superior correspondiente al título de Técnico Superior en Desarrollo de
+Aplicaciones Multiplataforma (DAM), el proyecto de DAM debe cumplir los requisitos siguientes:
+1. La aplicación ofrecerá una interfaz gráfica de usuario, diseñada considerando al menos estos atributos de usabilidad:
+• Eficacia.
+• Eficiencia.
+• Facilidad de uso (accesibilidad, etiquetas ToolTips de ayuda, acceso por teclado,
+control de acceso de usuarios, ayuda y manuales de usuario).
+2. La aplicación incluirá varios de los distintos contenedores y componentes visuales
+vistos durante el curso (JFrame, JDialog, JLabel, JTextField, JButton, JRadioButton, JComboBox, JList, JPasswordField, etc.).
+3. La aplicación incluirá diferentes layout managers (Border Layout, Flow Layout, Grid
+Layout, Card Layout, etc.) para una correcta visualización.
+4. La aplicación incluirá los eventos (ActionListener, ChangeListener, etc.) necesarios
+para gestionar distintas acciones realizadas por el usuario.
+5. La aplicación incluirá cuadros de diálogo (JFileChooser, JOptionPane, etc.), que pueden aparecer al ejecutar distintas acciones durante el uso normal de la aplicación.
+6. La aplicación incluirá componentes personalizados para listar elementos (ListCellRenderers: JList y JComboBox).
+7. La aplicación incluirá aceleradores de menú (JMenuBar, JMenu, JMenuItem).
+8. La aplicación incluirá una pantalla de carga mientras realiza operaciones, como por
+ejemplo, establecer la conexión con la base de datos.
+9. La aplicación añadirá soporte para internacionalizarla (i18n).
+10. El código de la aplicación deberá estar documentado (JavaDoc).
+11. Incluye documentación (manual de usuario para instalación, configuración y administración) siguiendo alguno de los tres métodos vistos:
+• Permitir que la aplicación abra un sitio web desde el navegador del sistema.
+• Mostrar el manual en algún formato como .pdf desde la aplicación.
+• Mostrar una página web en una ventana de la aplicación.
+12. Incluye un mecanismo de instalación. 
+
+
+Programación multimedia y dispositivos móviles
+
+Proyecto de DAM – Curso 24/25
+Módulo: Programación multimedia y
+dispositivos móviles
+En base a los objetivos del módulo profesional de “Programación multimedia y
+dispositivos móviles”, definidos en el currículo del ciclo formativo de Grado Superior
+correspondiente al título de Técnico Superior en Desarrollo de Aplicaciones
+Multiplataforma (DAM), el proyecto para este módulo debe cumplir los siguientes
+requisitos:
+1) Desarrollar una aplicación móvil con una interfaz gráfica
+interactiva y con la usabilidad adecuada que contenga los
+siguientes puntos:
+◦ Distintas pantallas. Deben incluir los distintos elementos visuales y
+contenedores vistos durante el curso (Listas con adaptador propio, textos,
+botones, spinners, checkboxes, radiobuttons, etc...).
+◦ Notificaciones (simples y/o expandidas), diálogos de confirmación y
+mensajes personalizados (toast). Podrán aparecer al ejecutar distintas
+acciones durante el uso normal de la aplicación.
+◦ Varios tipos de “action’s” en tu aplicación. Por ejemplo: abrir navegador con
+una url determinada, enviar un correo, compartir información por sms/whatsapp,
+llamar a un teléfono, etc.).
+◦ Menú/s en tu aplicación. Debe contener algún tipo de menú, ya sean menús
+contextuales sobre elementos particulares y/o menús en la barra superior
+con opciones globales).
+◦ Ajuste de preferencias de tu aplicación. Debe contener un menú (o pantalla)
+que permita seleccionar las preferencias de tu aplicación. Usa las
+“sharedPreferences” para su almacenamiento.
+◦ Soporte para internacionalizar tu aplicación. Traduce todos los textos
+mostrados en tu aplicación (incluidos los diálogos, notificaciones y mensajes
+toast) al menos a dos idiomas distintos.
+Programación multimedia y dispositivos móviles
+
+◦ Pantalla de información sobre la aplicación. Además de la información sobre
+la aplicación y autor, debes incluir la reproducción de algún contenido
+multimedia (ya sea sonido/s y/o vídeo/s).
+◦ En caso de necesitarlo, según los requerimientos de tu aplicación, añade la
+gestión de permisos (requiriendo al usuario su aprobación durante la
+ejecución en tiempo real si es necesario).
+◦ Opcional: Puedes dotar a tu aplicación de diferentes layout’s para cada
+pantalla para que se visualice correctamente tanto de manera vertical como
+horizontal.
+2) Desarrollar una aplicación móvil con acceso a bases de datos a
+través de una API.
+◦ Tu aplicación debe ser capaz de mostrar, insertar, borrar y modificar
+información a lo largo de las distintas pantallas.
+◦ Esta información, estará alojada en una base de datos externa (en la nube de
+AWS) y debes conectarte a ella a través de un API REST que te permita
+realizar las operaciones CRUD pertinentes.
+◦ Mantén una estructura ordenada tanto del código como de los recursos de
+tu proyecto.
+◦ Incluye un manual sobre el uso de tu aplicación (capturas y explicaciones
+sobre el funcionamiento y características de la misma).
+◦ Opcional: Puedes incluir algún otro tipo de persistencia mediante ficheros
+internos y/o externos en tu aplicación si lo necesitas.
+No cumplir con todos (excepto los dos puntos marcados como “Opcional”) los
+requisitos planteados anteriormente conlleva una calificación de “No Apto” del proyecto
+en este módulo.
+
+
+MÓDULO INGLÉS TÉCNICO
+
+Desde el departamento de Inglés del IES Macià Abela proponemos la elaboración de un abstract como requisito específico para la evaluación del proyecto final del Ciclo Superior de Desarrollo de Aplicaciones Multiplataforma (2º DAM).
+
+En las siguientes imágenes encontraréis una explicación detallada de cómo realizar este escrito, así como los pasos a seguir en su elaboración: (González, Edward & Leal, Francisca; 2016)
+
+TIP 1
+
+Compara el título del paper con el contenido del Abstract:
+
+Título del paper:
+Playing 20 Questions with the Mind: Collaborative Problem Solving by Humans Using a Brain-to-Brain Interface
+
+Autores:
+Andrea Stocco, Chantel S. Prat, Darby M. Losey, Justin A. Abernethy, Rajesh P. N. Rao
+Publicado: 23 de septiembre de 2016 • DOI: 10.1371/journal.pone.0197303
+
+Article	Authors	Metrics	Comments	Related Content
+Abstract				
+We present, to our knowledge, the first demonstration that a non-invasive brain-to-brain interface (BBI) can be used to allow one human to guess what is on the mind of another human through an interactive question-and-answering paradigm similar to the "20 Questions" game. As in previous non-invasive BBI studies in humans, our interface uses electroencephalography (EEG) to detect specific patterns of brain activity from one participant (the "respondent"), and transcranial magnetic stimulation (TMS) to deliver functionally-relevant information to the brain of a second participant (the "inquirer"). Our results extend previous BBI research by (1) using stimulation of the visual cortex to convey visual stimuli that are privately experienced and consciously perceived by the inquirer; (2) exploiting real-time rather than off-line communication of information from one brain to another; and (3) employing an interactive task, in which the inquirer and respondent must exchange information to collaboratively solve the task. The results demonstrate that using the BBI, ten participants (the inquirer-respondent pairs) can successfully identify a "mystery item" using a yes-no question-answering protocol similar to the "20 Questions" game, with high levels of accuracy that are significantly greater than a control condition in which participants were connected through a sham BBI.
+
+TIP 2
+
+El Abstract, aunque puede variar ligeramente, presenta el resumen de una investigación en un rango de entre 100 a 200 palabras aproximadamente en una estructura característica.
+
+Al comenzar a leer el Abstract, identifica las secciones del artículo que se encuentran contenidas en este resumen académico:
+
+Las primeras líneas establecen el contexto de estudio y la tesis a desarrollar.
+Ejemplo: We present, to our knowledge, the first demonstration that a non-invasive brain-to-brain interface (BBI)...
+
+En el centro, se define la metodología, explicando brevemente qué se investigó, cómo se hizo, quiénes participaron, y qué instrumentos se utilizaron.
+Ejemplo: ...our interface uses electroencephalography (EEG) to detect specific patterns of brain activity...
+
+La última sección presenta resultados, describiendo qué se mostró, comprobó, refutó o descubrió en el estudio.
+Ejemplo: The results demonstrate that using the BBI, ten participants... can successfully identify a "mystery item"...
+
+Para terminar, el autor presenta las conclusiones más relevantes, discute sobre lo encontrado, e indica lineamientos a seguir en el futuro.
+
+TIP 3
+
+Como en el Abstract se condensa mucha información relevante, introduciendo conceptos, métodos, resultados y conclusiones antes que tengas que leer cada sección, esta información te permitirá seleccionar, una vez que decidas avanzar con la lectura, dedicarle mayor atención a ciertas áreas del estudio que te parecen más interesantes o útiles para tu propósito de lectura.
+
+El realizar una lectura cuidadosa del Abstract, te ayudará a identificar ideas principales dentro del artículo, buscando las palabras clave que se repitieron en el resumen a lo largo del texto. Tómate tu tiempo y léelo con calma. Interpreta los conceptos más reiterados y asegúrate de comprender bien su significado, ya que éstos volverán a aparecer en la lectura.
+
+Uno de los aportes más importantes del Abstract es que te permite visualizar el orden de las ideas del artículo, lo que te ayudará parcelar la información en bloques más pequeños, y por lo tanto, más comprensibles.
+
+Revisión
+
+En este recurso hemos explicado qué es un Abstract y mostramos conexiones importantes entre esta sección y el artículo completo, para que puedas identificar palabras clave, las ideas principales del estudio y la organización subyacente en el texto.
+
+Recuerda, al leer este resumen académico:
+
+Compara el título del paper con el contenido del Abstract, ya que encontrarás palabras clave que se repiten en ambos.
+
+Examina los conceptos más reiterados ya que éstos se reutilizarán a lo largo del texto, y si los interpretas en esta etapa inicial, alivianará tu carga de comprensión más adelante.
+
+Identifica las secciones del artículo que se encuentran contenidas en este resumen académico para que puedas tener información previa sobre cada sección.
+
+Visualiza el resto del texto, y determina qué aspectos priorizar en tu lectura dependiendo de tu propósito, tiempo y conocimiento previo.
+
+
+Proyecto de DAM – Curso 24/25
+Módulo: Programación Servicios y procesos
+El desarrollo del proyecto debe ser capaz, mediante programación en java o usando
+cualquier otro método, de:
+Procesos - Generar cualquier tipo de software que haga uso de diversos núcleos de
+procesador mediante hilos. Desarrollo de software que aproveche la concurrencia y
+el procesamiento en paralelo.
+El proyecto debe incluir alguna de las siguientes características o conceptos relacionados
+con la gestión de procesos en programación:
+1.1 Uso de Hilos en Java o en otro lenguaje
+• Desarrollo de aplicaciones que utilicen múltiples hilos (multithreading) para
+mejorar el rendimiento.
+• Implementación de hilos en segundo plano para evitar que la interfaz gráfica se
+bloquee mientras se ejecutan tareas pesadas.
+• Manejo de sincronización entre hilos, evitando condiciones de carrera y
+garantizando la seguridad en el acceso a recursos compartidos.
+• Creación de programas que utilicen hilos en tiempo real, como cronómetros,
+actualizaciones en segundo plano o monitores de sistema.
+1.2 Gestión de Procesos en el Sistema Operativo
+• Implementación de un gestor de tareas que monitoree procesos en ejecución y
+permita terminarlos o priorizarlos.
+• Desarrollo de scripts o herramientas que automaticen ejecuciones periódicas de
+procesos en un sistema.
+1.3 Aplicaciones en Paralelo y Computación Distribuida
+• Desarrollo de aplicaciones que aprovechen múltiples núcleos de procesador,
+mejorando la eficiencia en tareas pesadas.
+• Implementación de programación paralela, dividiendo tareas en subtareas
+ejecutadas simultáneamente.
+1.4 Simulación y Modelado de Sistemas Concurrentes
+• Simulación de un sistema de colas, como la gestión de clientes en un banco o un
+supermercado con múltiples cajas.
+• Creación de un modelo de producción industrial, en el que distintas estaciones
+de trabajo funcionen en paralelo.
+1.5 Aplicaciones Relacionadas con la Gestión de Recursos del Sistema
+• Desarrollo de software que monitoree el uso de CPU y memoria de los procesos
+en ejecución.
+• Creación de un sistema de registro y auditoría de procesos, que almacene un
+historial de los procesos ejecutados y su duración.
+• Programas que analicen el rendimiento de procesos en distintos escenarios,
+evaluando eficiencia y consumo de recursos.
+1.6 Aplicaciones en el Ámbito de la Seguridad
+• Implementación de sistemas de detección de procesos sospechosos o maliciosos
+en una computadora.
+• Desarrollo de herramientas para limpiar procesos en ejecución en segundo plano
+que afecten el rendimiento del sistema.
+• Aplicaciones que automaticen la ejecución de copias de seguridad y verificación
+de integridad de archivos.
+Servicios - Conexión con un servidor FTP y gestión de los siguientes requisitos:
+El proyecto debe incluir alguna de las siguientes características o conceptos relacionados
+con la gestión de servicios:
+a) Subir un archivo. Se generará el código en java que permita subir al
+servidor FTP las copias de seguridad generadas desde el módulo de
+Sistemas de Gestión Empresarial.
+Antes de subir los archivos, se generará el código en java
+correspondiente a su encriptado. Se podrá elegir entre algoritmos de
+encriptado simétrico o asimétrico.
+b) Descargar un archivo. Código que debe ser capaz de descargar el
+archivo que ha sido subido en la opción anterior al servidor FTP. Una vez
+descargado, generará el código en java que ejecute un nuevo proceso
+mostrando en el explorador de archivos el fichero descargado. Se debe
+dar la opción de poder desencriptar el archivo.
+c) Cambiar nombre. Se debe generar el código en java que permita
+modificar el nombre de las copias de seguridad que se hayan subido al
+servidor FTP.
+d) Eliminar archivos. En esta opción, se generará el código que permita
+eliminar archivos en el servidor FTP.
+e) Listar archivos. Código en java que muestre la lista de todos los archivos
+en el servidor FTP.
+Se documentarán todas las opciones desarrolladas con capturas de pantalla y
+explicaciones.
+
+
+Proyecto de DAM – Curso 24/25
+Módulo: Programación Servicios y procesos
+El desarrollo del proyecto debe ser capaz, mediante programación en java o usando
+cualquier otro método, de:
+Procesos - Generar cualquier tipo de software que haga uso de diversos núcleos de
+procesador mediante hilos. Desarrollo de software que aproveche la concurrencia y
+el procesamiento en paralelo.
+El proyecto debe incluir alguna de las siguientes características o conceptos relacionados
+con la gestión de procesos en programación:
+1.1 Uso de Hilos en Java o en otro lenguaje
+• Desarrollo de aplicaciones que utilicen múltiples hilos (multithreading) para
+mejorar el rendimiento.
+• Implementación de hilos en segundo plano para evitar que la interfaz gráfica se
+bloquee mientras se ejecutan tareas pesadas.
+• Manejo de sincronización entre hilos, evitando condiciones de carrera y
+garantizando la seguridad en el acceso a recursos compartidos.
+• Creación de programas que utilicen hilos en tiempo real, como cronómetros,
+actualizaciones en segundo plano o monitores de sistema.
+1.2 Gestión de Procesos en el Sistema Operativo
+• Implementación de un gestor de tareas que monitoree procesos en ejecución y
+permita terminarlos o priorizarlos.
+• Desarrollo de scripts o herramientas que automaticen ejecuciones periódicas de
+procesos en un sistema.
+1.3 Aplicaciones en Paralelo y Computación Distribuida
+• Desarrollo de aplicaciones que aprovechen múltiples núcleos de procesador,
+mejorando la eficiencia en tareas pesadas.
+• Implementación de programación paralela, dividiendo tareas en subtareas
+ejecutadas simultáneamente.
+1.4 Simulación y Modelado de Sistemas Concurrentes
+• Simulación de un sistema de colas, como la gestión de clientes en un banco o un
+supermercado con múltiples cajas.
+• Creación de un modelo de producción industrial, en el que distintas estaciones
+de trabajo funcionen en paralelo.
+1.5 Aplicaciones Relacionadas con la Gestión de Recursos del Sistema
+• Desarrollo de software que monitoree el uso de CPU y memoria de los procesos
+en ejecución.
+• Creación de un sistema de registro y auditoría de procesos, que almacene un
+historial de los procesos ejecutados y su duración.
+• Programas que analicen el rendimiento de procesos en distintos escenarios,
+evaluando eficiencia y consumo de recursos.
+1.6 Aplicaciones en el Ámbito de la Seguridad
+• Implementación de sistemas de detección de procesos sospechosos o maliciosos
+en una computadora.
+• Desarrollo de herramientas para limpiar procesos en ejecución en segundo plano
+que afecten el rendimiento del sistema.
+• Aplicaciones que automaticen la ejecución de copias de seguridad y verificación
+de integridad de archivos.
+Servicios - Conexión con un servidor FTP y gestión de los siguientes requisitos:
+El proyecto debe incluir alguna de las siguientes características o conceptos relacionados
+con la gestión de servicios:
+a) Subir un archivo. Se generará el código en java que permita subir al
+servidor FTP las copias de seguridad generadas desde el módulo de
+Sistemas de Gestión Empresarial.
+Antes de subir los archivos, se generará el código en java
+correspondiente a su encriptado. Se podrá elegir entre algoritmos de
+encriptado simétrico o asimétrico.
+b) Descargar un archivo. Código que debe ser capaz de descargar el
+archivo que ha sido subido en la opción anterior al servidor FTP. Una vez
+descargado, generará el código en java que ejecute un nuevo proceso
+mostrando en el explorador de archivos el fichero descargado. Se debe
+dar la opción de poder desencriptar el archivo.
+c) Cambiar nombre. Se debe generar el código en java que permita
+modificar el nombre de las copias de seguridad que se hayan subido al
+servidor FTP.
+d) Eliminar archivos. En esta opción, se generará el código que permita
+eliminar archivos en el servidor FTP.
+e) Listar archivos. Código en java que muestre la lista de todos los archivos
+en el servidor FTP.
+Se documentarán todas las opciones desarrolladas con capturas de pantalla y
+explicaciones.
