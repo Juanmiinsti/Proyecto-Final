@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Persistence="*res://persistence.gd"
 CharacterDataSource="*res://CharacterDataSource.gd"
 CurrentMatch="*res://CurrentMatch.gd"
+PlayerInfo="*res://PlayerInfo.gd"
 
 [input]
 

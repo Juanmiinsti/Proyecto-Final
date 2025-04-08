@@ -31,7 +31,7 @@ position = Vector2(158, 79)
 shape = SubResource("RectangleShape2D_tyd6n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(156, -63)
+position = Vector2(160, -59)
 zoom = Vector2(1.9, 1.9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

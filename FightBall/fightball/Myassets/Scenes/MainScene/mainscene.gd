@@ -1,7 +1,7 @@
 extends Node2D
 
 var go_to_selectModeScene=preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
-
+var go_to_RegisterScene=preload("res://Myassets/Scenes/RegisterAndLogin/register.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_packed(go_to_selectModeScene)# Replace with function body.
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_packed(go_to_RegisterScene)

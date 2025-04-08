@@ -20,16 +20,16 @@ public class Match {
     @Column(nullable = false)
     private double length;
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id",name = "charWinnerId")
+    @JoinColumn(referencedColumnName = "id",name = "char_Winner_Id")
     private Character charWinner;
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id",name = "charLoserId")
+    @JoinColumn(referencedColumnName = "id",name = "char_Loser_Id")
     private Character charLoser;
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id",name = "userWinnerId")
+    @JoinColumn(referencedColumnName = "id",name = "user_Winner_Id")
     private User userWinner;
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id",name = "userLoserId")
+    @JoinColumn(referencedColumnName = "id",name = "user_Loser_Id")
     private User userLoser;
 
 

@@ -5,10 +5,10 @@ var firstTime:bool=true
 var p1Victory=0
 var p2Victory=0
 
-var char_winner_id:int
-var char_loser_id:int
+var char_winner_id:int=2
+var char_loser_id:int=1
 var user_winner_id:int
-var user_loser_id:int
+var user_loser_id:int 
 var lenght:float
 var date:String
 

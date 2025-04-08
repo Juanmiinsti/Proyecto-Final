@@ -15,5 +15,6 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(go_to_JCJ)
+	if not Persistence.character == null and not Persistence.character2 == null:
+		get_tree().change_scene_to_packed(go_to_JCJ)
 	# Replace with function body.

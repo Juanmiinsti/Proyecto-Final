@@ -47,9 +47,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-
-
 func setDefaultStats(char:pCharacter):
 	char.HealthBar.max_value=100
 	char.currentHealth=100
@@ -74,11 +71,11 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		if CurrentMatch.p2Victory >= 2:
 			var p1=$player1
 			var p2=$player2
+			print(p1.name)
+			print(getcharid(p1.name))
 			get_tree().change_scene_to_file("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
 			CurrentMatch.p2Victory=0
 			CurrentMatch.p1Victory=0
-			CurrentMatch.char_loser_id=getcharid(p1.name)
-			CurrentMatch.char_winner_id=getcharid(p2.name)
 			CurrentMatch.date= Time.get_datetime_string_from_system()
 			CurrentMatch.sendMatch()
 			
@@ -100,10 +97,10 @@ func _on_progress_bar_2_value_changed(value: float) -> void:
 			var p2=$player2
 			
 			get_tree().change_scene_to_file("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
+			print(p1.name)
+			print(getcharid(p1.name))
 			CurrentMatch.p2Victory=0
 			CurrentMatch.p1Victory=0
-			CurrentMatch.char_loser_id=getcharid(p1.name)
-			CurrentMatch.char_winner_id=getcharid(p2.name)
 			CurrentMatch.date= Time.get_datetime_string_from_system()
 			CurrentMatch.sendMatch()
 			
