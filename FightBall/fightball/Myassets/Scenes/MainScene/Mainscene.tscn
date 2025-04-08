@@ -13,17 +13,24 @@ offset_bottom = 532.0
 text = "JUGAR"
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 860.0
-offset_top = 156.0
-offset_right = 1057.0
-offset_bottom = 201.0
+offset_left = 852.0
+offset_top = 163.0
+offset_right = 1049.0
+offset_bottom = 208.0
 text = "LOGIN"
 
+[node name="apiEstatus" type="Label" parent="."]
+offset_left = 958.0
+offset_top = 95.0
+offset_right = 1109.0
+offset_bottom = 123.0
+text = "CONNECTED: FALSE"
+
 [node name="Label" type="Label" parent="."]
-offset_left = 905.0
-offset_top = 112.0
-offset_right = 1022.0
-offset_bottom = 140.0
+offset_left = 820.0
+offset_top = 95.0
+offset_right = 937.0
+offset_bottom = 123.0
 text = "LOGIN: FALSE"
 
 [node name="Camera2D" type="Camera2D" parent="."]

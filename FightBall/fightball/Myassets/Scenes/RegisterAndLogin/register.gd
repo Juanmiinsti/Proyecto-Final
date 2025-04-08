@@ -27,4 +27,6 @@ func checkEdits()-> bool:
 
 func _on_button_pressed() -> void:
 	if checkEdits() and checkPassword():
-		pass
+		print('enviando usuarios')
+		PlayerInfo.registerUser($Username.text,$Password.text)
+	
