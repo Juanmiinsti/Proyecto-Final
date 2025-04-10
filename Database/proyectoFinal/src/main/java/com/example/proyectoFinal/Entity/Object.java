@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -23,6 +24,6 @@ public class Object {
     @JoinTable(name = "use",
                 joinColumns = @JoinColumn(name = "object_id",referencedColumnName = "id"),
                 inverseJoinColumns = @JoinColumn(name = "character_id",referencedColumnName = "id"))
-    private ArrayList<Character> characters;
+    private List<Character> characters;
 
 }

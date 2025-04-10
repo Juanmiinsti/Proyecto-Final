@@ -28,7 +28,7 @@ func checkApiStatus():
 	http.connect("request_completed", Callable(self, "_on_ping_response"))
 
 	# Podés usar un endpoint simple tipo `/ping` o `/status`
-	var url = "https://localhost:8080/api/ping"
+	var url = "https://localhost:8080/api/test"
 	var error = http.request(url)
 	print(error)
 	if error != OK or error==0:

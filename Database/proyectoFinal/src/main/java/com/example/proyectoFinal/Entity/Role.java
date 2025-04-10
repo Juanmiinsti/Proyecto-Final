@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -21,5 +22,5 @@ public class Role {
     @JoinTable(name = "roles",
                 joinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"),
                 inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"))
-    private ArrayList<User> users;
+    private List<User> users;
 }

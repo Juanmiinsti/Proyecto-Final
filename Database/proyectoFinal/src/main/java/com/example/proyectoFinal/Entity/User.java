@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -23,12 +24,12 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "userWinner")
-    private ArrayList<Match> winMatches;
+    private List<Match> winMatches;
 
     @OneToMany(mappedBy = "userLoser")
-    private ArrayList<Match> lossMatches;
+    private List<Match> lossMatches;
 
     @ManyToMany(mappedBy = "users")
-    private ArrayList<Role> roles;
+    private List<Role> roles;
 
 }

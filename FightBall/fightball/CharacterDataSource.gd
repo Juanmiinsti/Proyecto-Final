@@ -12,7 +12,7 @@ func _ready() -> void:
 	getAllCharacter.request_completed.connect(_on_get_all_request_request_completed)
 
 	print("Realizando petición HTTP...")
-	getAllCharacter.request("http://localhost:8080/api/char")
+	getAllCharacter.request("http://localhost:8080/api/characters")
 
 func _on_get_all_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json_string = body.get_string_from_utf8()

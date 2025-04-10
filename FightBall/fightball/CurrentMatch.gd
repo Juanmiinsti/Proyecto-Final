@@ -5,8 +5,8 @@ var firstTime:bool=true
 var p1Victory=0
 var p2Victory=0
 
-var char_winner_id:int=2
-var char_loser_id:int=1
+var char_winner_id:int
+var char_loser_id:int
 var user_winner_id:int
 var user_loser_id:int 
 var lenght:float
@@ -16,13 +16,13 @@ func sendMatch() -> void:
 	var http = HTTPRequest.new()
 	add_child(http)
 
-	var url = "http://localhost:8080/api/match"  # Reemplazá con tu URL real
+	var url = "http://localhost:8080/api/matches"  # Reemplazá con tu URL real
 
 	var data = {
-		"char_winner_id": char_winner_id,
-		"char_loser_id": char_loser_id,
-		"user_winner_id": user_winner_id,
-		"user_loser_id": user_loser_id,
+		"charWinner": char_winner_id,
+		"charLoser": char_loser_id,
+		"userWinner": user_winner_id,
+		"userLoser": user_loser_id,
 		"length": lenght,
 		"date": date
 	}

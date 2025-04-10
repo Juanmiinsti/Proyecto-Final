@@ -1,7 +1,12 @@
 package com.example.proyectoFinal.controller;
 
-import com.example.proyectoFinal.Entity.Match;
-import com.example.proyectoFinal.service.match.MatchService;
+import com.example.proyectoFinal.dto.Match.CreateMatchDTO;
+import com.example.proyectoFinal.dto.Match.MatchDTO;
+import com.example.proyectoFinal.service.match.IMatchService;
+import com.example.proyectoFinal.mapper.Mapper;
+import com.example.proyectoFinal.exceptions.Response;
+import com.example.proyectoFinal.exceptions.exceptions.DeleteEntityException;
+import com.example.proyectoFinal.exceptions.exceptions.UpdateEntityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,20 +16,59 @@ import java.util.List;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/matches")
 public class MatchController {
+
     @Autowired
-    private MatchService matchService;
+    private IMatchService matchService;
 
+    @Autowired
+    private Mapper mapper;  // Si tienes un mapper para hacer la conversión entre DTO y entidades
+
+    // Obtener todos los partidos
     @GetMapping
-    public ResponseEntity<List<Match>> findAll() {
-        List<Match>matches=matchService.getMatches();
-        return new ResponseEntity<>(matches, HttpStatus.OK);
-    }
-    @PostMapping("/match")
-    public ResponseEntity<Match> addMatch(@RequestBody Match match) {
-        matchService.saveMatch(match);
-        return new ResponseEntity<>(match, HttpStatus.CREATED);
+    public ResponseEntity<List<MatchDTO>> getAllMatches() {
+        List<MatchDTO> matchDTOList = mapper.mapList(matchService.getMatches(), MatchDTO.class);
+        return new ResponseEntity<>(matchDTOList, HttpStatus.OK);
     }
 
+    // Obtener un partido por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<MatchDTO> getMatchById(@PathVariable int id) {
+        MatchDTO matchDTO = mapper.mapType(matchService.getMatchById(id), MatchDTO.class);
+        return new ResponseEntity<>(matchDTO, HttpStatus.OK);
+    }
+
+    // Crear un nuevo partido
+    @PostMapping
+    public ResponseEntity<?> createMatch(@RequestBody CreateMatchDTO matchDTO) {
+        try {
+            MatchDTO createdMatch = mapper.mapType(matchService.saveMatch(matchDTO), MatchDTO.class);
+            return new ResponseEntity<>(createdMatch, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(Response.generalError(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Modificar un partido existente
+    @PutMapping("/{id}")
+    public ResponseEntity<?> modifyMatch(@PathVariable int id, @RequestBody CreateMatchDTO matchDTO) {
+        try {
+            MatchDTO updatedMatch = mapper.mapType(matchService.modifyMatch(id, matchDTO), MatchDTO.class);
+            return new ResponseEntity<>(updatedMatch, HttpStatus.OK);
+        } catch (UpdateEntityException e) {
+            return new ResponseEntity<>(Response.generalError(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Eliminar un partido
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteMatch(@PathVariable int id) {
+        try {
+            matchService.deleteMatch(id);
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } catch (DeleteEntityException e) {
+            return new ResponseEntity<>(Response.generalError(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
