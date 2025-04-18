@@ -17,31 +17,32 @@ script = ExtResource("1_p3rvw")
 
 [node name="Username" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 93.0
-offset_right = 317.0
-offset_bottom = 148.0
+offset_left = 115.0
+offset_top = 117.0
+offset_right = 327.0
+offset_bottom = 172.0
 
 [node name="Password" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 164.0
-offset_right = 315.0
-offset_bottom = 219.0
+offset_left = 115.0
+offset_top = 209.0
+offset_right = 327.0
+offset_bottom = 264.0
 
 [node name="ConfirmPassword" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 238.0
-offset_right = 315.0
-offset_bottom = 293.0
+offset_left = 115.0
+offset_top = 305.0
+offset_right = 327.0
+offset_bottom = 360.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 355.0
-offset_right = 248.0
-offset_bottom = 382.0
+offset_left = 166.0
+offset_top = 376.0
+offset_right = 268.0
+offset_bottom = 422.0
+text = "REGISTER"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -51,7 +52,28 @@ offset_right = 248.0
 offset_bottom = 55.0
 text = "REGISTER"
 
+[node name="Label" type="Label" parent="Label"]
+offset_left = -3.0
+offset_top = 69.0
+offset_right = 76.0
+offset_bottom = 103.0
+text = "USERNAME"
+
+[node name="Label" type="Label" parent="Label/Label"]
+offset_left = 10.0
+offset_top = 93.0
+offset_right = 98.0
+offset_bottom = 127.0
+text = "PASSWORD"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(240, 204)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 276.0
+offset_right = 294.0
+offset_bottom = 310.0
+text = "REPEAT PASSWORD"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

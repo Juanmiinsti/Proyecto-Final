@@ -22,3 +22,4 @@ func _on_pressed(character:Character):
 		Persistence.charname1=character.name
 	else:
 		Persistence.character2=character
+		Persistence.charname2=character.name

@@ -43,8 +43,8 @@ public class MatchService implements IMatchService {
         // Buscando las entidades por ID
         Character charWinner = characterRepository.findById(matchDTO.getCharWinner()).orElseThrow(() -> new NotFoundEntityException(String.valueOf(matchDTO.getCharWinner()), Character.class));
         Character charLoser = characterRepository.findById(matchDTO.getCharLoser()).orElseThrow(() -> new NotFoundEntityException(String.valueOf(matchDTO.getCharLoser()), Character.class));
-        User userWinner = userRepository.findById(matchDTO.getUserWinner()).orElseThrow(() -> new NotFoundEntityException(String.valueOf(matchDTO.getUserWinner()), User.class));
-        User userLoser = userRepository.findById(matchDTO.getUserLoser()).orElseThrow(() -> new NotFoundEntityException(String.valueOf(matchDTO.getUserLoser()), User.class));
+        User userWinner = userRepository.findById(matchDTO.getUserWinner()).orElse(null);
+        User userLoser = userRepository.findById(matchDTO.getUserLoser()).orElse(null);
 
         // Creando el objeto Match
         Match match = new Match();

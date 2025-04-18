@@ -57,4 +57,13 @@ character_slot = ExtResource("2_2o32p")
 characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])
 numplayer = 2
 
+[node name="ButtonBack" type="Button" parent="characterSelection"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 71.0
+offset_right = 183.0
+offset_bottom = 119.0
+text = "Back
+"
+
 [connection signal="pressed" from="characterSelection/start" to="characterSelection/start" method="_on_start_pressed"]

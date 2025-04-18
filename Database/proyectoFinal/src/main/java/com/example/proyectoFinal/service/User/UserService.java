@@ -1,14 +1,15 @@
-package com.example.proyectoFinal.service.user;
+package com.example.proyectoFinal.service.User;
 
 import com.example.proyectoFinal.Entity.User;
 import com.example.proyectoFinal.exceptions.exceptions.CreateEntityException;
 import com.example.proyectoFinal.exceptions.exceptions.NotFoundEntityException;
 import com.example.proyectoFinal.repository.IUserRepository;
-import com.example.proyectoFinal.service.User.IUserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
@@ -48,4 +49,9 @@ public class UserService implements IUserService {
         userRepository.delete(user);
         return true;
     }
+    @Override
+    public Optional<User> findUserByName(String name) {
+        return userRepository.findUserByName(name);
+    }
+
 }

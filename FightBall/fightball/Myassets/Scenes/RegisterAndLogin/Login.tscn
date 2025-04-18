@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://7nqxb4yf0iv"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/RegisterAndLogin/login.gd" id="1_rwmrx"]
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 66.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwmrx")
+
+[node name="Username" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 197.0
+offset_right = 467.0
+offset_bottom = 252.0
+
+[node name="Password" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 263.0
+offset_right = 468.0
+offset_bottom = 318.0
+
+[node name="ButtonAccept" type="Button" parent="."]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 337.0
+offset_right = 352.0
+offset_bottom = 369.0
+text = "ACCEPT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 154.0
+offset_right = 412.0
+offset_bottom = 188.0
+text = "LOGIN"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(390, 308)
+
+[node name="ButtonRegister" type="Button" parent="."]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 338.0
+offset_right = 462.0
+offset_bottom = 370.0
+text = "REGISTER"
+
+[connection signal="pressed" from="ButtonAccept" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonRegister" to="." method="_on_button_register_pressed"]
