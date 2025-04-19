@@ -6,6 +6,8 @@ import com.example.proyectoFinal.exceptions.exceptions.NotFoundEntityException;
 import com.example.proyectoFinal.repository.IUserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -54,4 +56,15 @@ public class UserService implements IUserService {
         return userRepository.findUserByName(name);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findUserByName(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getName(),
+                user.getPassword(),
+                user.getAuthorities()
+        );
+    }
 }

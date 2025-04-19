@@ -1,11 +1,12 @@
 package com.example.proyectoFinal.service.User;
 
 import com.example.proyectoFinal.Entity.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IUserService {
+public interface IUserService extends UserDetailsService {
     List<User> getUsers();
     User getUserById(int id);
     User saveUser(User user);
