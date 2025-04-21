@@ -67,6 +67,6 @@ offset_right = 198.024
 offset_bottom = 190.32
 text = "BACK"
 
-[connection signal="pressed" from="ButtonAccept" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonAccept" to="." method="_on_button_accept_pressed"]
 [connection signal="pressed" from="ButtonRegister" to="." method="_on_button_register_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

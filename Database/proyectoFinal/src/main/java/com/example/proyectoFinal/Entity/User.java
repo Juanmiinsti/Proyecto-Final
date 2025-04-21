@@ -28,13 +28,13 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "userWinner")
+    @OneToMany(mappedBy = "userWinner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Match> winMatches;
 
-    @OneToMany(mappedBy = "userLoser")
+    @OneToMany(mappedBy = "userLoser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Match> lossMatches;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))

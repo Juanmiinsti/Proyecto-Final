@@ -104,6 +104,9 @@ public class SecurityConfig
                 .authorizeHttpRequests(auth ->
                         auth.dispatcherTypeMatchers(FORWARD, ERROR).permitAll()
                                 .requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("api/userByName/{name}").permitAll()
+                                .requestMatchers("/api/prueba").permitAll()
+                                .requestMatchers(HttpMethod.DELETE,"/api/users/{id}").permitAll()
                                 .requestMatchers("/api/reparacionesEvaluada").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/api/characters").hasRole(RoleType.PLAYER.name())
                                 .requestMatchers(HttpMethod.POST,"/api/matches").hasRole(RoleType.PLAYER.name())

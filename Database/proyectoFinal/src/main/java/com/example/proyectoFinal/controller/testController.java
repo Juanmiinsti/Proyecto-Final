@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api")
-public class testRepository {
+public class testController {
     @Autowired private ITestService testService;
 
 

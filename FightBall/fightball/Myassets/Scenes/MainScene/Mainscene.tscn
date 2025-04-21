@@ -13,10 +13,10 @@ offset_bottom = 532.0
 text = "JUGAR"
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 852.0
-offset_top = 163.0
-offset_right = 1049.0
-offset_bottom = 208.0
+offset_left = 825.0
+offset_top = 147.0
+offset_right = 964.0
+offset_bottom = 192.0
 text = "LOGIN"
 
 [node name="apiEstatus" type="Label" parent="."]
@@ -36,5 +36,13 @@ text = "LOGIN: FALSE"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(580, 320)
 
+[node name="buttonLogOut" type="Button" parent="."]
+offset_left = 971.0
+offset_top = 146.0
+offset_right = 1119.0
+offset_bottom = 191.0
+text = "LOG OUT"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="buttonLogOut" to="." method="_on_button_log_out_pressed"]

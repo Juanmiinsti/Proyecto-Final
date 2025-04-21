@@ -66,8 +66,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/by-name")
-    public ResponseEntity<UserDTO> getUserByName(@RequestParam String name) {
+    @GetMapping("/userByName/{name}")
+    public ResponseEntity<UserDTO> getUserByName(@PathVariable String name) {
         User user = userService.findUserByName(name)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con nombre: " + name));
 

@@ -8,6 +8,8 @@ var mode_selector_scene := preload("res://Myassets/Scenes/modeSelectorScene/mode
 func _ready() -> void:
 	# Configuración inicial de las victorias mostradas en la UI
 	set_meta("scene_path", "res://Myassets/Scenes/JCJScene/JCJScene.tscn")
+	CurrentMatch.start_timer()
+
 
 	# Si el jugador 1 tiene al menos 1 victoria, cambia el color del primer indicador a verde
 	if CurrentMatch.p1Victory >= 1:
@@ -115,6 +117,13 @@ func _on_progress_bar_value_changed(value: float) -> void:
 			CurrentMatch.char_loser_id = (getcharid(Persistence.charname1))
 			CurrentMatch.char_winner_id =(getcharid(Persistence.charname2))
 			
+			if CurrentMatch.char_winner_id == getcharid(Persistence.charname1):
+				CurrentMatch.user_winner_id = PlayerInfo.userID
+				CurrentMatch.user_loser_id = -1  # Jugador 2 es IA/local, no tiene ID
+			else:
+				CurrentMatch.user_winner_id = -1
+				CurrentMatch.user_loser_id = PlayerInfo.userID			
+			
 			# Registra la fecha actual
 			CurrentMatch.date = Time.get_datetime_string_from_system()
 			
@@ -143,11 +152,7 @@ func _on_progress_bar_2_value_changed(value: float) -> void:
 			var p1 = $player1
 			var p2 = $player2
 			
-			print("🏁 current health value:", value)
-			print("🏁 firstTime:", CurrentMatch.firstTime)
-			print("🏁 p1Victory:", CurrentMatch.p1Victory)
-			print("🏁 p2Victory:", CurrentMatch.p2Victory)
-			print("🏁 Llamando a SceneManager:", SceneManager)	
+			
 			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
 			# Cambia a la escena del selector de modo
 			
@@ -160,7 +165,14 @@ func _on_progress_bar_2_value_changed(value: float) -> void:
 			CurrentMatch.char_loser_id = (getcharid(Persistence.charname2))
 			CurrentMatch.char_winner_id = (getcharid(Persistence.charname1))
 			
-			
+			# En modo local, asumimos que el jugador 1 es el único logueado
+			if CurrentMatch.char_winner_id == getcharid(Persistence.charname1):
+				CurrentMatch.user_winner_id = PlayerInfo.userID
+				CurrentMatch.user_loser_id = -1  # Jugador 2 es IA/local, no tiene ID
+			else:
+				CurrentMatch.user_winner_id = -1
+				CurrentMatch.user_loser_id = PlayerInfo.userID
+
 
 			# Reinicia contadores de victoria
 			CurrentMatch.p2Victory = 0
