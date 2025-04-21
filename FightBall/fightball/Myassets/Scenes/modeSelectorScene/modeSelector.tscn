@@ -44,3 +44,4 @@ text = "JCJ ONLINE
 [connection signal="pressed" from="ButtonJCJ" to="." method="_on_button_jcj_pressed"]
 [connection signal="pressed" from="ButtonTest" to="." method="_on_button_test_pressed"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="button_online" to="." method="_on_button_online_pressed"]

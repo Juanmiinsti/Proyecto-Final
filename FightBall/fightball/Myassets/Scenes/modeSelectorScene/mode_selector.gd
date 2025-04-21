@@ -30,3 +30,7 @@ func _on_button_jcj_pressed() -> void:
 func _on_button_back_pressed() -> void:
 	SceneManager.reset_history()
 	SceneManager.go_to("res://Myassets/Scenes/MainScene/Mainscene.tscn", false)
+
+
+func _on_button_online_pressed() -> void:
+	SceneManager.go_to("res://Myassets/Scenes/Online/JcjOnline.tscn")
