@@ -39,7 +39,8 @@ public class AuthController
         User user = mapper.mapType(registerUsuarioDto, User.class);
 
         List<Role> roles = new ArrayList<>();
-
+        Role aux=roleRepository.findById(1).orElse(null);
+        System.out.println(aux.getName().name());
 
         user.setRoles(roles);
 

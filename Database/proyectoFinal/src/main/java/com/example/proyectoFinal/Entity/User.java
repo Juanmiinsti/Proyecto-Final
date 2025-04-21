@@ -34,7 +34,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "userLoser")
     private List<Match> lossMatches;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Role> roles;
 
     @Override

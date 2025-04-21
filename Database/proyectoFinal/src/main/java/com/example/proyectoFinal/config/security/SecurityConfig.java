@@ -1,6 +1,7 @@
 package com.example.proyectoFinal.config.security;
 
 
+import com.example.proyectoFinal.Enums.RoleType;
 import com.example.proyectoFinal.service.User.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,7 +105,9 @@ public class SecurityConfig
                         auth.dispatcherTypeMatchers(FORWARD, ERROR).permitAll()
                                 .requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/api/reparacionesEvaluada").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/characters").hasRole("Player")
+                                .requestMatchers(HttpMethod.GET,"/api/characters").hasRole(RoleType.PLAYER.name())
+
+
 
 
 
