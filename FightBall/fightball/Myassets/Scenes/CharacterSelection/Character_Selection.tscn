@@ -69,3 +69,4 @@ text = "Back
 "
 
 [connection signal="pressed" from="characterSelection/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="characterSelection/ButtonBack" to="." method="_on_button_back_pressed"]

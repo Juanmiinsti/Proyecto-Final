@@ -1,10 +1,9 @@
 extends Node2D
 
-var go_to_selectModeScene=preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
-var go_to_loginScene=preload("res://Myassets/Scenes/RegisterAndLogin/Login.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_meta("packed_scene", preload("res://Myassets/Scenes/MainScene/Mainscene.tscn"))
+	set_meta("scene_path", "res://Myassets/Scenes/MainScene/Mainscene.tscn")
 	checkApiStatus()
 
 
@@ -14,11 +13,11 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	SceneManager.go_to(preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn"))
+	SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
 
 
 func _on_button_2_pressed() -> void:
-	SceneManager.go_to(preload("res://Myassets/Scenes/RegisterAndLogin/login.tscn"))
+	SceneManager.go_to("res://Myassets/Scenes/RegisterAndLogin/Login.tscn")
 
 
 func checkApiStatus():

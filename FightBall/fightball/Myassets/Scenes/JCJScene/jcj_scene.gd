@@ -1,9 +1,13 @@
 extends Node2D
 
 # Called when the node enters the scene tree for the first time.
+# Al inicio del script
+var mode_selector_scene := preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
+
+
 func _ready() -> void:
 	# Configuración inicial de las victorias mostradas en la UI
-	set_meta("packed_scene", preload("res://Myassets/Scenes/JCJScene/JCJScene.tscn"))
+	set_meta("scene_path", "res://Myassets/Scenes/JCJScene/JCJScene.tscn")
 
 	# Si el jugador 1 tiene al menos 1 victoria, cambia el color del primer indicador a verde
 	if CurrentMatch.p1Victory >= 1:
@@ -100,7 +104,8 @@ func _on_progress_bar_value_changed(value: float) -> void:
 			print("🏁 p2Victory:", CurrentMatch.p2Victory)
 			print("🏁 Llamando a SceneManager:", SceneManager)	
 			# Cambia a la escena del selector de modo
-			SceneManager.go_to(preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn"), false)
+			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
+
 			
 			# Reinicia contadores de victoria
 			CurrentMatch.p2Victory = 0
@@ -143,8 +148,9 @@ func _on_progress_bar_2_value_changed(value: float) -> void:
 			print("🏁 p1Victory:", CurrentMatch.p1Victory)
 			print("🏁 p2Victory:", CurrentMatch.p2Victory)
 			print("🏁 Llamando a SceneManager:", SceneManager)	
+			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
 			# Cambia a la escena del selector de modo
-			SceneManager.go_to(preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn"), false)
+			
 
 			
 			print(p1.name)

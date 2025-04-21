@@ -2,11 +2,9 @@ extends Control
 
 
 
-var go_to_loginScene=preload("res://Myassets/Scenes/RegisterAndLogin/Login.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_meta("packed_scene", preload("res://Myassets/Scenes/RegisterAndLogin/register.tscn"))
+	set_meta("scene_path", "res://Myassets/Scenes/RegisterAndLogin/register.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
