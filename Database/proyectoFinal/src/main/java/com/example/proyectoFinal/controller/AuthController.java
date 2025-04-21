@@ -42,6 +42,7 @@ public class AuthController
         Role aux=roleRepository.findById(1).orElse(null);
         System.out.println(aux.getName().name());
 
+        roles.add(aux);
         user.setRoles(roles);
 
         authenticationService.signup(user);

@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_meta("packed_scene", preload("res://Myassets/Scenes/RegisterAndLogin/Login.tscn"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,9 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	pass # Replace with function body.
+	SceneManager.go_back()
+
 
 
 func _on_button_register_pressed() -> void:
-	var go_to_RegisterScene=preload("res://Myassets/Scenes/RegisterAndLogin/register.tscn")
-	get_tree().change_scene_to_packed(go_to_RegisterScene)
+	SceneManager.go_to(preload("res://Myassets/Scenes/RegisterAndLogin/register.tscn"))

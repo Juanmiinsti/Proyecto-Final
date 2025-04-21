@@ -1,13 +1,13 @@
 extends Node2D
 
 
-var jCJ_Scene = preload("res://Myassets/Scenes/JCJScene/JCJScene.tscn")
-var Char_selection = preload("res://Myassets/Scenes/CharacterSelection/Character_Selection.tscn")
+
 
 
 # Llamado cuando el nodo entra en el árbol de la escena.
 func _ready() -> void:
-	pass 
+	set_meta("packed_scene", preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn"))
+ 
 
 # Llamado cada cuadro.
 func _process(delta: float) -> void:
@@ -17,4 +17,4 @@ func _on_button_test_pressed() -> void:
 	pass
 
 func _on_button_jcj_pressed() -> void:
-	get_tree().change_scene_to_packed(Char_selection)
+	SceneManager.go_to(preload("res://Myassets/Scenes/CharacterSelection/Character_Selection.tscn"))

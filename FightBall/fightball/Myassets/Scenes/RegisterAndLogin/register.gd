@@ -1,9 +1,12 @@
 extends Control
 
 
+
+var go_to_loginScene=preload("res://Myassets/Scenes/RegisterAndLogin/Login.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_meta("packed_scene", preload("res://Myassets/Scenes/RegisterAndLogin/register.tscn"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,3 +85,7 @@ func _on_button_pressed() -> void:
 			http_check.queue_free()
 			ErrorMessage.text = "Error al iniciar verificación"
 	
+
+
+func _on_button_2_pressed() -> void:
+	SceneManager.go_back()

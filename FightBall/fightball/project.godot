@@ -21,6 +21,7 @@ Persistence="*res://persistence.gd"
 CharacterDataSource="*res://CharacterDataSource.gd"
 CurrentMatch="*res://CurrentMatch.gd"
 PlayerInfo="*res://PlayerInfo.gd"
+SceneManager="*res://SceneManager.gd"
 
 [input]
 

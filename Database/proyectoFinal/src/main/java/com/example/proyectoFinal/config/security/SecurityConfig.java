@@ -106,12 +106,7 @@ public class SecurityConfig
                                 .requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/api/reparacionesEvaluada").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/api/characters").hasRole(RoleType.PLAYER.name())
-
-
-
-
-
-
+                                .requestMatchers(HttpMethod.POST,"/api/matches").hasRole(RoleType.PLAYER.name())
 
 
                                 .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
