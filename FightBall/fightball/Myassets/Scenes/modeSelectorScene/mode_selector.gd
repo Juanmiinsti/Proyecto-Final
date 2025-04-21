@@ -3,11 +3,17 @@ extends Node2D
 
 
 
+@onready var button_online = $button_online # Asegurate de que esta sea la ruta correcta
 
 # Llamado cuando el nodo entra en el árbol de la escena.
 func _ready() -> void:
 	set_meta("scene_path", "res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
-
+# ✅ Habilita o desactiva el botón según si el usuario está logueado
+	if PlayerInfo.userID > 0 and PlayerInfo.status:
+		button_online.disabled = false
+	else:
+		button_online.disabled = true
+		print("⚠️ Usuario no logueado, botón JCJ Online deshabilitado")
  
 
 # Llamado cada cuadro.

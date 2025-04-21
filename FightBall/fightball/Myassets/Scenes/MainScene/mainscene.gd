@@ -38,11 +38,12 @@ func _on_ping_response(result: int, response_code: int, headers: PackedStringArr
 	match response_code:
 		200:
 			$apiEstatus.text = "✅ API Conectada"
+			PlayerInfo.status=true
 		404:
 			$apiEstatus.text = "❌ Ruta no encontrada"
 		_:
 			$apiEstatus.text = "❌ Error HTTP %d" % response_code
-
+		
 
 func _on_button_log_out_pressed() -> void:
 	print("🚪 Cerrando sesión...")

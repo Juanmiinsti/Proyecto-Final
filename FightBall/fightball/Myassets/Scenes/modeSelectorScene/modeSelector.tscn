@@ -6,24 +6,24 @@
 script = ExtResource("1_a7ebw")
 
 [node name="ButtonJCJ" type="Button" parent="."]
-offset_left = 421.0
-offset_top = 440.0
-offset_right = 666.0
-offset_bottom = 492.0
+offset_left = 419.0
+offset_top = 336.0
+offset_right = 664.0
+offset_bottom = 388.0
 text = "J Vs J"
 
 [node name="ButtonJCIA" type="Button" parent="."]
-offset_left = 418.0
-offset_top = 354.0
-offset_right = 663.0
-offset_bottom = 403.0
+offset_left = 417.0
+offset_top = 268.0
+offset_right = 662.0
+offset_bottom = 317.0
 text = "J VS IA"
 
 [node name="ButtonTest" type="Button" parent="."]
-offset_left = 420.0
-offset_top = 275.0
-offset_right = 662.0
-offset_bottom = 330.0
+offset_left = 416.0
+offset_top = 195.0
+offset_right = 658.0
+offset_bottom = 250.0
 text = "TEST SCENE"
 
 [node name="ButtonBack" type="Button" parent="."]
@@ -32,6 +32,14 @@ offset_top = 186.0
 offset_right = 360.0
 offset_bottom = 244.0
 text = "BACK"
+
+[node name="button_online" type="Button" parent="."]
+offset_left = 417.0
+offset_top = 412.0
+offset_right = 667.0
+offset_bottom = 463.0
+text = "JCJ ONLINE
+"
 
 [connection signal="pressed" from="ButtonJCJ" to="." method="_on_button_jcj_pressed"]
 [connection signal="pressed" from="ButtonTest" to="." method="_on_button_test_pressed"]
