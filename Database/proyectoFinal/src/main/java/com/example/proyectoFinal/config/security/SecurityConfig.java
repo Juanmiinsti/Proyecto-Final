@@ -106,6 +106,9 @@ public class SecurityConfig
                                 .requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("api/userByName/{name}").permitAll()
                                 .requestMatchers("/api/prueba").permitAll()
+                                .requestMatchers("/api/lobbies**").permitAll()
+
+
                                 .requestMatchers(HttpMethod.DELETE,"/api/users/{id}").permitAll()
                                 .requestMatchers("/api/reparacionesEvaluada").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/api/characters").hasRole(RoleType.PLAYER.name())

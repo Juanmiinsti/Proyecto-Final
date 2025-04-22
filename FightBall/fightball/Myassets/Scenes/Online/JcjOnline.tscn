@@ -22,38 +22,38 @@ offset_top = 234.0
 offset_right = 818.0
 offset_bottom = 458.0
 
-[node name="LobbyListContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MainContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/LobbyListContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MainContainer"]
 layout_mode = 2
 text = "PARTIDAS DISPONIBLES
 "
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/LobbyListContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/LobbyListContainer/ScrollContainer"]
+[node name="LobbyList" type="VBoxContainer" parent="MarginContainer/MainContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/LobbyListContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainContainer"]
 layout_mode = 2
 
-[node name="ButtonCreate" type="Button" parent="MarginContainer/LobbyListContainer/HBoxContainer"]
+[node name="ButtonCreate" type="Button" parent="MarginContainer/MainContainer/HBoxContainer"]
 layout_mode = 2
 text = "Crear partida"
 
-[node name="ButtonBack" type="Button" parent="MarginContainer/LobbyListContainer/HBoxContainer"]
+[node name="ButtonBack" type="Button" parent="MarginContainer/MainContainer/HBoxContainer"]
 layout_mode = 2
 text = "Volver"
 
-[node name="StatusLabel" type="Label" parent="MarginContainer/LobbyListContainer"]
+[node name="StatusLabel" type="Label" parent="MarginContainer/MainContainer"]
 layout_mode = 2
 text = "conectando al servidor"
 
-[connection signal="pressed" from="MarginContainer/LobbyListContainer/HBoxContainer/ButtonCreate" to="." method="_on_ButtonCreate_pressed"]
-[connection signal="pressed" from="MarginContainer/LobbyListContainer/HBoxContainer/ButtonBack" to="." method="_on_ButtonBack_pressed"]
+[connection signal="pressed" from="MarginContainer/MainContainer/HBoxContainer/ButtonCreate" to="." method="_on_ButtonCreate_pressed"]
+[connection signal="pressed" from="MarginContainer/MainContainer/HBoxContainer/ButtonBack" to="." method="_on_ButtonBack_pressed"]

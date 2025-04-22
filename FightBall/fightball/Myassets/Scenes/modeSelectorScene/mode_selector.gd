@@ -9,11 +9,11 @@ extends Node2D
 func _ready() -> void:
 	set_meta("scene_path", "res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
 # ✅ Habilita o desactiva el botón según si el usuario está logueado
-	if PlayerInfo.userID > 0 and PlayerInfo.status:
-		button_online.disabled = false
-	else:
-		button_online.disabled = true
-		print("⚠️ Usuario no logueado, botón JCJ Online deshabilitado")
+	#if PlayerInfo.userID > 0 and PlayerInfo.status:
+	#	button_online.disabled = false
+	#else:
+	#	button_online.disabled = true
+	#	print("⚠️ Usuario no logueado, botón JCJ Online deshabilitado")
  
 
 # Llamado cada cuadro.

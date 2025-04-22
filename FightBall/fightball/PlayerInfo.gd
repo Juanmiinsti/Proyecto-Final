@@ -7,6 +7,9 @@ var userName: String = ""
 var userPassword: String = ""
 var userID: int = 0  # ✅ Nuevo campo
 var status: bool = false
+var current_room_id: int = -1
+
+
 func load_user_data():
 	var path = "user://user_login_data.save"
 	if FileAccess.file_exists(path):
