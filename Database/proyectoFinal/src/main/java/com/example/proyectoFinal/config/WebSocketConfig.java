@@ -21,13 +21,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        // Endpoint para conexión WebSocket
-        registry.addEndpoint("/ws")
-                .setAllowedOriginPatterns("*") // Permite conexiones desde cualquier origen (ajustar en producción)
-                .withSockJS(); // Soporte para fallback
+        registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
 
-        // Endpoint alternativo sin SockJS para Godot
-        registry.addEndpoint("/ws-godot")
-                .setAllowedOriginPatterns("*");
     }
 }

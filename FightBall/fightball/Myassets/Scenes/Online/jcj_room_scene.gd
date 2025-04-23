@@ -56,6 +56,8 @@ func _process(_delta):
 # Envía un mensaje al servidor
 func send_message(data: Dictionary):
 	var json = JSON.stringify(data)
+	print("➡️ Enviando mensaje WebSocket:", json)
+
 	websocket.put_packet(json.to_utf8_buffer())
 
 # Procesa mensajes recibidos del servidor
@@ -70,6 +72,10 @@ func handle_message(msg: String):
 			update_player_status(parsed["user_id"], false)
 		"player_ready":
 			update_player_status(parsed["user_id"], true)
+			if parsed["user_id"] != str(PlayerInfo.userID):
+				status_label.text = "⚔️ El oponente está listo. ¡Presiona tu botón cuando quieras!"
+			else:
+				status_label.text = "✅ Esperando al otro jugador..."
 		"both_ready":
 			start_character_selection()
 		"error":
@@ -91,7 +97,7 @@ func show_error(message: String):
 func start_character_selection():
 	status_label.text = "🚀 Ambos jugadores listos. Cargando selección de personaje..."
 	await get_tree().create_timer(1.5).timeout
-	SceneManager.go_to("res://Myassets/Scenes/CharacterSelection/Character_Selection.tscn")
+	SceneManager.go_to("res://Myassets/Scenes/characterSelectionOnline.tscn")
 
 # Botón para marcarse como listo
 func _on_ReadyButton_pressed():
@@ -102,4 +108,4 @@ func _on_ReadyButton_pressed():
 			"user_id": str(PlayerInfo.userID),
 			"room_id": str(PlayerInfo.current_room_id)
 		})
-		ready_button.disabled = true
+		#ready_button.disabled = true
