@@ -111,7 +111,8 @@ public class SecurityConfig
 
                                 .requestMatchers(HttpMethod.DELETE,"/api/users/{id}").permitAll()
                                 .requestMatchers("/api/reparacionesEvaluada").permitAll()
-                                .requestMatchers(HttpMethod.GET,"/api/characters").hasRole(RoleType.PLAYER.name())
+                                
+                                .requestMatchers(HttpMethod.GET,"/api/characters").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/api/matches").hasRole(RoleType.PLAYER.name())
 
 

@@ -37,6 +37,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.okhttp.v4120)
+
     implementation (libs.retrofit.v220)
     implementation(libs.squareup.converter.gson)
     testImplementation(libs.junit)

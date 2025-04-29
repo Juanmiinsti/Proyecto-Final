@@ -11,7 +11,7 @@ public class ApiCalls {
     public ApiCalls(ApiInterface apiInterface) {
         this.apiInterface=apiInterface;
     }
-    public Call<List<CharacterModel>> getCharacters(){
-        return apiInterface.getCharacters();
+    public Call<List<CharacterModel>> getCharacters(String authHeader){
+        return apiInterface.getCharacters(authHeader);
     }
 }

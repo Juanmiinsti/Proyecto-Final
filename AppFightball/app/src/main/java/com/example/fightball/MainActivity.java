@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         config();
     }
     public  void  config(){
-        retroFitBuilder.build("http://localhost:8080");
+        retroFitBuilder.build("http://10.0.2.2:8080");
         Button botonprueba=findViewById(R.id.buttonTest);
         TextView textView =findViewById(R.id.textTest);
 
@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<CharacterModel>> call, Throwable t) {
-
+                        System.out.println("fallo");
+                        System.out.println(t.toString());
                     }
                 });
             }
