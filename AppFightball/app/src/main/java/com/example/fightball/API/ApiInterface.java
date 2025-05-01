@@ -2,6 +2,7 @@ package com.example.fightball.API;
 
 import com.example.fightball.Models.CharacterModel;
 import com.example.fightball.Models.LoginModel;
+import com.example.fightball.Models.MatchModel;
 
 import java.util.List;
 
@@ -17,6 +18,13 @@ public interface ApiInterface {
     Call <List<Integer>> rolesIdsByanme(@Path("name")String name, @Header("Authorization")String authHeader);
     @GET("/api/characters")
     Call<List <CharacterModel>> getCharacters(@Header("Authorization")String authHeader);
+
+    @GET("/api/matches/win")
+    Call<List<MatchModel>>getWinMatches(@Path("name")String name,@Header("Authorization") String authHeader);
+
+    @GET("/api/matches/lost")
+    Call<List<MatchModel>>getLostMatches(@Path("name")String name,@Header("Authorization") String authHeader);
+
     @POST("/auth/login")
     Call<String> login(@Body LoginModel user);
 

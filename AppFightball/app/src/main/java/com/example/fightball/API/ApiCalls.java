@@ -2,6 +2,7 @@ package com.example.fightball.API;
 
 import com.example.fightball.Models.CharacterModel;
 import com.example.fightball.Models.LoginModel;
+import com.example.fightball.Models.MatchModel;
 
 import java.util.List;
 
@@ -20,5 +21,11 @@ public class ApiCalls {
     }
     public Call<List<Integer>>rolesIdsByname(String name,String key){
         return apiInterface.rolesIdsByanme(name,key);
+    }
+    public Call<List<MatchModel>>winMatchesbyName(String name,String key){
+        return apiInterface.getWinMatches(name,key);
+    }
+    public Call<List<MatchModel>>lostMatchesbyName(String name,String key){
+        return apiInterface.getLostMatches(name,key);
     }
 }

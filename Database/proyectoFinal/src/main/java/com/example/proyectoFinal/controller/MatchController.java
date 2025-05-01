@@ -1,5 +1,6 @@
 package com.example.proyectoFinal.controller;
 
+import com.example.proyectoFinal.Entity.Match;
 import com.example.proyectoFinal.dto.Match.CreateMatchDTO;
 import com.example.proyectoFinal.dto.Match.MatchDTO;
 import com.example.proyectoFinal.service.match.IMatchService;
@@ -39,7 +40,19 @@ public class MatchController {
         return new ResponseEntity<>(matchDTO, HttpStatus.OK);
     }
 
-    // Crear un nuevo partido
+    @GetMapping("/win/{name}")
+    public ResponseEntity<List<MatchDTO>> getWinnedMathchesByusername(@PathVariable String name) {
+        List<MatchDTO> matchDTOList = mapper.mapList(matchService.winnerMatchbyUsername(name), MatchDTO.class);
+        return new ResponseEntity<>(matchDTOList, HttpStatus.OK);
+    }
+    @GetMapping("/lost/{name}")
+    public ResponseEntity<List<MatchDTO>> getLoserMathchesByusername(@PathVariable String name) {
+        List<MatchDTO> matchDTOList = mapper.mapList(matchService.lostmatchsbyName(name), MatchDTO.class);
+        return new ResponseEntity<>(matchDTOList, HttpStatus.OK);
+    }
+
+
+        // Crear un nuevo partido
     @PostMapping
     public ResponseEntity<?> createMatch(@RequestBody CreateMatchDTO matchDTO) {
         try {
@@ -71,4 +84,5 @@ public class MatchController {
             return new ResponseEntity<>(Response.generalError(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }

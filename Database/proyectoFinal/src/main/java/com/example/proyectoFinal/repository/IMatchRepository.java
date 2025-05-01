@@ -9,7 +9,10 @@ import java.util.List;
 
 @Repository
 public interface IMatchRepository extends JpaRepository<Match, Integer> {
-    @Query("select m from  Match m join User u where u.name=?1")
-    List<Match>matchsbyUsername(String username);
+    @Query("SELECT m FROM Match m INNER JOIN m.userWinner u WHERE u.name = ?1")
+    List<Match>winnedmatchsbyUsername(String username);
+    @Query("SELECT m FROM Match m INNER JOIN m.userLoser u WHERE u.name = ?1")
+    List<Match>lostmatchsbyName(String name);
+
 
 }

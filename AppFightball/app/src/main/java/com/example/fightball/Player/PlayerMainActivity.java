@@ -2,9 +2,11 @@ package com.example.fightball.Player;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +15,25 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.fightball.API.RetroFitBuilder;
+import com.example.fightball.Models.MatchModel;
 import com.example.fightball.R;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PlayerMainActivity extends AppCompatActivity {
     static String canalId="777";
+    TextView partidasGanadas;
+    TextView partidasPerdidas;
+    TextView partidasTotales;
+    TextView personajeMasUsado;
 
+    RetroFitBuilder retroFitBuilder = RetroFitBuilder.getInstance();
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +45,19 @@ public class PlayerMainActivity extends AppCompatActivity {
             return insets;
         });
         configurar();
+
+
     }
 
 
     public void configurar() {
+        sp = getSharedPreferences("FightBall", MODE_PRIVATE);
+
+        partidasGanadas=findViewById(R.id.pGanadasText);
+        partidasPerdidas=findViewById(R.id.pPerdidasText);
+
+        apicalls();
+
         createNotificationChannel();
         Toolbar toolbar = findViewById(R.id.barraMenu);
         setSupportActionBar(toolbar);
@@ -40,6 +65,37 @@ public class PlayerMainActivity extends AppCompatActivity {
 
 
     }
+
+    private void apicalls() {
+        try {
+            Call<List<MatchModel>>pganadas=retroFitBuilder.callApi().winMatchesbyName("juanmi",sp.getString("key",""));
+            pganadas.enqueue(new Callback<List<MatchModel>>() {
+                @Override
+                public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
+                    partidasGanadas.setText(response.body().size());
+                }
+                @Override
+                public void onFailure(Call<List<MatchModel>> call, Throwable t) {
+                }
+            });
+
+            Call<List<MatchModel>>pperdidas=retroFitBuilder.callApi().lostMatchesbyName("juanmi",sp.getString("key",""));
+            pperdidas.enqueue(new Callback<List<MatchModel>>() {
+                @Override
+                public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
+                    partidasPerdidas.setText(response.body().size());
+                }
+                @Override
+                public void onFailure(Call<List<MatchModel>> call, Throwable t) {
+                }
+            });
+
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

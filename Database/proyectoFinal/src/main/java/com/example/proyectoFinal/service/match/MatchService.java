@@ -113,6 +113,17 @@ public class MatchService implements IMatchService {
     }
 
     @Override
+    public List<Match> winnerMatchbyUsername(String name) {
+        return matchRepository.winnedmatchsbyUsername(name);
+    }
+
+    @Override
+    public List<Match> lostmatchsbyName(String name) {
+        return matchRepository.lostmatchsbyName(name);
+    }
+
+
+    @Override
     public boolean deleteMatch(int id) {
         Match match = matchRepository.findById(id).orElseThrow(() -> new NotFoundEntityException(String.valueOf(id), Match.class));
         matchRepository.delete(match);
