@@ -18,6 +18,7 @@ public interface IMatchService {
     Match modifyMatch(int id, CreateMatchDTO matchDTO); // Recibe un DTO
     Match modifyMatch(int id, Match match); // Recibe una entidad (internamente)
 
+    List<Match>matchesbyuUsername(String name);
     List<Match>winnerMatchbyUsername(String name);
     List<Match>lostmatchsbyName(String name);
 

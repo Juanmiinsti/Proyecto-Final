@@ -30,8 +30,9 @@ public class RetroFitBuilder {
     public void build(String url){
 
         Gson gson = new GsonBuilder()
-                .setLenient()
+                .setLenient()// Ajusta al formato que devuelve tu API
                 .create();
+
 
 
         builder = new Retrofit.Builder();

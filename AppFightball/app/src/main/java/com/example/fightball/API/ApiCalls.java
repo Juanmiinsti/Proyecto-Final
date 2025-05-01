@@ -1,12 +1,15 @@
 package com.example.fightball.API;
 
 import com.example.fightball.Models.CharacterModel;
+import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Header;
+import retrofit2.http.Path;
 
 public class ApiCalls {
     private ApiInterface apiInterface;
@@ -28,4 +31,12 @@ public class ApiCalls {
     public Call<List<MatchModel>>lostMatchesbyName(String name,String key){
         return apiInterface.getLostMatches(name,key);
     }
+    public Call<List<MatchModel>>geMatchesByName(String name, String key){
+        return apiInterface.geMatchesByName(name,key);
+    }
+    public Call<List <ItemModel>> getItems(String key){
+        return apiInterface.getItems(key);
+    }
+
+
 }

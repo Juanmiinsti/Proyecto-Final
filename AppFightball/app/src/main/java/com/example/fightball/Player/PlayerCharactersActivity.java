@@ -9,36 +9,30 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.fightball.Adapters.MatchAdapter;
-import com.example.fightball.Models.MatchModel;
+import com.example.fightball.Adapters.CharacterAdapter;
 import com.example.fightball.R;
 
-import java.util.ArrayList;
-
-public class PlayerMatchesActiviy extends AppCompatActivity {
-    public static MatchAdapter adapter;
-    ListView partidasVisual;
-
+public class PlayerCharactersActivity extends AppCompatActivity {
+    public static CharacterAdapter adapter;
+    ListView CharacterVisual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_player_matches_activiy);
+        setContentView(R.layout.activity_player_characters);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+            
+
         });
         config();
     }
 
     private void config() {
-        listofMatches();
-    }
-
-    private void listofMatches(){
-        adapter=new MatchAdapter(this,R.layout.match,PlayerMainActivity.partidas);
-        partidasVisual=findViewById(R.id.PartidasList);
-        partidasVisual.setAdapter(adapter);
+        adapter=new CharacterAdapter(this,R.layout.character,PlayerMainActivity.characters);
+        CharacterVisual =findViewById(R.id.characterList);
+        CharacterVisual.setAdapter(adapter);
     }
 }

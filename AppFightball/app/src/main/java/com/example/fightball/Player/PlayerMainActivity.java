@@ -2,10 +2,12 @@ package com.example.fightball.Player;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,9 +18,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
+import com.example.fightball.Models.CharacterModel;
+import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,6 +36,12 @@ public class PlayerMainActivity extends AppCompatActivity {
     TextView partidasPerdidas;
     TextView partidasTotales;
     TextView personajeMasUsado;
+    Button verPartidasBoton;
+    Button verPersonajes;
+    public static ArrayList<MatchModel> partidas;
+    public static ArrayList<CharacterModel>characters;
+    public static ArrayList<ItemModel>items;
+
 
     RetroFitBuilder retroFitBuilder = RetroFitBuilder.getInstance();
     SharedPreferences sp;
@@ -48,52 +59,125 @@ public class PlayerMainActivity extends AppCompatActivity {
 
 
     }
-
-
     public void configurar() {
         sp = getSharedPreferences("FightBall", MODE_PRIVATE);
 
         partidasGanadas=findViewById(R.id.pGanadasText);
         partidasPerdidas=findViewById(R.id.pPerdidasText);
+        partidasTotales=findViewById(R.id.pJugadasText);
 
-        apicalls();
+        verPartidasBoton=findViewById(R.id.buttonVerPartidas);
+        verPersonajes=findViewById(R.id.buttonVerPersonajes);
+
+        verPartidasBoton.setOnClickListener(e->{
+            Intent intent=new Intent(this,PlayerMatchesActiviy.class);
+            startActivity(intent);
+        });
+
+        verPersonajes.setOnClickListener(e->{
+            Intent intent=new Intent(this, PlayerCharactersActivity.class);
+            startActivity(intent);
+        });
 
         createNotificationChannel();
         Toolbar toolbar = findViewById(R.id.barraMenu);
         setSupportActionBar(toolbar);
 
+        apicalls();
 
 
     }
 
     private void apicalls() {
         try {
-            Call<List<MatchModel>>pganadas=retroFitBuilder.callApi().winMatchesbyName("juanmi",sp.getString("key",""));
-            pganadas.enqueue(new Callback<List<MatchModel>>() {
-                @Override
-                public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
-                    partidasGanadas.setText(response.body().size());
-                }
-                @Override
-                public void onFailure(Call<List<MatchModel>> call, Throwable t) {
-                }
-            });
-
-            Call<List<MatchModel>>pperdidas=retroFitBuilder.callApi().lostMatchesbyName("juanmi",sp.getString("key",""));
-            pperdidas.enqueue(new Callback<List<MatchModel>>() {
-                @Override
-                public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
-                    partidasPerdidas.setText(response.body().size());
-                }
-                @Override
-                public void onFailure(Call<List<MatchModel>> call, Throwable t) {
-                }
-            });
+            getAllUserMatches();
+            getLostMatches();
+            getWinnedMatches();
+            getCharacters();
+            getItems();
 
 
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("erroe general "+e.getMessage());
         }
+    }
+
+    private void getItems() {
+        Call<List<ItemModel>>getItems=retroFitBuilder.callApi().getItems(sp.getString("key",""));
+        getItems.enqueue(new Callback<List<ItemModel>>() {
+            @Override
+            public void onResponse(Call<List<ItemModel>> call, Response<List<ItemModel>> response) {
+                items= (ArrayList<ItemModel>) response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<ItemModel>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getCharacters() {
+        Call<List<CharacterModel>>totalcharacters=retroFitBuilder.callApi().getCharacters(sp.getString("key",""));
+        totalcharacters.enqueue(new Callback<List<CharacterModel>>() {
+            @Override
+            public void onResponse(Call<List<CharacterModel>> call, Response<List<CharacterModel>> response) {
+                characters= (ArrayList<CharacterModel>) response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<CharacterModel>> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    private void getAllUserMatches(){
+        Call<List<MatchModel>>ptotal=retroFitBuilder.callApi().geMatchesByName("juanmi",sp.getString("key",""));
+        ptotal.enqueue(new Callback<List<MatchModel>>() {
+            @Override
+            public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
+                partidasTotales.setText(String.valueOf(response.body().size()));
+                partidas= (ArrayList<MatchModel>) response.body();
+
+            }
+            @Override
+            public void onFailure(Call<List<MatchModel>> call, Throwable t) {
+                System.out.println("error papi en total "+t.getMessage());
+
+            }
+        });
+    }
+
+    private void getWinnedMatches(){
+        Call<List<MatchModel>>pganadas=retroFitBuilder.callApi().winMatchesbyName("juanmi",sp.getString("key",""));
+        pganadas.enqueue(new Callback<List<MatchModel>>() {
+            @Override
+            public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
+                partidasGanadas.setText(String.valueOf(response.body().size()));
+
+            }
+            @Override
+            public void onFailure(Call<List<MatchModel>> call, Throwable t) {
+                System.out.println("error papi en ganadas "+t.getMessage());
+
+            }
+        });
+    }
+    private void getLostMatches(){
+        Call<List<MatchModel>>pperdidas=retroFitBuilder.callApi().lostMatchesbyName("juanmi",sp.getString("key",""));
+        pperdidas.enqueue(new Callback<List<MatchModel>>() {
+            @Override
+            public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
+                partidasPerdidas.setText(String.valueOf(response.body().size()));
+            }
+            @Override
+            public void onFailure(Call<List<MatchModel>> call, Throwable t) {
+                System.out.println("error papi en perdidas "+t.getMessage());
+            }
+        });
+
     }
 
 

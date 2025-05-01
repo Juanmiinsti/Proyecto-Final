@@ -40,6 +40,13 @@ public class MatchController {
         return new ResponseEntity<>(matchDTO, HttpStatus.OK);
     }
 
+
+    @GetMapping("/total/{name}")
+    public ResponseEntity<List<MatchDTO>> gettotalMathchesByusername(@PathVariable String name) {
+        List<MatchDTO> matchDTOList = mapper.mapList(matchService.matchesbyuUsername(name), MatchDTO.class);
+        return new ResponseEntity<>(matchDTOList, HttpStatus.OK);
+    }
+
     @GetMapping("/win/{name}")
     public ResponseEntity<List<MatchDTO>> getWinnedMathchesByusername(@PathVariable String name) {
         List<MatchDTO> matchDTOList = mapper.mapList(matchService.winnerMatchbyUsername(name), MatchDTO.class);

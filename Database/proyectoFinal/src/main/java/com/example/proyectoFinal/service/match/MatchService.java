@@ -113,6 +113,11 @@ public class MatchService implements IMatchService {
     }
 
     @Override
+    public List<Match> matchesbyuUsername(String name) {
+        return matchRepository.matchesbyuUsername(name);
+    }
+
+    @Override
     public List<Match> winnerMatchbyUsername(String name) {
         return matchRepository.winnedmatchsbyUsername(name);
     }
