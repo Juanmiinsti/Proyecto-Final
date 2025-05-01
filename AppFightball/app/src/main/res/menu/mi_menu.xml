@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    tools:context=".FilmListActivity">
+
+    <item
+        android:id="@+id/acercaDe"
+        android:title="@string/acercade"
+        android:orderInCategory="1"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/anyadirPelicula"
+        android:title="@string/anyadirPelicula"
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/ajustes"
+        android:title="Ajustes" />
+    <item
+        android:id="@+id/masInfo"
+        android:title="Mas Info" />
+</menu>

@@ -47,4 +47,9 @@ public class RoleService implements IRoleService {
         roleRepository.delete(role);
         return true;
     }
+
+    @Override
+    public List<Integer> rolesbyname(String name) {
+        return roleRepository.rolesbyname(name);
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.fightball.API;
 
-import com.example.fightball.PostModels.CharacterModel;
+import com.example.fightball.Models.CharacterModel;
+import com.example.fightball.Models.LoginModel;
 
 import java.util.List;
 
@@ -13,5 +14,11 @@ public class ApiCalls {
     }
     public Call<List<CharacterModel>> getCharacters(String authHeader){
         return apiInterface.getCharacters(authHeader);
+    }
+    public Call<String>login(LoginModel user){
+        return apiInterface.login(user);
+    }
+    public Call<List<Integer>>rolesIdsByname(String name,String key){
+        return apiInterface.rolesIdsByanme(name,key);
     }
 }

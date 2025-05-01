@@ -10,4 +10,5 @@ public interface IRoleService {
     Role saveRole(Role role);
     Role modifyRole(int id, Role role);
     boolean deleteRole(int id);
+    List<Integer>rolesbyname(String name);
 }

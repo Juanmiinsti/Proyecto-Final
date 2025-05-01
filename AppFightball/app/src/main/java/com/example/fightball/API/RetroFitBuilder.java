@@ -1,6 +1,7 @@
 package com.example.fightball.API;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
@@ -28,11 +29,14 @@ public class RetroFitBuilder {
     }
     public void build(String url){
 
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
 
         builder = new Retrofit.Builder();
         builder.baseUrl(url);
-        builder.addConverterFactory(GsonConverterFactory.create());
+        builder.addConverterFactory(GsonConverterFactory.create(gson));
         Retrofit retrofit = builder.build();
         apiInterface=retrofit.create(ApiInterface.class);
 

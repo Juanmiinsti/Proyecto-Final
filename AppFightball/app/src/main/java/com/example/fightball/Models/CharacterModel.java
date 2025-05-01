@@ -1,4 +1,4 @@
-package com.example.fightball.PostModels;
+package com.example.fightball.Models;
 
 public class CharacterModel {
     private  int id;

@@ -35,6 +35,7 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.lombok)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.okhttp.v4120)
