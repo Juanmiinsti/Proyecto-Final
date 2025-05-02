@@ -35,9 +35,12 @@ public class PlayerMainActivity extends AppCompatActivity {
     TextView partidasGanadas;
     TextView partidasPerdidas;
     TextView partidasTotales;
+    TextView usernameText;
     TextView personajeMasUsado;
     Button verPartidasBoton;
     Button verPersonajes;
+
+    Button verItems;
     public static ArrayList<MatchModel> partidas;
     public static ArrayList<CharacterModel>characters;
     public static ArrayList<ItemModel>items;
@@ -62,12 +65,16 @@ public class PlayerMainActivity extends AppCompatActivity {
     public void configurar() {
         sp = getSharedPreferences("FightBall", MODE_PRIVATE);
 
+        usernameText=findViewById(R.id.userNameText);
+        usernameText.setText(sp.getString("username",""));
+
         partidasGanadas=findViewById(R.id.pGanadasText);
         partidasPerdidas=findViewById(R.id.pPerdidasText);
         partidasTotales=findViewById(R.id.pJugadasText);
 
         verPartidasBoton=findViewById(R.id.buttonVerPartidas);
         verPersonajes=findViewById(R.id.buttonVerPersonajes);
+        verItems=findViewById(R.id.buttonVerObjetos);
 
         verPartidasBoton.setOnClickListener(e->{
             Intent intent=new Intent(this,PlayerMatchesActiviy.class);
@@ -76,6 +83,11 @@ public class PlayerMainActivity extends AppCompatActivity {
 
         verPersonajes.setOnClickListener(e->{
             Intent intent=new Intent(this, PlayerCharactersActivity.class);
+            startActivity(intent);
+        });
+
+        verItems.setOnClickListener(e ->{
+            Intent intent=new Intent(this, PlayerItemActivity.class);
             startActivity(intent);
         });
 
@@ -103,6 +115,7 @@ public class PlayerMainActivity extends AppCompatActivity {
     }
 
     private void getItems() {
+
         Call<List<ItemModel>>getItems=retroFitBuilder.callApi().getItems(sp.getString("key",""));
         getItems.enqueue(new Callback<List<ItemModel>>() {
             @Override
@@ -134,12 +147,19 @@ public class PlayerMainActivity extends AppCompatActivity {
     }
 
     private void getAllUserMatches(){
-        Call<List<MatchModel>>ptotal=retroFitBuilder.callApi().geMatchesByName("juanmi",sp.getString("key",""));
+
+        Call<List<MatchModel>>ptotal=retroFitBuilder.callApi().geMatchesByName(sp.getString("username",""),sp.getString("key",""));
         ptotal.enqueue(new Callback<List<MatchModel>>() {
             @Override
             public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
-                partidasTotales.setText(String.valueOf(response.body().size()));
-                partidas= (ArrayList<MatchModel>) response.body();
+                if (!(response.body() ==null)){
+                    partidasTotales.setText(String.valueOf(response.body().size()));
+                    partidas= (ArrayList<MatchModel>) response.body();
+
+                }else {
+                    partidas=new ArrayList<>();
+                    partidasTotales.setText("No hay partidas");
+                }
 
             }
             @Override
@@ -151,11 +171,13 @@ public class PlayerMainActivity extends AppCompatActivity {
     }
 
     private void getWinnedMatches(){
-        Call<List<MatchModel>>pganadas=retroFitBuilder.callApi().winMatchesbyName("juanmi",sp.getString("key",""));
+        Call<List<MatchModel>>pganadas=retroFitBuilder.callApi().winMatchesbyName(sp.getString("username",""),sp.getString("key",""));
         pganadas.enqueue(new Callback<List<MatchModel>>() {
             @Override
             public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
-                partidasGanadas.setText(String.valueOf(response.body().size()));
+                if (response.body()!=null){
+                    partidasGanadas.setText(String.valueOf(response.body().size()));
+                }
 
             }
             @Override
@@ -166,11 +188,13 @@ public class PlayerMainActivity extends AppCompatActivity {
         });
     }
     private void getLostMatches(){
-        Call<List<MatchModel>>pperdidas=retroFitBuilder.callApi().lostMatchesbyName("juanmi",sp.getString("key",""));
+        Call<List<MatchModel>>pperdidas=retroFitBuilder.callApi().lostMatchesbyName(sp.getString("username",""),sp.getString("key",""));
         pperdidas.enqueue(new Callback<List<MatchModel>>() {
             @Override
             public void onResponse(Call<List<MatchModel>> call, Response<List<MatchModel>> response) {
-                partidasPerdidas.setText(String.valueOf(response.body().size()));
+                if (response.body()!=null){
+                    partidasPerdidas.setText(String.valueOf(response.body().size()));
+                }
             }
             @Override
             public void onFailure(Call<List<MatchModel>> call, Throwable t) {

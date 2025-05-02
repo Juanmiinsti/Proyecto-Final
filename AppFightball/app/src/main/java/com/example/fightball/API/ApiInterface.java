@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
-    @GET("/api/object")
+    @GET("/api/items")
     Call<List <ItemModel>> getItems(@Header("Authorization")String authHeader);
 
     @GET("api/role/{name}")

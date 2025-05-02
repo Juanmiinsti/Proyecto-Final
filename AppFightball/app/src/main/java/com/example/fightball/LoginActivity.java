@@ -64,10 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
         buttonLogin.setOnClickListener(e -> {
             login();
-            System.out.println(sp.getString("key", ""));
-            if (!sp.getString("key", "").isEmpty()) {
-                selectMode();
-            }
+
         });
 
     }
@@ -163,11 +160,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful() && response.body() != null) {
                         String token = "Bearer " + response.body();
                         editor.putString("key", token);
+                        editor.putString("username",username.getText().toString());
                         editor.apply();
                         Toast.makeText(LoginActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
-
-
+                        selectMode();
                     } else {
+                        editor.putString("username","");
+                        editor.putString("key", "");
+                        editor.apply();
                         Toast.makeText(LoginActivity.this, "Login fallido", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                    editor.putString("key", "");
+
 
                 }
             });
