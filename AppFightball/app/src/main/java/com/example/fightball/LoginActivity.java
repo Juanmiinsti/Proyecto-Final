@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
+import com.example.fightball.Mod.ModMainActivity;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Player.PlayerMainActivity;
 
@@ -104,6 +105,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(playerMainActivity);
                 break;
             case 2:
+                Intent modMainActivity=new Intent(LoginActivity.this, ModMainActivity.class);
+                startActivity(modMainActivity);
                 break;
             case 3:
                 break;

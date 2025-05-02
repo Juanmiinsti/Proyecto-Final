@@ -10,10 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.Adapters.MatchAdapter;
-import com.example.fightball.Models.MatchModel;
 import com.example.fightball.R;
-
-import java.util.ArrayList;
 
 public class PlayerMatchesActiviy extends AppCompatActivity {
     public static MatchAdapter adapter;
@@ -37,7 +34,7 @@ public class PlayerMatchesActiviy extends AppCompatActivity {
     }
 
     private void listofMatches(){
-        adapter=new MatchAdapter(this,R.layout.match,PlayerMainActivity.partidas);
+        adapter=new MatchAdapter(this,R.layout.match_item,PlayerMainActivity.partidas);
         partidasVisual=findViewById(R.id.PartidasList);
         partidasVisual.setAdapter(adapter);
     }

@@ -4,6 +4,8 @@ import com.example.fightball.Models.CharacterModel;
 import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
+import com.example.fightball.Models.RoleModel;
+import com.example.fightball.Models.UserModel;
 
 import java.util.List;
 
@@ -15,13 +17,15 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
-    @GET("/api/items")
-    Call<List <ItemModel>> getItems(@Header("Authorization")String authHeader);
-
-    @GET("api/role/{name}")
-    Call <List<Integer>> rolesIdsByanme(@Path("name")String name, @Header("Authorization")String authHeader);
+    //CHARACTERS ------------------------------------------------------------------------------------------------
     @GET("/api/characters")
     Call<List <CharacterModel>> getCharacters(@Header("Authorization")String authHeader);
+
+    //MATCHES ------------------------------------------------------------------------------------------------
+    @GET("api/role/{name}")
+    Call <List<Integer>> rolesIdsByanme(@Path("name")String name, @Header("Authorization")String authHeader);
+    @GET("/api/matches")
+    Call<List<MatchModel>>getAllMatches(@Header("Authorization") String authHeader);
     @GET("/api/matches/total/{name}")
     Call<List<MatchModel>>geMatchesByName(@Path("name")String name,@Header("Authorization") String authHeader);
 
@@ -31,8 +35,22 @@ public interface ApiInterface {
     @GET("/api/matches/lost/{name}")
     Call<List<MatchModel>>getLostMatches(@Path("name")String name,@Header("Authorization") String authHeader);
 
+    //ITEMS ------------------------------------------------------------------------------------------------
+
+    @GET("/api/items")
+    Call<List <ItemModel>> getItems(@Header("Authorization")String authHeader);
+    //USERS ------------------------------------------------------------------------------------------------
+    @GET("/api/users")
+    Call<List<UserModel>>getAllUsers(@Header("Authorization") String authHeader);
+    //ROLE ------------------------------------------------------------------------------------------------
+    @GET("/api/role")
+    Call<List<RoleModel>>getAllRoles(@Header("Authorization") String authHeader);
+    //LOGIN AND REGISTER ------------------------------------------------------------------------------------------------
+
     @POST("/auth/login")
     Call<String> login(@Body LoginModel user);
+
+
 
 
 }

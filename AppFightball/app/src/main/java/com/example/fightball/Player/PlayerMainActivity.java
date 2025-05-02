@@ -69,13 +69,25 @@ public class PlayerMainActivity extends AppCompatActivity {
         usernameText.setText(sp.getString("username",""));
 
         partidasGanadas=findViewById(R.id.pGanadasText);
-        partidasPerdidas=findViewById(R.id.pPerdidasText);
+        partidasPerdidas=findViewById(R.id.pPerdidas);
         partidasTotales=findViewById(R.id.pJugadasText);
 
-        verPartidasBoton=findViewById(R.id.buttonVerPartidas);
-        verPersonajes=findViewById(R.id.buttonVerPersonajes);
-        verItems=findViewById(R.id.buttonVerObjetos);
+        verPartidasBoton=findViewById(R.id.bttVerPartidas);
+        verPersonajes=findViewById(R.id.bttVerPersonajes);
+        verItems=findViewById(R.id.bttVerObjetos);
 
+        setlisteners();
+
+        createNotificationChannel();
+        Toolbar toolbar = findViewById(R.id.barraMenu);
+        setSupportActionBar(toolbar);
+
+        apicalls();
+
+
+    }
+
+    private void setlisteners(){
         verPartidasBoton.setOnClickListener(e->{
             Intent intent=new Intent(this,PlayerMatchesActiviy.class);
             startActivity(intent);
@@ -90,16 +102,7 @@ public class PlayerMainActivity extends AppCompatActivity {
             Intent intent=new Intent(this, PlayerItemActivity.class);
             startActivity(intent);
         });
-
-        createNotificationChannel();
-        Toolbar toolbar = findViewById(R.id.barraMenu);
-        setSupportActionBar(toolbar);
-
-        apicalls();
-
-
     }
-
     private void apicalls() {
         try {
             getAllUserMatches();

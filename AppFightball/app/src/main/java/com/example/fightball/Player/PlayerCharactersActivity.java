@@ -31,7 +31,7 @@ public class PlayerCharactersActivity extends AppCompatActivity {
     }
 
     private void config() {
-        adapter=new CharacterAdapter(this,R.layout.character,PlayerMainActivity.characters);
+        adapter=new CharacterAdapter(this,R.layout.character_item,PlayerMainActivity.characters);
         CharacterVisual =findViewById(R.id.characterList);
         CharacterVisual.setAdapter(adapter);
     }

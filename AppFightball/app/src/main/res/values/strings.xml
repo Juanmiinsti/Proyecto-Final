@@ -29,6 +29,11 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="partidasTotales">Partidas Totales Registradas</string>
+    <string name="rolesDisponibles">Roles Disponibles</string>
+    <string name="Usuarios">Usuarios Registrados</string>
+    <string name="verUsuarios">Ver Usuarios</string>
+    <string name="verRoles">ver Roles</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
