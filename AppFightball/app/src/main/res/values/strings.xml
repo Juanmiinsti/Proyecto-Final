@@ -36,6 +36,8 @@
     <string name="verRoles">ver Roles</string>
     <string name="EnviarCorreo">Enviar Correo</string>
     <string name="BuscarEnGoogle">Buscar en Google</string>
+    <string name="Tutoriales">Tutoriales</string>
+    <string name="VerTutoriales">VerTutoriales</string>
 
 
 </resources>

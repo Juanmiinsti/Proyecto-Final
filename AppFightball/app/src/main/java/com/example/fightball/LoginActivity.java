@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
+import com.example.fightball.Admin.AdminMainActivity;
 import com.example.fightball.Mod.ModMainActivity;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Player.PlayerMainActivity;
@@ -109,6 +110,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(modMainActivity);
                 break;
             case 3:
+                Intent adminMainActivity=new Intent(LoginActivity.this, AdminMainActivity.class);
+                startActivity(adminMainActivity);
                 break;
         }
 
