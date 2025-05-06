@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://c0ljr3n1m1lgt"]
 
 [node name="CharacterSelectionOnline" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 346.0
+offset_top = 194.0
+offset_right = 666.0
+offset_bottom = 356.0
+text = "ELIJA PERSONAJE PA "

@@ -8,6 +8,8 @@ var userPassword: String = ""
 var userID: int = 0  # ✅ Nuevo campo
 var status: bool = false
 var current_room_id: int = -1
+var is_host := false
+var host_ip := "127.0.0.1"
 
 
 func load_user_data():
