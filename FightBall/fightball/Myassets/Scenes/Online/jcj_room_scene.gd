@@ -78,7 +78,7 @@ func start_match():
 	print("start_match recibido")
 	status_label.text = "🚀 Ambos listos, entrando en combate..."
 	await get_tree().create_timer(1.0).timeout
-	SceneManager.go_to("res://Myassets/Scenes/characterSelectionOnline.tscn")
+	SceneManager.go_to("res://Myassets/Scenes/Online/characterSelectionOnline.tscn")
 
 func _update_status_display():
 	var player_ids = players.keys()

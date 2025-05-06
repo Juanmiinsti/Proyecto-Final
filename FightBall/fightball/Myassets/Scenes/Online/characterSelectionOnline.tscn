@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0ljr3n1m1lgt"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/Online/characterSelection_online.gd" id="1_0ij4n"]
+[ext_resource type="Script" path="res://Myassets/Scenes/character_listOnline.gd" id="2_d38ef"]
+[ext_resource type="PackedScene" uid="uid://50knxno5g2q8" path="res://Myassets/Scenes/CharacterSlot/CharacterSlot.tscn" id="3_o0op4"]
+[ext_resource type="Script" path="res://Resources/character.gd" id="4_3qxro"]
+[ext_resource type="Resource" uid="uid://bq71uyy5r6yb7" path="res://Myassets/Scenes/CharacterSelection/CharResources/martial.tres" id="5_wh8k5"]
+[ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="6_dqjkg"]
+[ext_resource type="Resource" uid="uid://cit0qgsmsyvh8" path="res://Myassets/Scenes/CharacterSelection/CharResources/medieval.tres" id="7_tgqec"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wehq"]
+bg_color = Color(0.923515, 0.939592, 0.76552, 1)
+
+[node name="CharacterSelectionOnline" type="Node2D"]
+script = ExtResource("1_0ij4n")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 442.0
+offset_top = 115.0
+offset_right = 549.0
+offset_bottom = 451.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4wehq")
+
+[node name="CharacterList" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+script = ExtResource("2_d38ef")
+character_slot = ExtResource("3_o0op4")
+characters = Array[ExtResource("4_3qxro")]([ExtResource("5_wh8k5"), ExtResource("6_dqjkg"), ExtResource("7_tgqec")])
+
+[node name="ButtonConfirm" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 485.0
+offset_right = 541.0
+offset_bottom = 541.0
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = 442.0
+offset_top = 115.0
+offset_right = 443.0
+offset_bottom = 138.0
+
+[connection signal="characterSelected" from="ScrollContainer/CharacterList" to="." method="_on_character_list_character_selected"]

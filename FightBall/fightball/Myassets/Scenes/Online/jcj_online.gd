@@ -92,50 +92,56 @@ func clear_lobby_list():
 # Función llamada cuando se presiona el botón para crear una sala
 func _on_ButtonCreate_pressed():
 	status_label.text = "🛠️ Creando sala..."  # Mostramos mensaje de creación
+# Creamos una conexión ENet para un servidor
+	var peer := ENetMultiplayerPeer.new()
+	peer.create_server(7777, 2)  # Creamos un servidor en el puerto 7777
+	multiplayer.multiplayer_peer = peer
+				# Cambiamos de escena a la sala de juego
+	SceneManager.go_to("res://Myassets/Scenes/Online/jcj_room_scene.tscn")
 
-	var http_create = HTTPRequest.new()  # Creamos una nueva instancia de HTTPRequest
-	add_child(http_create)  # La añadimos a la escena
-
-	# Conectamos la señal de respuesta para la creación de la sala
-	http_create.request_completed.connect(func(_result, response_code, _headers, body):
-		http_create.queue_free()  # Liberamos la instancia de HTTPRequest
-
-		# Si la creación fue exitosa (código 201)
-		if response_code == 201:
-			var room = JSON.parse_string(body.get_string_from_utf8())  # Parseamos el cuerpo de la respuesta
-			status_label.text = "🟢 Sala '%s' creada. Esperando oponente..." % room["name"]
-			PlayerInfo.is_host = true
-			PlayerInfo.current_room_id = room["id"]
-			
-			# Creamos una conexión ENet para un servidor
-			var peer := ENetMultiplayerPeer.new()
-			peer.create_server(7777, 2)  # Creamos un servidor en el puerto 7777
-			multiplayer.multiplayer_peer = peer
-			
-			# Cambiamos de escena a la sala de juego
-			SceneManager.go_to("res://Myassets/Scenes/Online/jcj_room_scene.tscn")
-		else:
-			status_label.text = "❌ Error al crear sala"  # Si hubo un error al crear la sala
-	)
-
-	# Datos de la nueva sala
-	var data = {
-		"name": "Sala de " + PlayerInfo.userName,
-		"players": 1,
-		"capacity": 2,
-		"ip": "127.0.0.1"  # Esto debería ser la IP pública si vas online
-	}
-
-	# Enviamos la solicitud POST para crear la sala
-	var error = http_create.request(
-		"http://localhost:8080/api/lobbies",
-		["Content-Type: application/json"],
-		HTTPClient.METHOD_POST,
-		JSON.stringify(data)
-	)
-
-	if error != OK:
-		status_label.text = "❌ Error al enviar solicitud"  # Si hubo un error al enviar la solicitud
+	#var http_create = HTTPRequest.new()  # Creamos una nueva instancia de HTTPRequest
+	#add_child(http_create)  # La añadimos a la escena
+#
+	## Conectamos la señal de respuesta para la creación de la sala
+	#http_create.request_completed.connect(func(_result, response_code, _headers, body):
+		#http_create.queue_free()  # Liberamos la instancia de HTTPRequest
+#
+		## Si la creación fue exitosa (código 201)
+		#if response_code == 201:
+			#var room = JSON.parse_string(body.get_string_from_utf8())  # Parseamos el cuerpo de la respuesta
+			#status_label.text = "🟢 Sala '%s' creada. Esperando oponente..." % room["name"]
+			#PlayerInfo.is_host = true
+			#PlayerInfo.current_room_id = room["id"]
+			#
+			## Creamos una conexión ENet para un servidor
+			#var peer := ENetMultiplayerPeer.new()
+			#peer.create_server(7777, 2)  # Creamos un servidor en el puerto 7777
+			#multiplayer.multiplayer_peer = peer
+			#
+			## Cambiamos de escena a la sala de juego
+			#SceneManager.go_to("res://Myassets/Scenes/Online/jcj_room_scene.tscn")
+		#else:
+			#status_label.text = "❌ Error al crear sala"  # Si hubo un error al crear la sala
+	#)
+#
+	## Datos de la nueva sala
+	#var data = {
+		#"name": "Sala de " + PlayerInfo.userName,
+		#"players": 1,
+		#"capacity": 2,
+		#"ip": "127.0.0.1"  # Esto debería ser la IP pública si vas online
+	#}
+#
+	## Enviamos la solicitud POST para crear la sala
+	#var error = http_create.request(
+		#"http://localhost:8080/api/lobbies",
+		#["Content-Type: application/json"],
+		#HTTPClient.METHOD_POST,
+		#JSON.stringify(data)
+	#)
+#
+	#if error != OK:
+		#status_label.text = "❌ Error al enviar solicitud"  # Si hubo un error al enviar la solicitud
 
 # Función para volver a la escena anterior
 func _on_ButtonBack_pressed():

@@ -47,7 +47,6 @@ offset_top = -375.0
 offset_right = 15.48
 offset_bottom = -348.0
 script = ExtResource("4_g5rw5")
-metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = -1
@@ -60,7 +59,6 @@ offset_top = -372.0
 offset_right = 359.48
 offset_bottom = -345.0
 script = ExtResource("4_g5rw5")
-metadata/_edit_use_anchors_ = true
 
 [node name="player2" parent="." node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_f7s7o")]
 position = Vector2(329, -37)
