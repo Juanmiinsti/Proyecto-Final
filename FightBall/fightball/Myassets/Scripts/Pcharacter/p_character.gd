@@ -41,10 +41,13 @@ func _physics_process(delta: float) -> void:
 		print(currentHealth)
 		print(currentHealth) # Permitir otras acciones después del ataque
 		is_attacking = true
-		$Hitbox/CollisionShape2D.disabled=false;
+		
+		
+		$Hitbox/Hitbox2D.disabled=false;
+
 		$AnimationPlayer.play("Attack_"+character.animation_name)
 		await $AnimationPlayer.animation_finished
-		$Hitbox/CollisionShape2D.disabled=true;
+		$Hitbox/Hitbox2D.disabled=true;
 		is_attacking = false
 		
 
@@ -57,7 +60,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 			if is_on_floor():
 				$Sprite2D.scale.x = -1 if direction < 0 else 1
-				$Hitbox/CollisionShape2D.position.x=-30 if direction < 0 else 30 # Voltear personaje
+				$Hitbox/Hitbox2D.position.x=-40 if direction < 0 else 40 # Voltear personaje
 				$AnimationPlayer.play("Run_" + character.animation_name)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)

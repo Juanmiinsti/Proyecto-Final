@@ -7,14 +7,14 @@
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_0pl2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyd6n"]
-size = Vector2(612, 172)
+size = Vector2(1152, 172)
 
 [node name="Node2D2" type="Node2D"]
 position = Vector2(440, 384)
 script = ExtResource("1_ljgfj")
 
 [node name="player1" parent="." node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_f7s7o")]
-position = Vector2(-5, -32)
+position = Vector2(-6, -72)
 HealthBar = NodePath("../CanvasLayer/ProgressBar")
 numPlayer = 1
 
@@ -22,16 +22,16 @@ numPlayer = 1
 position = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(157, 78)
-scale = Vector2(608.75, 170.75)
+position = Vector2(137, 78)
+scale = Vector2(1154, 170.75)
 texture = SubResource("AnimatedTexture_0pl2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(158, 79)
+position = Vector2(138, 79)
 shape = SubResource("RectangleShape2D_tyd6n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, -59)
+position = Vector2(156, -64)
 zoom = Vector2(1.9, 1.9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -79,15 +79,15 @@ offset_bottom = -162.0
 rotation = -0.0020408
 
 [node name="win1P1" type="ColorRect" parent="."]
-offset_left = -122.0
+offset_left = -135.0
 offset_top = -182.0
-offset_right = -102.0
+offset_right = -115.0
 offset_bottom = -162.0
 
 [node name="win2P1" type="ColorRect" parent="."]
-offset_left = -97.0
+offset_left = -110.0
 offset_top = -182.0
-offset_right = -77.0
+offset_right = -90.0
 offset_bottom = -162.0
 
 [connection signal="value_changed" from="CanvasLayer/ProgressBar" to="." method="_on_progress_bar_value_changed"]
