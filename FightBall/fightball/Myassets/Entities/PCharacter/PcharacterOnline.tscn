@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://e7cqf0qawy1y"]
+[gd_scene load_steps=28 format=3 uid="uid://e7cqf0qawy1y"]
 
 [ext_resource type="Script" path="res://Myassets/Entities/PCharacter/pcharacter_online.gd" id="1_ebfgl"]
 [ext_resource type="Texture2D" uid="uid://bkjni8m8w2e0y" path="res://Resources/Huntress/Sprites/Attack1.png" id="2_elkf7"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ckvlw4xneit70" path="res://Resources/Medieval Warrior Pack 3/Sprites/Run.png" id="10_mhm04"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="11_e0cp8"]
 [ext_resource type="Script" path="res://Hitbox.gd" id="12_dpipl"]
+[ext_resource type="Script" path="res://player_input.gd" id="13_f02xn"]
 
 [sub_resource type="Animation" id="Animation_8wca7"]
 resource_name = "Attack_huntress"
@@ -557,6 +558,22 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h30cd"]
 size = Vector2(18.25, 38.125)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_t4556"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:player")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2pmf5"]
+properties/0/path = NodePath("PlayerInput:input_direction")
+properties/0/spawn = false
+properties/0/replication_mode = 1
+
 [node name="PcharacterOnline" type="CharacterBody2D"]
 script = ExtResource("1_ebfgl")
 
@@ -590,3 +607,10 @@ position = Vector2(31, -5)
 shape = SubResource("RectangleShape2D_h30cd")
 disabled = true
 debug_color = Color(0, 0.534731, 0.306819, 0.42)
+
+[node name="ServerSyncronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_t4556")
+
+[node name="PlayerInput" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_2pmf5")
+script = ExtResource("13_f02xn")

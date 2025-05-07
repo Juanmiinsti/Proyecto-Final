@@ -3,12 +3,11 @@ extends Node2D
 var mode_selector_scene := preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
 
 # Referencias a los jugadores
-@onready var p1 = $player1
-@onready var p2 = $player2
+var playersJoined :int=0
 
 func _ready():
 	set_meta("scene_path", "res://Myassets/Scenes/OnlineMatch/OnlineMatch.tscn")
-	
+	add_player(multiplayer.get_unique_id())
 	if multiplayer.is_server():
 		# Solo el servidor inicia el combate y asigna datos
 		setup_players()
@@ -16,21 +15,31 @@ func _ready():
 
 	update_victory_indicators()
 
-
+func add_player(id:int):
+	print("add player:")
+	print(id)
+	var character = preload("res://Myassets/Entities/PCharacter/PcharacterOnline.tscn").instantiate()
+	var pos=Vector2(94,-90)
+	if playersJoined==0:
+		pos=Vector2(-33,55)
+	else:
+		pos=Vector2(304,-55)
+	character.position =pos
+	
+	playersJoined+=playersJoined+1
+	$Players.add_child(character,true)
+		
 func setup_players():
 	# Carga los datos de los personajes para ambos jugadores
 	var characterp1 = CharacterDataSource.DBcharacters[(getcharid(Persistence.charname1)) - 1]
-	var characterp2 = CharacterDataSource.DBcharacters[(getcharid(Persistence.charname2)) - 1]
 
-	setup_player(p1, characterp1, 1)
-	setup_player(p2, characterp2, 2)
-
-	# Asigna propiedad de red (importante para sincronización)
-	multiplayer.set_node_owner(p1, 1)  # peer_id del jugador 1
-	multiplayer.set_node_owner(p2, 2)  # peer_id del jugador 2
+	
 
 func setup_player(player: pCharacter, character_data, player_num: int):
-	player.numPlayer = player_num
+	if multiplayer.is_server():
+		player.numPlayer = 1
+	else:
+		player.numPlayer = 2	
 	player.character = character_data
 	player.HealthBar.max_value = character_data.max_health
 	player.currentHealth = character_data.max_health
@@ -54,18 +63,18 @@ func request_damage(target_id: int, amount: int):
 	if not multiplayer.is_server():
 		return
 	
-	var target = (target_id == 1) if p1 else p2
-	target.take_damage(amount)
-	check_victory()
-
-# ✔️ Verifica si alguien ganó la partida
-func check_victory():
-	if p1.currentHealth <= 0:
-		CurrentMatch.p2Victory += 1
-	elif p2.currentHealth <= 0:
-		CurrentMatch.p1Victory += 1
-	else:
-		return
+	#var target = (target_id == 1) if p1 else p2
+	#target.take_damage(amount)
+	#check_victory()
+#
+## ✔️ Verifica si alguien ganó la partida
+#func check_victory():
+	#if p1.currentHealth <= 0:
+		#CurrentMatch.p2Victory += 1
+	#elif p2.currentHealth <= 0:
+		#CurrentMatch.p1Victory += 1
+	#else:
+		#return
 	
 	if CurrentMatch.p1Victory >= 2 or CurrentMatch.p2Victory >= 2:
 		# Lógica de victoria final

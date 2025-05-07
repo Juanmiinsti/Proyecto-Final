@@ -49,7 +49,8 @@ func mark_ready(peer_id: int):
 		_update_status_display()
 
 		if multiplayer.is_server():
-			rpc_id(peer_id, "mark_ready", peer_id)  # Reflejar visualmente en cliente
+			rpc_id(peer_id, "mark_ready", peer_id)
+			  # Reflejar visualmente en cliente
 
 			if players.size() == 2 and players.values().all(func(p): return p.ready):
 				print("¡Todos listos! Iniciando partida...")

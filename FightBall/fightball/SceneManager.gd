@@ -23,3 +23,7 @@ func go_back() -> void:
 
 func reset_history() -> void:
 	scene_stack.clear()
+	
+@rpc("authority")  # Solo el servidor puede ejecutarla
+func change_to_online_match():
+	get_tree().change_scene_to_file("res://Myassets/Scenes/OnlineMatch/OnlineMatch.tscn")
