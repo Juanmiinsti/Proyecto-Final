@@ -16,6 +16,7 @@ public class registration extends JFrame {
         registration a = new registration();
     }
 
+
     static CardLayout cardLayoutd = new CardLayout();
     static Container general = new Container();
 
@@ -118,12 +119,12 @@ public class registration extends JFrame {
 
     static void initGeneral() {
         general.setLayout(cardLayoutd);
-        general.add("0",panelLogin);
-        general.add("1", panel1);
-        general.add("2", panel2);
-        general.add("3", panel3);
-        general.add("4", panel4);
-        general.add("5", panel5);
+
+        general.add("0", panel1);
+        general.add("1", panel2);
+        general.add("2", panel3);
+        general.add("3", panel4);
+        general.add("4", panel5);
     }
     void configPanelLogin(){
         panelLogin.setLayout(new GridLayout(4,2));
@@ -534,12 +535,6 @@ public class registration extends JFrame {
 
     }
     private void updateLanguage() {
-        panelLoginUserLabel.setText(traductor.getString("login.enterUsername"));
-        panelLoginPasswordLabel.setText(traductor.getString("login.enterPassword"));
-        panelLoginCancelButton.setText(traductor.getString("login.cancel"));
-        panelLoginLoginButton.setText(traductor.getString("login.login"));
-        panelLoginJlabelIdiomas.setText(traductor.getString("login.idiomas"));
-
         panel1NextButton.setText(traductor.getString("panel1.next"));
         panel1text.setText(traductor.getString("panel1.welcomeText"));
 
