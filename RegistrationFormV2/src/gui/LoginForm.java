@@ -15,6 +15,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class LoginForm extends JFrame {
@@ -125,12 +127,31 @@ public class LoginForm extends JFrame {
     }
 
     private void doRequests(){
-        CharacterModel characterModel=new CharacterModel();
-        characterModel.setName("aaa");
 
-        Gson gson=new Gson();
-        String json=gson.toJson(characterModel);
-        System.out.println(json);
+    }
+
+    private void getCharacters(){
+        try {
+            List<CharacterModel> characters =new ArrayList<>();
+            Gson gson=new Gson();
+            String json=gson.toJson(characters);
+
+            HttpRequest postLogin= HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url+"auth/login"))
+                    .header("Content-Type", "application/json")
+                    .GET().build();
+
+            HttpClient httpClient=HttpClient.newHttpClient();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void getItems(){
+
+    }
+    private void getMatches(){
+
     }
 
     private boolean login(String username, String password) {
