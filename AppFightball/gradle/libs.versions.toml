@@ -2,6 +2,7 @@
 agp = "8.8.0"
 converterGson = "2.0.0-beta2"
 converterGsonVersion = "2.2.0"
+javaAndroidWebsocketClient = "2.0.2"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -19,6 +20,7 @@ navigationUi = "2.8.9"
 
 [libraries]
 converter-gson = { module = "com.squareup.retrofit2:converter-gson" }
+java-android-websocket-client = { module = "dev.gustavoavila:java-android-websocket-client", version.ref = "javaAndroidWebsocketClient" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

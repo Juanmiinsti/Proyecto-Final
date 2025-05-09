@@ -20,9 +20,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.fightball.Adapters.MatchAdapter;
 import com.example.fightball.Adapters.UserAdapter;
-import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.R;
 
@@ -76,7 +74,7 @@ public class ModUsersActivity extends AppCompatActivity {
 
             int id = item.getItemId();
 
-            if (id == R.id.idBusqueda) {
+            if (id == R.id.IdBuscar) {
                 Log.d("ContextMenu", "Iniciando búsqueda para: " + selectedUser.getName());
                 String query = selectedUser.getName().trim();
 

@@ -38,7 +38,11 @@
     <string name="BuscarEnGoogle">Buscar en Google</string>
     <string name="Tutoriales">Tutoriales</string>
     <string name="VerTutoriales">VerTutoriales</string>
-
+    <string name="Eliminar">Eliminar</string>
+    <string name="Editar">Editar</string>
+    <string name="AntiguaContra">Contraseña Antigua</string>
+    <string name="NuevaContraseña">Nueva Contraseña</string>
+    <string name="EditarUsuario">Editar Usuario</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

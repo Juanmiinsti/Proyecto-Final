@@ -6,7 +6,7 @@
         android:icon="@android:drawable/ic_delete"
         android:title="@string/EnviarCorreo" />
     <item
-        android:id="@+id/idBusqueda"
+        android:id="@+id/IdBuscar"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="@string/BuscarEnGoogle" />
 

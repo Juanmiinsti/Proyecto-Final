@@ -24,6 +24,11 @@ PlayerInfo="*res://PlayerInfo.gd"
 SceneManager="*res://SceneManager.gd"
 MultiplayerManager="*res://multiplayer_manager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 pegar={

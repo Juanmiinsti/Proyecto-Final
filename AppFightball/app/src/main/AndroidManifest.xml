@@ -16,10 +16,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".EditTutorialActivity"
+            android:name=".Admin.EditTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".EditPasswordActivity"
+            android:name=".Admin.EditUserActivity"
             android:exported="false" />
         <activity
             android:name=".AboutActivity"

@@ -10,6 +10,7 @@ import com.example.fightball.Models.UserModel;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Path;
@@ -51,6 +52,10 @@ public class ApiCalls {
     public Call<List<RoleModel>>getAllRoles( String key){
         return apiInterface.getAllRoles(key);
     }
+    public Call<UserModel> deleteUser(String authHeader ,UserModel userModel){
+        return apiInterface.deleteUser(authHeader,userModel);
+    }
+
 
 
 }
