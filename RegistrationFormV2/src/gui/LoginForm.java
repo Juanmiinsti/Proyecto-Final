@@ -43,6 +43,7 @@ public class LoginForm extends JFrame {
     }
 
     public LoginForm() {
+        
         initGeneral();
         configPanelLogin();
         createPaneLogin();

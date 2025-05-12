@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Mensaje para indicar que un jugador está listo
- */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

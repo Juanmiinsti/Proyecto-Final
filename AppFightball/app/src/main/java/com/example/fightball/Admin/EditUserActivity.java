@@ -13,12 +13,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.R;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 public class EditUserActivity extends AppCompatActivity {
     private int userPosition;
     private UserModel editedUser;
     private EditText userinput;
-    private TextView oldpasswordInput;
-    private TextView newPasswordInput;
+    private EditText oldpasswordInput;
+    private EditText newPasswordInput;
 
 
     @Override
@@ -39,7 +41,19 @@ public class EditUserActivity extends AppCompatActivity {
 
         userPosition=getIntent().getIntExtra("pos",0);
         editedUser=AdminMainActivity.users.get(userPosition);
-
+        oldpasswordInput=findViewById(R.id.inputOldPassword);
         userinput.setText(editedUser.getName());
+
+
+
+    }
+
+    private boolean checKoldPassword(){
+
+
+
+
+
+        return false;
     }
 }

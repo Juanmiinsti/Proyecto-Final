@@ -51,8 +51,8 @@ public interface ApiInterface {
     @POST("/auth/login")
     Call<String> login(@Body LoginModel user);
 
-    @DELETE("/")
-    Call<UserModel> deleteUser(@Header("Authorization" ) String authHeader ,@Body UserModel userModel);
+    @DELETE("/api/users/{id}")
+    Call<Boolean> deleteUser(@Header("Authorization" ) String authHeader ,@Path("id") int id);
 
 
 

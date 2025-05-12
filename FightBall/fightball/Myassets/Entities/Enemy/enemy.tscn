@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://crncnhf88qk78"]
+[gd_scene load_steps=25 format=3 uid="uid://crncnhf88qk78"]
 
+[ext_resource type="Script" path="res://Myassets/Entities/Enemy/enemy.gd" id="1_clk4r"]
 [ext_resource type="Texture2D" uid="uid://bkjni8m8w2e0y" path="res://Resources/Huntress/Sprites/Attack1.png" id="1_sdjfd"]
 [ext_resource type="Texture2D" uid="uid://ccis48slf467v" path="res://Resources/MartialHero1/Attack1.png" id="2_lfvl3"]
 [ext_resource type="Texture2D" uid="uid://dp0n2ym2ypkye" path="res://Resources/Medieval Warrior Pack 3/Sprites/Attack1.png" id="3_dns2t"]
@@ -725,6 +726,7 @@ _data = {
 size = Vector2(18.25, 38.125)
 
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_clk4r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

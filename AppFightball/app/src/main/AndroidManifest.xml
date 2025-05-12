@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -24,10 +26,6 @@
         <activity
             android:name=".AboutActivity"
             android:exported="false" />
-        <activity
-            android:name=".About_Activity"
-            android:exported="false"
-            android:theme="@style/Theme.FightBall" />
         <activity
             android:name=".Admin.AdminTutorialsActivity"
             android:exported="false" />

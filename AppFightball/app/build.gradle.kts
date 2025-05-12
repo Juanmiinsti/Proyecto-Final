@@ -51,4 +51,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation(libs.java.android.websocket.client)
+    implementation(libs.spring.security.crypto)
 }

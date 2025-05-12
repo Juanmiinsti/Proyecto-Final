@@ -49,7 +49,6 @@ public class ObjectController {
         }
     }
 
-    // Modificar un objeto existente
     @PutMapping("/{id}")
     public ResponseEntity<?> modifyObject(@PathVariable int id, @RequestBody CreateObjectDTO objectDTO) {
         try {
@@ -61,7 +60,6 @@ public class ObjectController {
         }
     }
 
-    // Eliminar un objeto
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteObject(@PathVariable int id) {
         try {
