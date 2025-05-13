@@ -20,6 +20,8 @@ public class Object {
     private String name;
     @Column(nullable = false)
     private String description;
+    @Column(nullable = false)
+    private int quantity;
     @ManyToMany
     @JoinTable(name = "use",
                 joinColumns = @JoinColumn(name = "object_id",referencedColumnName = "id"),

@@ -21,6 +21,8 @@ import com.example.fightball.AboutActivity;
 import com.example.fightball.Mod.ModAllMatchesActivity;
 import com.example.fightball.Mod.ModRoleActivity;
 import com.example.fightball.Mod.ModUsersActivity;
+import com.example.fightball.Models.ItemModel;
+import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
@@ -46,9 +48,12 @@ public class AdminMainActivity extends AppCompatActivity {
     Button btverTutoriales;
     Button btVerUsariosTotales;
 
+    Button btnVerItems;
+
     static public ArrayList<UserModel> users;
     static public ArrayList<RoleModel>roles;
     static public ArrayList<MatchModel>matches;
+    static public ArrayList<ItemModelAdmin>items;
 
     RetroFitBuilder retroFitBuilder = RetroFitBuilder.getInstance();
     SharedPreferences sp;
@@ -94,6 +99,7 @@ public class AdminMainActivity extends AppCompatActivity {
         btverPTotales=findViewById(R.id.bttPartidasAdmin);
         btverTutoriales=findViewById(R.id.bttTutorialesAdmin);
         btVerUsariosTotales=findViewById(R.id.bttUsuariosAdmin);
+        btnVerItems=findViewById(R.id.bttveritemsAdmin);
 
 
         Toolbar toolbar = findViewById(R.id.adminMenuBar);
@@ -121,6 +127,11 @@ public class AdminMainActivity extends AppCompatActivity {
 
         });
 
+        btnVerItems.setOnClickListener(e->{
+            Intent intent=new Intent(this,AdminItemsActivity.class);
+            startActivity(intent);
+        });
+
 
     }
 
@@ -130,9 +141,30 @@ public class AdminMainActivity extends AppCompatActivity {
 
             getMatches();
 
+            getItems();
+
         } catch (Exception e) {
             System.out.println("error"+ e.getMessage());
         }
+    }
+
+    private void getItems() {
+        Call<List<ItemModelAdmin>> geItemscall =retroFitBuilder.callApi().getItemsAdmin(sp.getString("key",""));
+        geItemscall.enqueue(new Callback<List<ItemModelAdmin>>() {
+            @Override
+            public void onResponse(Call<List<ItemModelAdmin>> call, Response<List<ItemModelAdmin>> response) {
+                if (response.body() !=null){
+                    items= (ArrayList<ItemModelAdmin>) response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ItemModelAdmin>> call, Throwable t) {
+                System.out.println("error en la llamada a getItemsAdmin");
+
+            }
+        });
+
     }
 
     private void getMatches() {
@@ -151,7 +183,7 @@ public class AdminMainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MatchModel>> call, Throwable t) {
-                System.out.println("error en la llamada a getMatchesMod");
+                System.out.println("error en la llamada a getMatchesAdmin");
             }
         });
 
