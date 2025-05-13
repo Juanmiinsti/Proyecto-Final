@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LoginText">Iniciar sesión</string>
+    <string name="UserNameText">Nombre de usuario</string>
+    <string name="HintUsername">Introduce tu nombre de usuario</string>
+    <string name="PasswordText">Contraseña</string>
+    <string name="PasswordHint">Introduce tu contraseña</string>
+    <string name="SignInText">Registrarse</string>
+    <string name="app_name">FightBall</string>
+    <string name="voidtext">Text</string>
+    <string name="partidasJugadas">Partidas Jugadas</string>
+    <string name="personajeMasUsado">Personaje Mas Usado</string>
+    <string name="partidasPerdidas">PartidasPerdidas</string>
+    <string name="partidasGanadas">PartidasGanadas</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="VerPersonajes">Ver Personajes</string>
+    <string name="verPartidas">Ver Partidas</string>
+    <string name="verObjetos">Ver Objetos</string>
+    <string name="acercade">Acerca De</string>
+    <string name="anyadirPelicula">Añadir Pelicula</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Jugador">Jugador</string>
+    <string name="Moderador">Moderador</string>
+    <string name="Administrador">Administrador</string>
+    <string name="ElijaModo">Elija modo de Vista</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="partidasTotales">Partidas Totales Registradas</string>
+    <string name="rolesDisponibles">Roles Disponibles</string>
+    <string name="Usuarios">Usuarios Registrados</string>
+    <string name="verUsuarios">Ver Usuarios</string>
+    <string name="verRoles">ver Roles</string>
+    <string name="EnviarCorreo">Enviar Correo</string>
+    <string name="BuscarEnGoogle">Buscar en Google</string>
+    <string name="Tutoriales">Tutoriales</string>
+    <string name="VerTutoriales">VerTutoriales</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="Editar">Editar</string>
+    <string name="AntiguaContra">Contraseña Antigua</string>
+    <string name="NuevaContraseña">Nueva Contraseña</string>
+    <string name="EditarUsuario">Editar Usuario</string>
+    <string name="usuarioEliminado">Usuario Eliminado:</string>
+    <string name="GestionRoles">Gestion Roles</string>
+    <string name="Preferencias">Preferencias</string>
+    <string name="VerMedia">Ver Video Explicativo</string>
+    <string name="recordarUsuario">Recordar Usuario</string>
+    <string name="recordarContraseña">Recordar Contraseña</string>
+    <string name="guardar">Guardar</string>
+
+
+</resources>

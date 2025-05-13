@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="LoginText">Iniciar sesión</string>
-    <string name="UserNameText">Nombre de usuario</string>
-    <string name="HintUsername">Introduce tu nombre de usuario</string>
-    <string name="PasswordText">Contraseña</string>
-    <string name="PasswordHint">Introduce tu contraseña</string>
-    <string name="SignInText">Registrarse</string>
+    <string name="LoginText">Login</string>
+    <string name="UserNameText">Username</string>
+    <string name="HintUsername">Enter your username</string>
+    <string name="PasswordText">Password</string>
+    <string name="PasswordHint">Enter your password</string>
+    <string name="SignInText">Sign Up</string>
     <string name="app_name">FightBall</string>
     <string name="voidtext">Text</string>
-    <string name="partidasJugadas">Partidas Jugadas</string>
-    <string name="personajeMasUsado">Personaje Mas Usado</string>
-    <string name="partidasPerdidas">PartidasPerdidas</string>
-    <string name="partidasGanadas">PartidasGanadas</string>
-    <string name="bienvenido">Bienvenido</string>
-    <string name="VerPersonajes">Ver Personajes</string>
-    <string name="verPartidas">Ver Partidas</string>
-    <string name="verObjetos">Ver Objetos</string>
-    <string name="acercade">Acerca De</string>
-    <string name="anyadirPelicula">Añadir Pelicula</string>
-    <string name="Aceptar">Aceptar</string>
-    <string name="Cancelar">Cancelar</string>
-    <string name="Jugador">Jugador</string>
-    <string name="Moderador">Moderador</string>
-    <string name="Administrador">Administrador</string>
-    <string name="ElijaModo">Elija modo de Vista</string>
+    <string name="partidasJugadas">Games Played</string>
+    <string name="personajeMasUsado">Most Used Character</string>
+    <string name="partidasPerdidas">Games Lost</string>
+    <string name="partidasGanadas">Games Won</string>
+    <string name="bienvenido">Welcome</string>
+    <string name="VerPersonajes">View Characters</string>
+    <string name="verPartidas">View Games</string>
+    <string name="verObjetos">View Items</string>
+    <string name="acercade">About</string>
+    <string name="anyadirPelicula">Add Movie</string>
+    <string name="Aceptar">Accept</string>
+    <string name="Cancelar">Cancel</string>
+    <string name="Jugador">Player</string>
+    <string name="Moderador">Moderator</string>
+    <string name="Administrador">Administrator</string>
+    <string name="ElijaModo">Choose View Mode</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="partidasTotales">Partidas Totales Registradas</string>
-    <string name="rolesDisponibles">Roles Disponibles</string>
-    <string name="Usuarios">Usuarios Registrados</string>
-    <string name="verUsuarios">Ver Usuarios</string>
-    <string name="verRoles">ver Roles</string>
-    <string name="EnviarCorreo">Enviar Correo</string>
-    <string name="BuscarEnGoogle">Buscar en Google</string>
-    <string name="Tutoriales">Tutoriales</string>
-    <string name="VerTutoriales">VerTutoriales</string>
-    <string name="Eliminar">Eliminar</string>
-    <string name="Editar">Editar</string>
-    <string name="AntiguaContra">Contraseña Antigua</string>
-    <string name="NuevaContraseña">Nueva Contraseña</string>
-    <string name="EditarUsuario">Editar Usuario</string>
-    <string name="usuarioEliminado">Usuario Eliminado:</string>
-    <string name="GestionRoles">Gestion Roles</string>
-    <string name="Preferencias">Preferencias</string>
-    <string name="VerMedia">Ver Video Explicativo</string>
+    <string name="partidasTotales">Total Registered Games</string>
+    <string name="rolesDisponibles">Available Roles</string>
+    <string name="Usuarios">Registered Users</string>
+    <string name="verUsuarios">View Users</string>
+    <string name="verRoles">View Roles</string>
+    <string name="EnviarCorreo">Send Email</string>
+    <string name="BuscarEnGoogle">Search on Google</string>
+    <string name="Tutoriales">Tutorials</string>
+    <string name="VerTutoriales">View Tutorials</string>
+    <string name="Eliminar">Delete</string>
+    <string name="Editar">Edit</string>
+    <string name="AntiguaContra">Old Password</string>
+    <string name="NuevaContraseña">New Password</string>
+    <string name="EditarUsuario">Edit User</string>
+    <string name="usuarioEliminado">User Deleted:</string>
+    <string name="GestionRoles">Manage Roles</string>
+    <string name="Preferencias">Preferences</string>
+    <string name="VerMedia">Watch Explanation Video</string>
+    <string name="recordarUsuario">Remember User</string>
+    <string name="recordarContraseña">Remember Password</string>
+    <string name="guardar">Save</string>
+
+
 
 
 </resources>

@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -15,12 +17,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
+import com.example.fightball.AboutActivity;
 import com.example.fightball.Mod.ModAllMatchesActivity;
 import com.example.fightball.Mod.ModRoleActivity;
 import com.example.fightball.Mod.ModUsersActivity;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
+import com.example.fightball.PreferencesActivity;
 import com.example.fightball.R;
 
 import java.util.ArrayList;
@@ -64,6 +68,18 @@ public class AdminMainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.mi_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId()==R.id.acercaDe){
+            Intent intentAcercade=new Intent(this, AboutActivity.class);
+            startActivity(intentAcercade);
+        } else if (item.getItemId()==R.id.preferenciasId) {
+            Intent intentPreferencias =new Intent(this, PreferencesActivity.class);
+            startActivity(intentPreferencias);
+        }
+        return super.onOptionsItemSelected(item);
     }
     private void config() {
         sp = getSharedPreferences("FightBall", MODE_PRIVATE);

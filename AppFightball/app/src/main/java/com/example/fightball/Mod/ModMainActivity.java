@@ -21,7 +21,7 @@ import com.example.fightball.AboutActivity;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
-import com.example.fightball.Player.PlayerMatchesActiviy;
+import com.example.fightball.PreferencesActivity;
 import com.example.fightball.R;
 
 import java.util.ArrayList;
@@ -99,6 +99,9 @@ public class ModMainActivity extends AppCompatActivity {
         if(item.getItemId()==R.id.acercaDe){
          Intent intentAcercade=new Intent(this, AboutActivity.class);
          startActivity(intentAcercade);
+        } else if (item.getItemId()==R.id.preferenciasId) {
+            Intent intentPreferencias =new Intent(this, PreferencesActivity.class);
+            startActivity(intentPreferencias);
         }
         return super.onOptionsItemSelected(item);
     }
