@@ -6,6 +6,7 @@ import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
+import com.example.fightball.Models.UserRolesModel;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
@@ -43,6 +45,8 @@ public interface ApiInterface {
     //USERS ------------------------------------------------------------------------------------------------
     @GET("/api/users")
     Call<List<UserModel>>getAllUsers(@Header("Authorization") String authHeader);
+    @PUT("/api/users/{id}")
+    Call<UserRolesModel>editUser(@Header("Authorization") String authHeader,@Path("id") int id,@Body UserRolesModel user);
     //ROLE ------------------------------------------------------------------------------------------------
     @GET("/api/role")
     Call<List<RoleModel>>getAllRoles(@Header("Authorization") String authHeader);

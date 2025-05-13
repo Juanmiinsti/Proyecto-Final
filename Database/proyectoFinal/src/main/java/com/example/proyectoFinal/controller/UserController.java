@@ -3,6 +3,7 @@ package com.example.proyectoFinal.controller;
 import com.example.proyectoFinal.Entity.User;
 import com.example.proyectoFinal.dto.User.CreateUserDTO;
 import com.example.proyectoFinal.dto.User.UserDTO;
+import com.example.proyectoFinal.dto.User.UserWithRoleDTO;
 import com.example.proyectoFinal.exceptions.Response;
 import com.example.proyectoFinal.exceptions.exceptions.DeleteEntityException;
 import com.example.proyectoFinal.exceptions.exceptions.UpdateEntityException;
@@ -47,7 +48,7 @@ public class UserController {
     }
 
     @PutMapping("/users/{id}")
-    public ResponseEntity<?> modifyUser(@PathVariable int id, @Valid @RequestBody CreateUserDTO userDTO) {
+    public ResponseEntity<?> modifyUser(@PathVariable int id, @Valid @RequestBody UserWithRoleDTO userDTO) {
         try {
             User updatedUser = userService.modifyUser(id, mapper.mapType(userDTO, User.class));
             return new ResponseEntity<>(mapper.mapType(updatedUser, UserDTO.class), HttpStatus.OK);

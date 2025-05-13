@@ -44,6 +44,7 @@
     <string name="NuevaContraseña">Nueva Contraseña</string>
     <string name="EditarUsuario">Editar Usuario</string>
     <string name="usuarioEliminado">Usuario Eliminado:</string>
+    <string name="GestionRoles">Gestion Roles</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
