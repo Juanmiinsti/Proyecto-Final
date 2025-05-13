@@ -78,8 +78,9 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Configures the Retrofit base URL and sets up button click listeners.
+     *
      */
-    private void config() {
+    protected void config() {
         // Set base URL (local emulator)
         retroFitBuilder.build("http://10.0.2.2:8080");
 
@@ -92,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Displays a role selection dialog when the user has multiple roles.
      */
-    private void dialog() {
+    protected void dialog() {
         // Available roles to choose from
         String[] choices = {
                 this.getString(R.string.Jugador),
@@ -127,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
      *
      * @param aux Role ID (1 = Player, 2 = Moderator, 3 = Admin)
      */
-    private void goToActivity(int aux) {
+    protected void goToActivity(int aux) {
         switch (aux) {
             case 1:
                 startActivity(new Intent(LoginActivity.this, PlayerMainActivity.class));
@@ -145,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
      * After login, fetches user roles and navigates accordingly.
      * If multiple roles exist, it prompts the user to select one.
      */
-    private void selectMode() {
+    protected void selectMode() {
         try {
             // Call to fetch role IDs using username and saved token
             Call<List<Integer>> selectActivity = retroFitBuilder.callApi().rolesIdsByname(
@@ -182,7 +183,7 @@ public class LoginActivity extends AppCompatActivity {
      * Attempts to log in the user using the API.
      * On success, saves the token and triggers role selection.
      */
-    private void login() {
+    public void login() {
         try {
             // Create login payload
             LoginModel aux = new LoginModel(
