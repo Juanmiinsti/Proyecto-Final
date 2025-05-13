@@ -5,29 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutActivity">
+    tools:context=".MediaPlayerActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="257dp"
-        android:layout_height="311dp"
-        android:contentDescription="@string/AntiguaContra"
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="268dp"
+        android:layout_height="245dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <View
+        android:id="@+id/controllerSpacer"
+        android:layout_width="373dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347"
-        tools:srcCompat="@drawable/logofightball" />
-
-    <Button
-        android:id="@+id/verVideoBtn"
-        android:layout_width="121dp"
-        android:layout_height="66dp"
-        android:text="@string/VerMedia"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745" />
+        app:layout_constraintVertical_bias="0.847" />
 </androidx.constraintlayout.widget.ConstraintLayout>

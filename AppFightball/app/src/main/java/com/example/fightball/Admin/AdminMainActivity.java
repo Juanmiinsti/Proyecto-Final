@@ -80,7 +80,7 @@ public class AdminMainActivity extends AppCompatActivity {
         btVerUsariosTotales=findViewById(R.id.bttUsuariosAdmin);
 
 
-        Toolbar toolbar = findViewById(R.id.barraMenu);
+        Toolbar toolbar = findViewById(R.id.adminMenuBar);
         setSupportActionBar(toolbar);
 
         apicalls();
@@ -143,6 +143,7 @@ public class AdminMainActivity extends AppCompatActivity {
 
 
 
+
     private void getallUsers() {
 
         Call<List<UserModel>>getusers =retroFitBuilder.callApi().getAllUsers(sp.getString("key",""));
@@ -163,4 +164,7 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

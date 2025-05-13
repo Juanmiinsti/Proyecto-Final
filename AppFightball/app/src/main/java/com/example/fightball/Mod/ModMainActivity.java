@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -15,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
+import com.example.fightball.AboutActivity;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
@@ -81,7 +84,7 @@ public class ModMainActivity extends AppCompatActivity {
         btVerUsariosTotales=findViewById(R.id.bttVerUsuariosMod);
 
 
-        Toolbar toolbar = findViewById(R.id.barraMenu);
+        Toolbar toolbar = findViewById(R.id.modMenuBar);
         setSupportActionBar(toolbar);
 
         apicalls();
@@ -89,6 +92,15 @@ public class ModMainActivity extends AppCompatActivity {
         setListeners();
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId()==R.id.acercaDe){
+         Intent intentAcercade=new Intent(this, AboutActivity.class);
+         startActivity(intentAcercade);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setListeners() {
