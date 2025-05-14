@@ -47,6 +47,7 @@ offset_top = -375.0
 offset_right = 15.48
 offset_bottom = -348.0
 script = ExtResource("4_g5rw5")
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = -1

@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://le305iee0byt"]
+
+[ext_resource type="Script" path="res://single_char_selection.gd" id="1_7e5lo"]
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_list.gd" id="2_ck0ck"]
+[ext_resource type="PackedScene" uid="uid://50knxno5g2q8" path="res://Myassets/Scenes/CharacterSlot/CharacterSlot.tscn" id="3_sglx3"]
+[ext_resource type="Script" path="res://Resources/character.gd" id="4_pokvp"]
+[ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="5_shs1i"]
+[ext_resource type="Resource" uid="uid://bq71uyy5r6yb7" path="res://Myassets/Scenes/CharacterSelection/CharResources/martial.tres" id="6_4mrbc"]
+[ext_resource type="Resource" uid="uid://cit0qgsmsyvh8" path="res://Myassets/Scenes/CharacterSelection/CharResources/medieval.tres" id="7_0kfyp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhqpr"]
+bg_color = Color(0.923515, 0.939592, 0.76552, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7e5lo")
+
+[node name="characterSelection" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 1023.0
+offset_bottom = 583.0
+
+[node name="start" type="Button" parent="characterSelection"]
+layout_mode = 0
+offset_left = 841.0
+offset_top = 445.0
+offset_right = 987.0
+offset_bottom = 511.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="characterSelection"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 87.0
+offset_right = 560.0
+offset_bottom = 423.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vhqpr")
+
+[node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer"]
+layout_mode = 2
+script = ExtResource("2_ck0ck")
+character_slot = ExtResource("3_sglx3")
+characters = Array[ExtResource("4_pokvp")]([ExtResource("5_shs1i"), ExtResource("6_4mrbc"), ExtResource("7_0kfyp")])
+numplayer = 1
+
+[node name="ButtonBack" type="Button" parent="characterSelection"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 71.0
+offset_right = 183.0
+offset_bottom = 119.0
+text = "Back
+"
+
+[connection signal="pressed" from="characterSelection/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="characterSelection/ButtonBack" to="." method="_on_button_back_pressed"]

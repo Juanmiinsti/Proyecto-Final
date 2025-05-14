@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1oalifg374op"]
+
+[ext_resource type="Script" path="res://wave_mode.gd" id="1_2hkax"]
+[ext_resource type="PackedScene" uid="uid://8tj5l7mlmaq6" path="res://Myassets/Entities/PCharacter/PCharacter.tscn" id="2_rfm1d"]
+[ext_resource type="Script" path="res://Myassets/Scripts/ProgressBar/progress_bar.gd" id="3_rvj00"]
+[ext_resource type="PackedScene" uid="uid://crncnhf88qk78" path="res://Myassets/Entities/Enemy/enemy.tscn" id="4_6yeyr"]
+[ext_resource type="Script" path="res://wave_manager.gd" id="5_81kkg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f5iur"]
+vertices = PackedVector2Array(108.992, 456, 10.0391, 456, 11.9531, 9.10156, 288.953, 12, 1139.04, 455, 1140.96, 12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, -1, 289, 2, 1151, 2, 1149, 465, 109, 466, 0, 466)])
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ucjas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uafo0"]
+size = Vector2(1152, 172)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1esi"]
+size = Vector2(138, 580.25)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2hkax")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-1, 14)
+navigation_polygon = SubResource("NavigationPolygon_f5iur")
+
+[node name="player1" parent="NavigationRegion2D" node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_rfm1d")]
+position = Vector2(193, 430)
+HealthBar = NodePath("../../CanvasLayer/ProgressBar")
+
+[node name="SpawnPoints" type="Node2D" parent="NavigationRegion2D"]
+position = Vector2(1, -14)
+
+[node name="SpawnPoint1" type="Marker2D" parent="NavigationRegion2D/SpawnPoints"]
+position = Vector2(1037, 455)
+
+[node name="SpawnPoint2" type="Marker2D" parent="NavigationRegion2D/SpawnPoints"]
+position = Vector2(701, 451)
+
+[node name="SpawnPoint3" type="Marker2D" parent="NavigationRegion2D/SpawnPoints"]
+position = Vector2(832, 449)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(579, 557)
+scale = Vector2(1154, 170.75)
+texture = SubResource("AnimatedTexture_ucjas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(578, 558)
+shape = SubResource("RectangleShape2D_uafo0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.26
+anchor_top = 0.83642
+anchor_right = 0.436215
+anchor_bottom = 0.83642
+offset_left = 11.48
+offset_top = -375.0
+offset_right = 15.48
+offset_bottom = -348.0
+script = ExtResource("3_rvj00")
+metadata/_edit_use_anchors_ = true
+
+[node name="waveNumber" type="Label" parent="."]
+offset_left = 298.0
+offset_top = 239.0
+offset_right = 373.0
+offset_bottom = 277.0
+text = "wave number: "
+
+[node name="WaveManager" type="Node2D" parent="."]
+script = ExtResource("5_81kkg")
+enemy_scene = ExtResource("4_6yeyr")
+spawn_points = Array[NodePath]([NodePath("../NavigationRegion2D/SpawnPoints/SpawnPoint1"), NodePath("../NavigationRegion2D/SpawnPoints/SpawnPoint2"), NodePath("../NavigationRegion2D/SpawnPoints/SpawnPoint3")])
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1225, 289)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1295, -52.875)
+shape = SubResource("RectangleShape2D_a1esi")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1225, 289)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_a1esi")

@@ -1,25 +1,46 @@
 extends CharacterBody2D
 
+const SPEED = 60.0
+@onready var maxHealth = 100
+@onready var damage = 10
+@onready var currentHealth = maxHealth
+@onready var healthBar = $Sprite2D/ProgressBar
+@onready var navigation_agent:NavigationAgent2D =$NavigationAgent2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var targetTochase : CharacterBody2D
+var player: Node2D
 
+func _ready() -> void:
+	healthBar.update_health_bar(currentHealth)
+	set_physics_process(false)
+	call_deferred("wait_for_physics")
+	call_deferred("initialize_navigation")
+	
+func initialize_navigation():
+	if targetTochase:
+		navigation_agent.target_position = targetTochase.global_position
+	
+	
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	if navigation_agent.is_navigation_finished() and\
+				targetTochase.global_position  == navigation_agent.target_position:
+		return
+		
+	navigation_agent.target_position=targetTochase.global_position
+	# Asegúrate de aplicar la gravedad correctamente
+	velocity=global_position.direction_to(navigation_agent.get_next_path_position()) * SPEED
+	
 	move_and_slide()
+
+func take_damage(amount: int):
+	currentHealth -= amount
+	healthBar.update_health_bar(currentHealth)
+
+func _on_progress_bar_value_changed(value: float) -> void:
+	if currentHealth <= 0:
+		queue_free()
+
+func wait_for_physics():
+	await get_tree().physics_frame
+	set_physics_process(true)

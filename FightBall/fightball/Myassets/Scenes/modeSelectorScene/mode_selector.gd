@@ -34,3 +34,7 @@ func _on_button_back_pressed() -> void:
 
 func _on_button_online_pressed() -> void:
 	SceneManager.go_to("res://Myassets/Scenes/Online/JcjOnline.tscn")
+
+
+func _on_button_jcia_pressed() -> void:
+	SceneManager.go_to("res://singleCharSelection.tscn")
