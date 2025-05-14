@@ -21,6 +21,7 @@ import com.example.fightball.AboutActivity;
 import com.example.fightball.Mod.ModAllMatchesActivity;
 import com.example.fightball.Mod.ModRoleActivity;
 import com.example.fightball.Mod.ModUsersActivity;
+import com.example.fightball.Models.EnemyModel;
 import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.MatchModel;
@@ -28,6 +29,8 @@ import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.PreferencesActivity;
 import com.example.fightball.R;
+
+import org.jetbrains.dokka.model.doc.Li;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,11 +52,13 @@ public class AdminMainActivity extends AppCompatActivity {
     Button btVerUsariosTotales;
 
     Button btnVerItems;
+    Button btnVerEnemigos;
 
     static public ArrayList<UserModel> users;
     static public ArrayList<RoleModel>roles;
     static public ArrayList<MatchModel>matches;
     static public ArrayList<ItemModelAdmin>items;
+    static public ArrayList<EnemyModel>enemies;
 
     RetroFitBuilder retroFitBuilder = RetroFitBuilder.getInstance();
     SharedPreferences sp;
@@ -100,7 +105,7 @@ public class AdminMainActivity extends AppCompatActivity {
         btverTutoriales=findViewById(R.id.bttTutorialesAdmin);
         btVerUsariosTotales=findViewById(R.id.bttUsuariosAdmin);
         btnVerItems=findViewById(R.id.bttveritemsAdmin);
-
+        btnVerEnemigos=findViewById(R.id.bttVerEnemigos);
 
         Toolbar toolbar = findViewById(R.id.adminMenuBar);
         setSupportActionBar(toolbar);
@@ -131,6 +136,10 @@ public class AdminMainActivity extends AppCompatActivity {
             Intent intent=new Intent(this,AdminItemsActivity.class);
             startActivity(intent);
         });
+        btnVerEnemigos.setOnClickListener(e->{
+            Intent intent=new Intent(this,AdminEnemiesActivity.class);
+            startActivity(intent);
+        });
 
 
     }
@@ -143,9 +152,30 @@ public class AdminMainActivity extends AppCompatActivity {
 
             getItems();
 
+            getEnemies();
+
+
         } catch (Exception e) {
             System.out.println("error"+ e.getMessage());
         }
+    }
+
+    private void getEnemies() {
+        Call<List<EnemyModel>>getEnemies=retroFitBuilder.callApi().getAllEnemies(sp.getString("key",""));
+        getEnemies.enqueue(new Callback<List<EnemyModel>>() {
+            @Override
+            public void onResponse(Call<List<EnemyModel>> call, Response<List<EnemyModel>> response) {
+                if (response.body()!=null){
+                    enemies= (ArrayList<EnemyModel>) response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<EnemyModel>> call, Throwable t) {
+                System.out.println("error en la llamada a getEnemiesAdmin");
+
+            }
+        });
     }
 
     private void getItems() {

@@ -1,6 +1,7 @@
 package com.example.fightball.API;
 
 import com.example.fightball.Models.CharacterModel;
+import com.example.fightball.Models.EnemyModel;
 import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.LoginModel;
@@ -87,6 +88,18 @@ public interface ApiInterface {
     @DELETE("/api/users/{id}")
     Call<Boolean> deleteUser(@Header("Authorization" ) String authHeader ,@Path("id") int id);
 
+    //ENEMY------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------------------------------------//
+    @GET("/api/enemies")
+    Call<List <EnemyModel>> getenemys(@Header("Authorization")String authHeader);
+    @DELETE("/api/enemies/{id}")
+    Call<Boolean> deletEnemy(@Header("Authorization")String authHeader,@Path("id") int id);
+    @POST("/api/enemies")
+    Call<EnemyModel> creatEnemy(@Header("Authorization")String authHeader,@Body EnemyModel item);
+
+    @PUT("/api/enemies/{id}")
+    Call<EnemyModel> EditEnemy(@Header("Authorization")String authHeader, @Path("id") int id, @Body EnemyModel item);
 
 
 

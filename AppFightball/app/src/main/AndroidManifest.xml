@@ -20,7 +20,7 @@
             android:name=".Admin.AdminItemsActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminEnemysActivity"
+            android:name=".Admin.AdminEnemiesActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.EditEnemyActivity"

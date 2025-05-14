@@ -2,6 +2,7 @@ package com.example.fightball.API;
 
 // Importación de modelos de datos utilizados en las llamadas
 import com.example.fightball.Models.CharacterModel;
+import com.example.fightball.Models.EnemyModel;
 import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.LoginModel;
@@ -203,6 +204,50 @@ public class ApiCalls {
      */
     public Call<List<MatchModel>> geMatchesByName(String name, String key) {
         return apiInterface.geMatchesByName(name, key);
+    }
+
+    // =========================================================================
+    // =                               ENEMIES                             =
+    // =========================================================================
+
+    /**
+     * Obtiene todos los enemigos registrados.
+     * @param key Token de autorización.
+     * @return Lista de enemigos.
+     */
+    public Call<List<EnemyModel>> getAllEnemies(String key) {
+        return apiInterface.getenemys(key);
+    }
+
+    /**
+     * Elimina un enemigo específico.
+     * @param key Token de autorización.
+     * @param id ID del enemigo a eliminar.
+     * @return Resultado de la operación (true/false).
+     */
+    public Call<Boolean> deleteEnemy(String key, int id) {
+        return apiInterface.deletEnemy(key, id);
+    }
+
+    /**
+     * Crea un nuevo enemigo.
+     * @param key Token de autorización.
+     * @param enemy Datos del enemigo a crear.
+     * @return Enemigo creado.
+     */
+    public Call<EnemyModel> createEnemy(String key, EnemyModel enemy) {
+        return apiInterface.creatEnemy(key, enemy);
+    }
+
+    /**
+     * Edita un enemigo existente.
+     * @param key Token de autorización.
+     * @param id ID del enemigo a editar.
+     * @param enemy Datos actualizados del enemigo.
+     * @return Enemigo actualizado.
+     */
+    public Call<EnemyModel> editEnemy(String key, int id, EnemyModel enemy) {
+        return apiInterface.EditEnemy(key, id, enemy);
     }
 
 }
