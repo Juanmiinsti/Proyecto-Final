@@ -10,6 +10,7 @@ var status: bool = false
 var current_room_id: int = -1
 var is_host := false
 var host_ip := "127.0.0.1"
+var urlSpring:="http://localhost:8080"
 
 
 func load_user_data():

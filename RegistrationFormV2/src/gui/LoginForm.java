@@ -81,7 +81,7 @@ public class LoginForm extends JFrame {
                     dispose();
                     //pantalla de carga
                     SplashScreen.mostrarSplashYContinuar(() -> {
-                        registration.iniciarPrograma(); // Aquí empieza tu app real
+                        InfoViewerApp.iniciarPrograma(); // Aquí empieza tu app real
                     });
 
                 }else {

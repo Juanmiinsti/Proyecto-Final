@@ -7,6 +7,7 @@ const SPEED = 30.0
 @onready var healthBar = $Sprite2D/ProgressBar
 @onready var navigation_agent:NavigationAgent2D =$NavigationAgent2D
 
+
 @export var targetTochase : CharacterBody2D
 var player: Node2D
 
@@ -20,7 +21,10 @@ func initialize_navigation():
 	if targetTochase:
 		navigation_agent.target_position = targetTochase.global_position
 	
-	
+func setStats(aux :EnemyDB)->void:
+	$name.text=aux.naame
+	maxHealth=aux.max_health
+	damage=aux.damage
 
 func _physics_process(delta: float) -> void:
 	if navigation_agent.is_navigation_finished() and\

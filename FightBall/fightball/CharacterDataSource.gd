@@ -2,15 +2,15 @@ extends Node
 
 var DBcharacters: Array[CharacterDB] = []
 var getAllCharacter: HTTPRequest
+var data_hash: int = 0
+var already_loaded: bool = false
 
 func _ready() -> void:
-	# Esperar a que la sesión esté lista
 	if PlayerInfo.userKey.is_empty():
 		PlayerInfo.session_ready.connect(_on_session_ready)
 	else:
 		_on_session_ready()
 
-# Disparado una vez que PlayerInfo carga el token
 func _on_session_ready() -> void:
 	print("🟢 PlayerInfo listo. Obteniendo personajes...")
 	print(PlayerInfo.userName)
@@ -28,7 +28,7 @@ func _on_session_ready() -> void:
 	]
 
 	var result = getAllCharacter.request(
-		"http://localhost:8080/api/characters",
+		PlayerInfo.urlSpring + "/api/characters",
 		headers,
 		HTTPClient.METHOD_GET
 	)
@@ -40,7 +40,13 @@ func _on_get_all_request_request_completed(result: int, response_code: int, head
 	if response_code == 200:
 		var json_string = body.get_string_from_utf8()
 		var parsed_json = JSON.parse_string(json_string)
+		var new_hash = hash(json_string)
 
+		if already_loaded and new_hash == data_hash:
+			print("🔁 Los personajes ya estaban cargados y no han cambiado.")
+			return
+
+		DBcharacters.clear()
 		if parsed_json is Array and parsed_json.size() > 0:
 			for char_data in parsed_json:
 				var new_character = parseCharacter(char_data)
@@ -49,6 +55,9 @@ func _on_get_all_request_request_completed(result: int, response_code: int, head
 			print("✅ Personajes cargados:", DBcharacters.size())
 		else:
 			print("⚠️ La respuesta está vacía o mal formada")
+
+		data_hash = new_hash
+		already_loaded = true
 	else:
 		print("❌ Error HTTP", response_code)
 

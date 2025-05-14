@@ -1,15 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1oalifg374op"]
+[gd_scene load_steps=11 format=3 uid="uid://b1oalifg374op"]
 
 [ext_resource type="Script" path="res://wave_mode.gd" id="1_2hkax"]
 [ext_resource type="PackedScene" uid="uid://8tj5l7mlmaq6" path="res://Myassets/Entities/PCharacter/PCharacter.tscn" id="2_rfm1d"]
 [ext_resource type="Script" path="res://Myassets/Scripts/ProgressBar/progress_bar.gd" id="3_rvj00"]
 [ext_resource type="PackedScene" uid="uid://crncnhf88qk78" path="res://Myassets/Entities/Enemy/enemy.tscn" id="4_6yeyr"]
 [ext_resource type="Script" path="res://wave_manager.gd" id="5_81kkg"]
+[ext_resource type="PackedScene" uid="uid://ciwyv0bh1opdl" path="res://pause.tscn" id="6_7pjic"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f5iur"]
 vertices = PackedVector2Array(108.992, 456, 10.0391, 456, 11.9531, 9.3125, 330.891, 19, 1139.04, 455, 1140.95, 12.0781)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(2, -1, 331, 9, 1151, 2, 1149, 465, 109, 466, 0, 466)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, -1, 332, -9, 1151, 2, 1149, 465, 109, 466, 0, 466)])
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ucjas"]
 
@@ -41,15 +42,6 @@ position = Vector2(701, 451)
 
 [node name="SpawnPoint3" type="Marker2D" parent="NavigationRegion2D/SpawnPoints"]
 position = Vector2(832, 449)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
-position = Vector2(103, 124)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="NavigationRegion2D"]
-position = Vector2(103, 124)
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="NavigationRegion2D"]
-position = Vector2(103, 124)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, 0)
@@ -86,6 +78,7 @@ offset_bottom = 98.0
 text = "wave number: "
 
 [node name="WaveManager" type="Node2D" parent="."]
+position = Vector2(31, 13)
 script = ExtResource("5_81kkg")
 enemy_scene = ExtResource("4_6yeyr")
 spawn_points = Array[NodePath]([NodePath("../NavigationRegion2D/SpawnPoints/SpawnPoint1"), NodePath("../NavigationRegion2D/SpawnPoints/SpawnPoint2"), NodePath("../NavigationRegion2D/SpawnPoints/SpawnPoint3")])
@@ -109,3 +102,5 @@ offset_left = 395.0
 offset_top = 126.0
 offset_right = 435.0
 offset_bottom = 149.0
+
+[node name="pause" parent="." instance=ExtResource("6_7pjic")]

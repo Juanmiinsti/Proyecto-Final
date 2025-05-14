@@ -45,7 +45,7 @@ func sendMatch() -> void:
 	add_child(http)
 	http.request_completed.connect(_on_request_completed)
 
-	var url = "http://localhost:8080/api/matches"
+	var url = PlayerInfo.urlSpring+"/api/matches"
 
 	# Armamos el cuerpo de la petición como espera el backend
 	var data = {

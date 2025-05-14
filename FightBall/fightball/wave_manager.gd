@@ -18,7 +18,6 @@ func start_wave(wave_number: int):
 	enemies_alive = enemies_to_spawn
 	$"../enemies_alive".text="Enemmies alive" + str(enemies_alive)
 	print("OLEADA ", wave_number)
-
 	for i in enemies_to_spawn:
 		spawn_enemy()
 		if get_tree() != null:
@@ -26,6 +25,12 @@ func start_wave(wave_number: int):
 
 func spawn_enemy():
 	var enemy_instance = enemy_scene.instantiate()
+	if not EnemyDataSource.DBenemies.is_empty():
+		var enemy_data: EnemyDB = EnemyDataSource.DBenemies.pick_random()
+		print(enemy_data)
+	# Asignar datos del EnemyDB
+		enemy_instance.setStats(enemy_data)
+		
 	$"../enemies_alive".text="Enemmies alive" + str(enemies_alive)
 	enemy_instance.targetTochase=$"../NavigationRegion2D/player1"
 	var spawn_position = get_node(spawn_points.pick_random()).global_position
@@ -34,13 +39,16 @@ func spawn_enemy():
 
 	# Conectamos al jugador
 	
+	
+	
 
 	# Restar enemigos cuando mueren
 	enemy_instance.connect("tree_exited", Callable(self, "_on_enemy_died"))
 
 func _on_enemy_died():
-	$"../enemies_alive".text="Enemmies alive" + str(enemies_alive)
 	enemies_alive -= 1
+	$"../enemies_alive".text="Enemmies alive" + str(enemies_alive)
+
 	if enemies_alive <= 0:
 		print("Todos los enemigos eliminados. Próxima oleada...")
 		if get_tree() != null:

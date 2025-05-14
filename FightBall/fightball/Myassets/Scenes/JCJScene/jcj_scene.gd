@@ -105,8 +105,7 @@ func _on_progress_bar_value_changed(value: float) -> void:
 			print("🏁 p1Victory:", CurrentMatch.p1Victory)
 			print("🏁 p2Victory:", CurrentMatch.p2Victory)
 			print("🏁 Llamando a SceneManager:", SceneManager)	
-			# Cambia a la escena del selector de modo
-			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
+			
 
 			
 			# Reinicia contadores de victoria
@@ -129,6 +128,11 @@ func _on_progress_bar_value_changed(value: float) -> void:
 			
 			# Envía los datos del match
 			CurrentMatch.sendMatch()
+			
+			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
+			Persistence.character=null
+			Persistence.character2=null
+			# Cambia a la escena del selector de modo
 			
 		# Si no ha ganado 2 veces pero perdió, recarga la escena    
 		elif not CurrentMatch.firstTime:
@@ -153,8 +157,7 @@ func _on_progress_bar_2_value_changed(value: float) -> void:
 			var p2 = $player2
 			
 			
-			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
-			# Cambia a la escena del selector de modo
+			
 			
 
 			
@@ -184,6 +187,10 @@ func _on_progress_bar_2_value_changed(value: float) -> void:
 			# Envía los datos del match
 			CurrentMatch.sendMatch()
 			
+			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
+			# Cambia a la escena del selector de modo
+			Persistence.character=null
+			Persistence.character2=null
 		# Si no ha ganado 2 veces pero perdió, recarga la escena    
 		elif not CurrentMatch.firstTime:
 			get_tree().reload_current_scene()
