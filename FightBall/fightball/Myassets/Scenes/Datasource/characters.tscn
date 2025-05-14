@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvb3mvbjxvmvm"]
+
+[ext_resource type="Script" path="res://CharacterDataSource.gd" id="1_sojow"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_sojow")
+
+[node name="GetAllRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="GetAllRequest" to="." method="_on_get_all_request_request_completed"]

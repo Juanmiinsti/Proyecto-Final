@@ -1,10 +1,95 @@
-[gd_scene load_steps=3 format=3 uid="uid://qoqlby5jmq2s"]
+[gd_scene load_steps=6 format=3 uid="uid://qoqlby5jmq2s"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/JCJScene/jcj_scene.gd" id="1_ljgfj"]
-[ext_resource type="PackedScene" uid="uid://dsd0et6opgiw1" path="res://Myassets/Entities/Characters/Huntress/Character1.tscn" id="2_6p8m0"]
+[ext_resource type="PackedScene" uid="uid://8tj5l7mlmaq6" path="res://Myassets/Entities/PCharacter/PCharacter.tscn" id="2_f7s7o"]
+[ext_resource type="Script" path="res://Myassets/Scripts/ProgressBar/progress_bar.gd" id="4_g5rw5"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0pl2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyd6n"]
+size = Vector2(1152, 172)
+
+[node name="Node2D2" type="Node2D"]
+position = Vector2(440, 384)
 script = ExtResource("1_ljgfj")
 
-[node name="Node2D" parent="." instance=ExtResource("2_6p8m0")]
-position = Vector2(201, -69)
+[node name="player1" parent="." node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_f7s7o")]
+position = Vector2(-6, -72)
+HealthBar = NodePath("../CanvasLayer/ProgressBar")
+numPlayer = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(137, 78)
+scale = Vector2(1154, 170.75)
+texture = SubResource("AnimatedTexture_0pl2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(138, 79)
+shape = SubResource("RectangleShape2D_tyd6n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(156, -64)
+zoom = Vector2(1.9, 1.9)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.26
+anchor_top = 0.83642
+anchor_right = 0.436215
+anchor_bottom = 0.83642
+offset_left = 11.48
+offset_top = -375.0
+offset_right = 15.48
+offset_bottom = -348.0
+script = ExtResource("4_g5rw5")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.26
+anchor_top = 0.83642
+anchor_right = 0.436215
+anchor_bottom = 0.83642
+offset_left = 355.48
+offset_top = -372.0
+offset_right = 359.48
+offset_bottom = -345.0
+script = ExtResource("4_g5rw5")
+
+[node name="player2" parent="." node_paths=PackedStringArray("HealthBar") instance=ExtResource("2_f7s7o")]
+position = Vector2(329, -37)
+HealthBar = NodePath("../CanvasLayer/ProgressBar2")
+numPlayer = 2
+
+[node name="win1P2" type="ColorRect" parent="."]
+offset_left = 396.0
+offset_top = -181.0
+offset_right = 417.0
+offset_bottom = -162.0
+
+[node name="win2P2" type="ColorRect" parent="."]
+offset_left = 369.0
+offset_top = -181.0
+offset_right = 390.0
+offset_bottom = -162.0
+rotation = -0.0020408
+
+[node name="win1P1" type="ColorRect" parent="."]
+offset_left = -135.0
+offset_top = -182.0
+offset_right = -115.0
+offset_bottom = -162.0
+
+[node name="win2P1" type="ColorRect" parent="."]
+offset_left = -110.0
+offset_top = -182.0
+offset_right = -90.0
+offset_bottom = -162.0
+
+[connection signal="value_changed" from="CanvasLayer/ProgressBar" to="." method="_on_progress_bar_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/ProgressBar2" to="." method="_on_progress_bar_2_value_changed"]

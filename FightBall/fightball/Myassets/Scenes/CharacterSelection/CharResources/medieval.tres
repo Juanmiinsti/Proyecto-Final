@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://cit0qgsmsyvh8"]
+
+[ext_resource type="Texture2D" uid="uid://dhhkrqykkv62d" path="res://Resources/icons/medieval.png" id="1_lr4mj"]
+[ext_resource type="Script" path="res://Resources/character.gd" id="2_2cw31"]
+
+[resource]
+script = ExtResource("2_2cw31")
+name = "medieval"
+icon = ExtResource("1_lr4mj")
+animation_name = "medieval"

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FightBall"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".Admin.AdminItemsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdminEnemiesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.EditEnemyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.EditItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreferencesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MediaPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.EditTutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.EditUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdminTutorialsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdminMatchesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdminUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdminMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mod.ModRoleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mod.ModUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mod.ModAllMatchesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mod.ModMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Player.PlayerItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Player.PlayerCharactersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Player.PlayerMatchesActiviy"
+            android:exported="false" />
+        <activity
+            android:name=".Player.PlayerMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

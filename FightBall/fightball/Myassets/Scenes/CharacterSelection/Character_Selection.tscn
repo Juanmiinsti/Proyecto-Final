@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://vv4211ik6xxt"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_list.gd" id="1_4hu76"]
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_selection.gd" id="1_56lu5"]
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/start.gd" id="1_vnkta"]
+[ext_resource type="PackedScene" uid="uid://50knxno5g2q8" path="res://Myassets/Scenes/CharacterSlot/CharacterSlot.tscn" id="2_2o32p"]
+[ext_resource type="Script" path="res://Resources/character.gd" id="3_xu5k1"]
+[ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="4_h3bmy"]
+[ext_resource type="Resource" uid="uid://bq71uyy5r6yb7" path="res://Myassets/Scenes/CharacterSelection/CharResources/martial.tres" id="5_g44lj"]
+[ext_resource type="Resource" uid="uid://cit0qgsmsyvh8" path="res://Myassets/Scenes/CharacterSelection/CharResources/medieval.tres" id="6_8cden"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhctd"]
+bg_color = Color(0.923515, 0.939592, 0.76552, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_56lu5")
+
+[node name="characterSelection" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 1023.0
+offset_bottom = 583.0
+
+[node name="start" type="Button" parent="characterSelection"]
+layout_mode = 0
+offset_left = 841.0
+offset_top = 445.0
+offset_right = 987.0
+offset_bottom = 511.0
+script = ExtResource("1_vnkta")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="characterSelection"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 87.0
+offset_right = 364.0
+offset_bottom = 423.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhctd")
+
+[node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer"]
+layout_mode = 2
+script = ExtResource("1_4hu76")
+character_slot = ExtResource("2_2o32p")
+characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])
+numplayer = 1
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="characterSelection"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 85.0
+offset_right = 782.0
+offset_bottom = 421.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhctd")
+
+[node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer2"]
+layout_mode = 2
+script = ExtResource("1_4hu76")
+character_slot = ExtResource("2_2o32p")
+characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])
+numplayer = 2
+
+[node name="ButtonBack" type="Button" parent="characterSelection"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 71.0
+offset_right = 183.0
+offset_bottom = 119.0
+text = "Back
+"
+
+[connection signal="pressed" from="characterSelection/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="characterSelection/ButtonBack" to="." method="_on_button_back_pressed"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://50knxno5g2q8"]
+
+[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSlot/character_slot.gd" id="1_444fo"]
+
+[node name="CharacterSlot" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+script = ExtResource("1_444fo")
+
+[node name="Texturebutton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 23.0
+offset_right = 110.0
+offset_bottom = 105.0
+
+[node name="Select" type="Line2D" parent="."]
+visible = false
+position = Vector2(10, -28)
+scale = Vector2(4.15, 4.4)
+points = PackedVector2Array(-2.16867, 6.36364, 21.4458, 6.59091, 21.4458, 28.8636, -2.40964, 28.8636, -2.16867, 5.45455)
+width = 2.0
+
+[connection signal="pressed" from="Texturebutton" to="." method="_button_pressed"]
