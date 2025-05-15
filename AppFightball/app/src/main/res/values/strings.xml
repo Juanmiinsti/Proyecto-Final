@@ -58,6 +58,8 @@
     <string name="crear">Create</string>
     <string name="insertecantidad">Insert Quantity</string>
     <string name="verenemigos">View Enemies</string>
+    <string name="insertarnombre">Insert Name</string>
+    <string name="descripcion">Description</string>
 
 
 </resources>

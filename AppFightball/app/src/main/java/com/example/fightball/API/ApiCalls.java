@@ -8,6 +8,7 @@ import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
+import com.example.fightball.Models.TutorialModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.Models.UserRolesModel;
 
@@ -249,5 +250,52 @@ public class ApiCalls {
     public Call<EnemyModel> editEnemy(String key, int id, EnemyModel enemy) {
         return apiInterface.EditEnemy(key, id, enemy);
     }
+
+
+    // =========================================================================
+    // =                               Tutorial                             =
+    // =========================================================================
+
+
+    /**
+     * Obtiene todos los tutoriales.
+     * @param key Token de autorización.
+     * @return Lista de tutoriales.
+     */
+    public Call<List<TutorialModel>> getTutorials(String key) {
+        return apiInterface.getTutorials(key);
+    }
+
+    /**
+     * Elimina un tutorial por su ID.
+     * @param authHeader Token de autorización.
+     * @param id ID del tutorial.
+     * @return Llamada con valor booleano de éxito.
+     */
+    public Call<Boolean> deleteTutorial(String authHeader, int id) {
+        return apiInterface.deleteTutorial(authHeader, id);
+    }
+
+    /**
+     * Crea un nuevo tutorial.
+     * @param authHeader Token de autorización.
+     * @param tutorial Objeto del nuevo tutorial.
+     * @return Tutorial creado.
+     */
+    public Call<TutorialModel> createTutorial(String authHeader, TutorialModel tutorial) {
+        return apiInterface.createTutorial(authHeader, tutorial);
+    }
+
+    /**
+     * Edita un tutorial existente.
+     * @param authHeader Token de autorización.
+     * @param id ID del tutorial.
+     * @param tutorial Objeto del tutorial actualizado.
+     * @return Tutorial actualizado.
+     */
+    public Call<TutorialModel> editTutorial(String authHeader, int id, TutorialModel tutorial) {
+        return apiInterface.editTutorial(authHeader, id, tutorial);
+    }
+
 
 }

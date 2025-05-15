@@ -26,6 +26,7 @@ import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.RoleModel;
+import com.example.fightball.Models.TutorialModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.PreferencesActivity;
 import com.example.fightball.R;
@@ -59,6 +60,7 @@ public class AdminMainActivity extends AppCompatActivity {
     static public ArrayList<MatchModel>matches;
     static public ArrayList<ItemModelAdmin>items;
     static public ArrayList<EnemyModel>enemies;
+    static public ArrayList<TutorialModel>tutorials;
 
     RetroFitBuilder retroFitBuilder = RetroFitBuilder.getInstance();
     SharedPreferences sp;
@@ -129,7 +131,8 @@ public class AdminMainActivity extends AppCompatActivity {
         });
 
         btverTutoriales.setOnClickListener(e ->{
-
+            Intent intent=new Intent(this, AdminTutorialsActivity.class);
+            startActivity(intent);
         });
 
         btnVerItems.setOnClickListener(e->{
