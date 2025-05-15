@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.Adapters.MatchAdapter;
-import com.example.fightball.Mod.ModMainActivity;
 import com.example.fightball.R;
 
 public class AdminMatchesActivity extends AppCompatActivity {

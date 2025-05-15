@@ -1,44 +1,81 @@
-[gd_scene load_steps=10 format=3 uid="uid://vv4211ik6xxt"]
+[gd_scene load_steps=19 format=3 uid="uid://vv4211ik6xxt"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_list.gd" id="1_4hu76"]
 [ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/character_selection.gd" id="1_56lu5"]
-[ext_resource type="Script" path="res://Myassets/Scenes/CharacterSelection/start.gd" id="1_vnkta"]
+[ext_resource type="Texture2D" uid="uid://bdwmm0f7h1x6e" path="res://Resources/img/fondoPJSelection.png" id="2_0oha5"]
 [ext_resource type="PackedScene" uid="uid://50knxno5g2q8" path="res://Myassets/Scenes/CharacterSlot/CharacterSlot.tscn" id="2_2o32p"]
+[ext_resource type="Texture2D" uid="uid://drdfsa15trexc" path="res://Resources/img/fondoTablero.png" id="2_d1xil"]
+[ext_resource type="Texture2D" uid="uid://hr8bwj6oov5i" path="res://Resources/img/btNextNormal.png" id="3_utjpn"]
 [ext_resource type="Script" path="res://Resources/character.gd" id="3_xu5k1"]
+[ext_resource type="Texture2D" uid="uid://cehv2trp5klha" path="res://Resources/img/btNexthoverPNG.PNG" id="4_3we4u"]
 [ext_resource type="Resource" uid="uid://dui1o6sntgqrc" path="res://Myassets/Scenes/CharacterSelection/CharResources/huntress.tres" id="4_h3bmy"]
 [ext_resource type="Resource" uid="uid://bq71uyy5r6yb7" path="res://Myassets/Scenes/CharacterSelection/CharResources/martial.tres" id="5_g44lj"]
 [ext_resource type="Resource" uid="uid://cit0qgsmsyvh8" path="res://Myassets/Scenes/CharacterSelection/CharResources/medieval.tres" id="6_8cden"]
+[ext_resource type="Texture2D" uid="uid://dc30hbou8vcxw" path="res://Resources/img/pergamino.png" id="6_vgxxi"]
+[ext_resource type="Texture2D" uid="uid://cy38h6chs8gl7" path="res://Resources/img/backnormal.png" id="13_o8st0"]
+[ext_resource type="Texture2D" uid="uid://bwwaxiw2emgiq" path="res://Resources/img/backpressPNG.PNG" id="14_24g1j"]
+[ext_resource type="Texture2D" uid="uid://ct5rt2osqg3ix" path="res://Resources/img/backhover.PNG" id="15_qq2y5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhctd"]
-bg_color = Color(0.923515, 0.939592, 0.76552, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t25vv"]
+texture = ExtResource("2_d1xil")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sp13b"]
+texture = ExtResource("6_vgxxi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vk55m"]
+texture = ExtResource("6_vgxxi")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_56lu5")
 
-[node name="characterSelection" type="Panel" parent="."]
-offset_left = 36.0
-offset_top = 22.0
-offset_right = 1023.0
-offset_bottom = 583.0
+[node name="fondo" type="TextureRect" parent="."]
+offset_left = -25.0
+offset_top = -27.0
+offset_right = 1445.0
+offset_bottom = 850.0
+scale = Vector2(0.880247, 0.826699)
+texture = ExtResource("2_0oha5")
+expand_mode = 1
 
-[node name="start" type="Button" parent="characterSelection"]
+[node name="characterSelection" type="Panel" parent="."]
+offset_left = 88.0
+offset_top = 38.0
+offset_right = 1075.0
+offset_bottom = 599.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_t25vv")
+
+[node name="start" type="TextureButton" parent="characterSelection"]
 layout_mode = 0
-offset_left = 841.0
-offset_top = 445.0
-offset_right = 987.0
-offset_bottom = 511.0
-script = ExtResource("1_vnkta")
+offset_left = 793.0
+offset_top = 233.0
+offset_right = 939.0
+offset_bottom = 299.0
+texture_normal = ExtResource("3_utjpn")
+texture_hover = ExtResource("4_3we4u")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="characterSelection"]
-layout_mode = 0
-offset_left = 257.0
-offset_top = 87.0
-offset_right = 364.0
-offset_bottom = 423.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hhctd")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.5
+offset_top = -253.5
+offset_right = -5.5
+offset_bottom = 266.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sp13b")
 
 [node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 33
+theme_override_constants/v_separation = 33
 script = ExtResource("1_4hu76")
 character_slot = ExtResource("2_2o32p")
 characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])
@@ -46,27 +83,34 @@ numplayer = 1
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="characterSelection"]
 layout_mode = 0
-offset_left = 675.0
-offset_top = 85.0
-offset_right = 782.0
-offset_bottom = 421.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hhctd")
+offset_left = 524.0
+offset_top = 28.0
+offset_right = 790.0
+offset_bottom = 548.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vk55m")
 
 [node name="CharacterList" type="GridContainer" parent="characterSelection/ScrollContainer2"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 33
+theme_override_constants/v_separation = 33
 script = ExtResource("1_4hu76")
 character_slot = ExtResource("2_2o32p")
 characters = Array[ExtResource("3_xu5k1")]([ExtResource("4_h3bmy"), ExtResource("5_g44lj"), ExtResource("6_8cden")])
 numplayer = 2
 
-[node name="ButtonBack" type="Button" parent="characterSelection"]
+[node name="ButtonBack" type="TextureButton" parent="characterSelection"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 71.0
-offset_right = 183.0
-offset_bottom = 119.0
-text = "Back
-"
+offset_left = 85.0
+offset_top = 229.0
+offset_right = 202.0
+offset_bottom = 288.0
+texture_normal = ExtResource("13_o8st0")
+texture_pressed = ExtResource("14_24g1j")
+texture_hover = ExtResource("15_qq2y5")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="characterSelection/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="characterSelection/ButtonBack" to="." method="_on_button_back_pressed"]

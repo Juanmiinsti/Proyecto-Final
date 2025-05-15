@@ -1,26 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://50knxno5g2q8"]
+[gd_scene load_steps=4 format=3 uid="uid://50knxno5g2q8"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/CharacterSlot/character_slot.gd" id="1_444fo"]
+[ext_resource type="Texture2D" uid="uid://0syc7mwrbhws" path="res://Resources/img/marcoHover.png" id="2_i6fn0"]
+[ext_resource type="Texture2D" uid="uid://di865e4s6wfao" path="res://Resources/img/marcoPressed.png" id="3_3u2q6"]
 
 [node name="CharacterSlot" type="Panel"]
+self_modulate = Color(1, 1, 0.505882, 1)
 custom_minimum_size = Vector2(100, 100)
-offset_left = -1.0
-offset_right = 39.0
-offset_bottom = 40.0
+layout_direction = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_444fo")
 
 [node name="Texturebutton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 23.0
-offset_right = 110.0
-offset_bottom = 105.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -55.5
+offset_right = 50.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Select" type="Line2D" parent="."]
+[node name="hover" type="TextureRect" parent="."]
 visible = false
-position = Vector2(10, -28)
-scale = Vector2(4.15, 4.4)
-points = PackedVector2Array(-2.16867, 6.36364, 21.4458, 6.59091, 21.4458, 28.8636, -2.40964, 28.8636, -2.16867, 5.45455)
-width = 2.0
+layout_mode = 0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 114.0
+offset_bottom = 124.0
+texture = ExtResource("3_3u2q6")
+expand_mode = 1
 
+[node name="preessed" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 111.0
+offset_bottom = 117.0
+texture = ExtResource("2_i6fn0")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="Texturebutton" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Texturebutton" to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Texturebutton" to="." method="_button_pressed"]

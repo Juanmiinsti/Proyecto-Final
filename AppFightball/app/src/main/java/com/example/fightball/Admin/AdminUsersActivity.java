@@ -27,12 +27,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
 import com.example.fightball.Adapters.UserAdapterAdmin;
-import com.example.fightball.Models.MatchModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

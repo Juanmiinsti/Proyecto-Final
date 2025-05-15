@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.Adapters.RoleAdapter;
-import com.example.fightball.Adapters.UserAdapter;
 import com.example.fightball.R;
 
 public class ModRoleActivity extends AppCompatActivity {

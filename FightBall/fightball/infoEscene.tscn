@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://diytsw43hfwav"]
+[gd_scene load_steps=9 format=3 uid="uid://diytsw43hfwav"]
 
 [ext_resource type="Script" path="res://info_escene.gd" id="1_twpqb"]
 [ext_resource type="Texture2D" uid="uid://drdfsa15trexc" path="res://Resources/img/fondoTablero.png" id="2_mrjcw"]
+[ext_resource type="Texture2D" uid="uid://b7ohyih5763gy" path="res://Myassets/Img/Fondo.png" id="2_xgxbj"]
+[ext_resource type="Texture2D" uid="uid://cy38h6chs8gl7" path="res://Resources/img/backnormal.png" id="4_ykmn6"]
+[ext_resource type="Texture2D" uid="uid://bwwaxiw2emgiq" path="res://Resources/img/backpressPNG.PNG" id="5_s32wu"]
+[ext_resource type="Texture2D" uid="uid://ct5rt2osqg3ix" path="res://Resources/img/backhover.PNG" id="6_sgk6o"]
+[ext_resource type="Texture2D" uid="uid://bseao24xax032" path="res://Resources/img/bttstandarlhover.PNG" id="7_3w0kt"]
+[ext_resource type="FontFile" uid="uid://bqqowu4g2h81s" path="res://Resources/img/Minecraft.ttf" id="8_hqhwo"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_twpqb")
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_left = -25.0
+offset_top = -27.0
+offset_right = 1445.0
+offset_bottom = 850.0
+scale = Vector2(0.880247, 0.826699)
+texture = ExtResource("2_xgxbj")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 247.0
@@ -26,19 +41,43 @@ grow_vertical = 0
 [node name="TutorialList" type="VBoxContainer" parent="TextureRect/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 1
 
-[node name="goBack" type="Button" parent="TextureRect"]
+[node name="goBack" type="TextureButton" parent="TextureRect"]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 301.0
-offset_right = 394.0
-offset_bottom = 348.0
+offset_left = 286.0
+offset_top = 287.0
+offset_right = 433.0
+offset_bottom = 346.0
+texture_normal = ExtResource("4_ykmn6")
+texture_pressed = ExtResource("5_s32wu")
+texture_hover = ExtResource("6_sgk6o")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Label" type="Label" parent="."]
-offset_left = 556.0
-offset_top = 89.0
-offset_right = 659.0
-offset_bottom = 127.0
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 470.0
+offset_top = 24.0
+offset_right = 785.0
+offset_bottom = 148.0
+scale = Vector2(0.853276, 0.800895)
+texture = ExtResource("7_3w0kt")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -21.0
+offset_right = 138.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_hqhwo")
+theme_override_font_sizes/font_size = 40
 text = "TUTORIALES"
 
 [connection signal="pressed" from="TextureRect/goBack" to="." method="_on_go_back_pressed"]

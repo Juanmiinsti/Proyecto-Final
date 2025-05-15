@@ -23,6 +23,7 @@ import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.PreferencesActivity;
 import com.example.fightball.R;
+import com.example.fightball.websocket.Ws_chatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +103,9 @@ public class ModMainActivity extends AppCompatActivity {
         } else if (item.getItemId()==R.id.preferenciasId) {
             Intent intentPreferencias =new Intent(this, PreferencesActivity.class);
             startActivity(intentPreferencias);
+        }else if (item.getItemId()==R.id.joinChatId){
+            Intent startChat=new Intent(this, Ws_chatActivity.class);
+            startActivity(startChat);
         }
         return super.onOptionsItemSelected(item);
     }

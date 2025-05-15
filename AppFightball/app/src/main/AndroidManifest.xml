@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".websocket.Ws_chatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chat_ws_activity"
+            android:exported="false" />
+        <activity
             android:name=".Admin.AdminItemsActivity"
             android:exported="false" />
         <activity

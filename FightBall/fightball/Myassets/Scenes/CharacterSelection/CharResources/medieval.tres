@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://cit0qgsmsyvh8"]
 
-[ext_resource type="Texture2D" uid="uid://dhhkrqykkv62d" path="res://Resources/icons/medieval.png" id="1_lr4mj"]
+[ext_resource type="Texture2D" uid="uid://ckp2ts1us211m" path="res://Resources/Medieval Warrior Pack 3/medieval.png" id="1_l06yd"]
 [ext_resource type="Script" path="res://Resources/character.gd" id="2_2cw31"]
 
 [resource]
 script = ExtResource("2_2cw31")
 name = "medieval"
-icon = ExtResource("1_lr4mj")
+icon = ExtResource("1_l06yd")
 animation_name = "medieval"

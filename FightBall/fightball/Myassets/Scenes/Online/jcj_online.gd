@@ -146,3 +146,7 @@ func _on_ButtonCreate_pressed():
 # Función para volver a la escena anterior
 func _on_ButtonBack_pressed():
 	SceneManager.go_back()
+
+
+func _on_go_back_pressed() -> void:
+	SceneManager.go_back() # Replace with function body.

@@ -70,6 +70,12 @@ dependencies {
     implementation(libs.java.android.websocket.client)
     implementation(libs.spring.security.crypto)
     implementation(libs.dokka.gradle.plugin)
+
+    implementation (libs.java.websocket)
+    // https://mvnrepository.com/artifact/dev.gustavoavila/java-android-websocket-client
+    implementation("dev.gustavoavila:java-android-websocket-client:2.0.2")
+
+
 }
 
 

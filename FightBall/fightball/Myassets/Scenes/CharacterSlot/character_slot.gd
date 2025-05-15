@@ -8,13 +8,24 @@ var icon=null:
 signal pressed
 
 func _ready():
-	$Select.hide
+	$hover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 func _button_pressed() -> void:
 	for slot in get_parent().get_children():
 		slot.deselect()
+		slot.get_node("preessed").hide()
 		
-	$Select.show()
+	$preessed.show()
 	pressed.emit()	
 		
 func deselect():
-	$Select.hide()
+	pass
+
+func _on_mouse_entered() -> void:
+	if $hover.visible==false:
+		$hover.show() # Replace with function body.
+
+
+func _on_mouse_exited() -> void:
+	if $hover.visible==true:
+		$hover.hide() # Rep# Replace with function body.

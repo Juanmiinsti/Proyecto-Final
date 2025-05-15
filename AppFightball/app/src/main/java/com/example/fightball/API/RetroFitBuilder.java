@@ -15,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroFitBuilder {
     private static RetroFitBuilder instance=null;
-    public String URL="http://localhost:8080/api";
     private Retrofit.Builder builder;
     private ApiInterface apiInterface;
 
