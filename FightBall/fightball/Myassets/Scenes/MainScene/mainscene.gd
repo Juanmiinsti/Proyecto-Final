@@ -50,3 +50,7 @@ func _on_button_log_out_pressed() -> void:
 
 	# 1. Borrar datos de sesión
 	PlayerInfo.clear_session()
+
+
+func _on_info_pressed() -> void:
+	SceneManager.go_to("res://infoEscene.tscn") # Replace with function body.

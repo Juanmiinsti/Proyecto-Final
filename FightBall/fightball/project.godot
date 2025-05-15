@@ -25,6 +25,7 @@ SceneManager="*res://SceneManager.gd"
 MultiplayerManager="*res://multiplayer_manager.gd"
 EnemyDataSource="*res://enemyDataSource.gd"
 ItemDataSource="*res://itemDataSource.gd"
+TutorialDataSource="*res://tutorialDataSource.gd"
 
 [display]
 
