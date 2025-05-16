@@ -1,38 +1,18 @@
 package com.example.proyectoFinal.dto.Messages;
 
-public class ChatMessage {
-    private MessageType type;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ChatMessage implements Serializable {
+    private String username;
     private String content;
-    private String sender;
 
-    public enum MessageType {
-        CHAT,
-        JOIN,
-        LEAVE
-    }
 
-    // Getters y Setters
-    public MessageType getType() {
-        return type;
-    }
 
-    public void setType(MessageType type) {
-        this.type = type;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
 }
