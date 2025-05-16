@@ -74,7 +74,7 @@ dependencies {
     implementation (libs.java.websocket)
     // https://mvnrepository.com/artifact/dev.gustavoavila/java-android-websocket-client
     implementation("dev.gustavoavila:java-android-websocket-client:2.0.2")
-    implementation("com.github.NaikSoftware:StompProtocolAndroid:1.6.6")
+    implementation("com.github.NaikSoftware:StompProtocolAndroid:1.6.4")
 
 
 }

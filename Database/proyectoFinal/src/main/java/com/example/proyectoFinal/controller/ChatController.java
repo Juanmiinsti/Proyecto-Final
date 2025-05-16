@@ -10,7 +10,7 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 @Controller
 public class ChatController {
 
-    @MessageMapping("/chat")  // El cliente enviará a /app/chat.sendMessage
+    @MessageMapping("/chat2")  // El cliente enviará a /app/chat.sendMessage
     @SendTo("androidUser")              // Todos los suscritos a /topic/public lo recibirán
     public ChatMessage sendMessage(@Payload ChatMessage message) {
         return message;
