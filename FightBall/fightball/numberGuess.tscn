@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbnghkag7gx0j"]
+
+[ext_resource type="Script" path="res://number_guess.gd" id="1_gxv8d"]
+[ext_resource type="Texture2D" uid="uid://cy38h6chs8gl7" path="res://Resources/img/backnormal.png" id="2_72cr3"]
+[ext_resource type="Texture2D" uid="uid://bwwaxiw2emgiq" path="res://Resources/img/backpressPNG.PNG" id="3_233bu"]
+[ext_resource type="Texture2D" uid="uid://ct5rt2osqg3ix" path="res://Resources/img/backhover.PNG" id="4_ux3bv"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gxv8d")
+
+[node name="goBack" type="TextureButton" parent="."]
+offset_left = 422.0
+offset_top = 248.0
+offset_right = 569.0
+offset_bottom = 307.0
+texture_normal = ExtResource("2_72cr3")
+texture_pressed = ExtResource("3_233bu")
+texture_hover = ExtResource("4_ux3bv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="goBack" to="." method="_on_go_back_pressed"]

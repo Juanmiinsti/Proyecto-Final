@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,18 +29,24 @@ public class Ws_chatActivity extends AppCompatActivity {
     private ChatAdapter adapter;
     private ListView chatVisual;
     private ArrayList<String> chatMessages=new ArrayList<>();
+    private EditText inputMensaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ws_chat);
         config();
+        inputMensaje=findViewById(R.id.editTextMessage);
         sp = getSharedPreferences("FightBall", MODE_PRIVATE);
         bt = findViewById(R.id.buttonSend);
 
         configWebSocket();  // Usa OkHttp
 
-        bt.setOnClickListener(e -> sendMessage("¡Hola desde Android!"));
+        bt.setOnClickListener(e -> {
+            if (!(inputMensaje.getText().toString().isEmpty())){
+                sendMessage(inputMensaje.getText().toString());
+            }
+        });
     }
 
     private void config() {
@@ -70,6 +77,8 @@ public class Ws_chatActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     chatMessages.add(text);
                     adapter.notifyDataSetChanged();
+                    chatVisual.smoothScrollToPosition(chatMessages.size()-1);
+
                 });
             }
 
@@ -95,7 +104,7 @@ public class Ws_chatActivity extends AppCompatActivity {
     }
 
     private void sendMessage(String message) {
-        message=message+": "+sp.getString("username","");
+        message=sp.getString("username","")+": "+message;
         if (webSocket != null) {
             webSocket.send(message);
         } else {

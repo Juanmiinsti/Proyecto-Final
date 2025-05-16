@@ -16,5 +16,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(new WebsocketHandler(), "/chat");
+        registry.addHandler(new WebsocketHandler(), "/godot/**");
     }
 }

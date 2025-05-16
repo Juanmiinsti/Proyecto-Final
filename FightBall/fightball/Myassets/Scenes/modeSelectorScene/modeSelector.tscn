@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dakqknikdf5nk"]
+[gd_scene load_steps=14 format=3 uid="uid://dakqknikdf5nk"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/modeSelectorScene/mode_selector.gd" id="1_a7ebw"]
 [ext_resource type="Texture2D" uid="uid://21qllnbyshmf" path="res://Resources/img/modeselectorfondo.png" id="2_hywp4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dcorgpj6218m5" path="res://Resources/img/btPVPonline.png" id="10_lcmku"]
 [ext_resource type="Texture2D" uid="uid://cqhujj3pj2kxe" path="res://Resources/img/btPVPonlinePressed.PNG" id="11_jbgsv"]
 [ext_resource type="Texture2D" uid="uid://c1r7fqhwf3ce3" path="res://Resources/img/btPVPonlineHover.PNG" id="12_s02ou"]
+[ext_resource type="Texture2D" uid="uid://hr8bwj6oov5i" path="res://Resources/img/btNextNormal.png" id="13_jxyg5"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_a7ebw")
@@ -34,9 +35,9 @@ texture = ExtResource("3_k2iec")
 
 [node name="ButtonJCJ" type="TextureButton" parent="."]
 offset_left = 524.0
-offset_top = 248.0
+offset_top = 188.0
 offset_right = 671.0
-offset_bottom = 306.0
+offset_bottom = 246.0
 texture_normal = ExtResource("4_vdxw4")
 texture_pressed = ExtResource("5_01n0s")
 texture_hover = ExtResource("6_uicuc")
@@ -44,10 +45,10 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ButtonJCIA" type="Button" parent="."]
-offset_left = 480.0
-offset_top = 181.0
-offset_right = 725.0
-offset_bottom = 230.0
+offset_left = 481.0
+offset_top = 132.0
+offset_right = 726.0
+offset_bottom = 181.0
 text = "J VS IA"
 
 [node name="ButtonBack" type="TextureButton" parent="."]
@@ -62,13 +63,22 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="button_online" type="TextureButton" parent="."]
-offset_left = 524.0
-offset_top = 316.0
-offset_right = 670.0
-offset_bottom = 376.0
+offset_left = 523.0
+offset_top = 250.0
+offset_right = 669.0
+offset_bottom = 310.0
 texture_normal = ExtResource("10_lcmku")
 texture_pressed = ExtResource("11_jbgsv")
 texture_hover = ExtResource("12_s02ou")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="guess the number" type="TextureButton" parent="."]
+offset_left = 526.0
+offset_top = 336.0
+offset_right = 674.0
+offset_bottom = 392.0
+texture_normal = ExtResource("13_jxyg5")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -76,3 +86,4 @@ stretch_mode = 0
 [connection signal="pressed" from="ButtonJCIA" to="." method="_on_button_jcia_pressed"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="button_online" to="." method="_on_button_online_pressed"]
+[connection signal="pressed" from="guess the number" to="." method="_on_guess_the_number_pressed"]
