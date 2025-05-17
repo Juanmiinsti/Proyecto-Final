@@ -59,7 +59,7 @@ public class Ws_chatActivity extends AppCompatActivity {
         client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("ws://10.0.2.2:8080/chat")
+                .url("ws://54.164.115.171/chat")
                 .addHeader("Authorization", sp.getString("key", ""))
                 .build();
 

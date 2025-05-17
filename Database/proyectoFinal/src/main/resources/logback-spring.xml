@@ -2,7 +2,7 @@
 <configuration scan="true">
 
     <!-- Define variables -->
-    <property name="LOG_PATH" value="logs" />
+    <property name="LOG_PATH" value="/home/ubuntu/logs" />
     <property name="LOG_FILE" value="${LOG_PATH}/app.log" />
 
     <!-- Formato del log -->

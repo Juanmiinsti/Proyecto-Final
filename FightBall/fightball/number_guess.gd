@@ -1,6 +1,6 @@
 extends Node2D
 
-var wsUrl = "ws://localhost:8080/number"
+var wsUrl = "ws://54.164.115.171/number"
 var socket := WebSocketPeer.new()
 var handshake_headers= PackedStringArray(["Authorization: Bearer " + PlayerInfo.userKey])
 @onready var messageList=$TextureRect/ScrollContainer/messageList

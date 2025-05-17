@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     protected void config() {
         // Set base URL (local emulator)
-        retroFitBuilder.build("http://10.0.2.2:8080");
+        retroFitBuilder.build("http://54.164.115.171");
 
         // Handle login button click
         buttonLogin.setOnClickListener(e -> {

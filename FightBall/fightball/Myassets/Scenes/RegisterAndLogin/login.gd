@@ -42,7 +42,7 @@ func _on_button_accept_pressed() -> void:
 	}
 	
 	var json_body = JSON.stringify(login_data)
-	var url = "http://localhost:8080/auth/login"  # Cambia esto por la IP real si hace falta
+	var url = PlayerInfo.urlSpring+"/auth/login" # Cambia esto por la IP real si hace falta
 
 	var headers = ["Content-Type: application/json"]
 	var result = http_request.request(url, headers, HTTPClient.METHOD_POST, json_body)
@@ -83,7 +83,7 @@ func _on_request_completed(result, response_code, headers, body):
 					print("❌ Error al obtener datos del usuario:", code)
 		)
 
-		var url = "http://localhost:8080/api/userByName/%s" % PlayerInfo.userName
+		var url = PlayerInfo.urlSpring+"/api/userByName/%s" % PlayerInfo.userName
 		var err = user_info_request.request(url, ["Accept: application/json"])
 
 		if err != OK:

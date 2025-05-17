@@ -35,7 +35,7 @@ func _on_button_register_pressed() -> void:
 	http.request_completed.connect(_on_register_response)  # Conectamos la señal de respuesta
 
 	# URL del backend para el registro
-	var url = "http://localhost:8080/auth/signup"
+	var url = PlayerInfo.urlSpring+"auth/signup"
 
 	# Encabezados HTTP que indican que estamos enviando JSON
 	var headers = ["Content-Type: application/json"]
