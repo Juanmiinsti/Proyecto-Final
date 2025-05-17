@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Resources" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Documentacion/Android" />
     <option name="OPTION_SCOPE" value="private" />
     <option name="OTHER_OPTIONS" value="-sourcepath &quot;C:\Users\juanmi\AppData\Local\Android\Sdk\platforms\android-35\android.jar&quot;" />
   </component>
