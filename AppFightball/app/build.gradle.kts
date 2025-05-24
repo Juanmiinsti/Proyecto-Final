@@ -93,7 +93,7 @@ tasks.named<DokkaTask>("dokkaHtml") {
             includeNonPublic.set(true)
             skipDeprecated.set(false)
             skipEmptyPackages.set(false)
-            reportUndocumented.set(false)
+            reportUndocumented.set(true)
             suppress.set(false)
 
             // Configuración específica por paquete
@@ -106,7 +106,12 @@ tasks.named<DokkaTask>("dokkaHtml") {
             displayName.set("FightBall App")
             platform.set(org.jetbrains.dokka.Platform.jvm)
         }
+
+
     }
+
+
+
 
     doFirst {
         println("📄 Generando documentación completa de todo el módulo app (Android)")

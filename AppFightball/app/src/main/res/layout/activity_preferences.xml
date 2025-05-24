@@ -8,10 +8,10 @@
     tools:context=".PreferencesActivity">
 
     <Button
-        android:id="@+id/savaPreferencesButton"
+        android:id="@+id/savePrefetencesbtt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.691"

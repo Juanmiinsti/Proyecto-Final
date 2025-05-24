@@ -7,6 +7,7 @@ import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
+import com.example.fightball.Models.RegisterResponse;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.TutorialModel;
 import com.example.fightball.Models.UserModel;
@@ -57,6 +58,10 @@ public class ApiCalls {
      */
     public Call<List<UserModel>> getAllUsers(String key) {
         return apiInterface.getAllUsers(key);
+    }
+
+    public Call<RegisterResponse>registerUser(String authHeader, UserModel user){
+        return  apiInterface.registerUser(authHeader,user);
     }
 
     /**

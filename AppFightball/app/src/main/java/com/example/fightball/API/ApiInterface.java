@@ -6,6 +6,7 @@ import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
+import com.example.fightball.Models.RegisterResponse;
 import com.example.fightball.Models.RoleModel;
 import com.example.fightball.Models.TutorialModel;
 import com.example.fightball.Models.UserModel;
@@ -86,6 +87,8 @@ public interface ApiInterface {
     @POST("/auth/login")
     Call<String> login(@Body LoginModel user);
 
+    @POST("/auth/signup")
+    Call<RegisterResponse>registerUser(@Header("Authorization") String authHeader, @Body UserModel user);
     @DELETE("/api/users/{id}")
     Call<Boolean> deleteUser(@Header("Authorization" ) String authHeader ,@Path("id") int id);
 

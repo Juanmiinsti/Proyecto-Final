@@ -51,6 +51,9 @@
     <string name="recordarContraseña">Remember Password</string>
     <string name="guardar">Save</string>
 
+
+
+
     <string name="hintItem">InsertItem hint</string>
     <string name="Negativo">Bad</string>
     <string name="Bueno">good</string>
@@ -61,5 +64,8 @@
     <string name="insertarnombre">Insert Name</string>
     <string name="descripcion">Description</string>
     <string name="entrarAlChat">Join into chat</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Your Password</string>
 
 </resources>

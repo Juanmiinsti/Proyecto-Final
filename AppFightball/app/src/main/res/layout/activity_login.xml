@@ -21,19 +21,19 @@
 
     <TextView
         android:id="@+id/LoginText"
-        android:layout_width="189dp"
-        android:layout_height="97dp"
+        android:layout_width="181dp"
+        android:layout_height="78dp"
         android:fontFamily="@font/pixelify_sans"
         android:text="@string/LoginText"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/UsernameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179" />
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.761" />
 
     <Button
         android:id="@+id/registerButton"
@@ -107,7 +107,9 @@
         android:id="@+id/loginButton"
         android:layout_width="125dp"
         android:layout_height="66dp"
+        android:background="@drawable/bttstandarnormal"
         android:text="@string/LoginText"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.167"
