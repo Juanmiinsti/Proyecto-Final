@@ -1,81 +1,74 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
-# Al inicio del script
+# Preload the mode selector scene for later navigation
 var mode_selector_scene := preload("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn")
 
-
+## Called when the node enters the scene tree for the first time.
+## Sets up the initial UI state and character stats based on current match data.
 func _ready() -> void:
-	# Configuración inicial de las victorias mostradas en la UI
+	# Set scene path metadata for SceneManager navigation
 	set_meta("scene_path", "res://Myassets/Scenes/JCJScene/JCJScene.tscn")
+	
+	# Start the match timer (assumed external singleton)
 	CurrentMatch.start_timer()
 
-
-	# Si el jugador 1 tiene al menos 1 victoria, cambia el color del primer indicador a verde
+	# Update victory indicators for Player 1 (green if player has >= 1 or 2 wins)
 	if CurrentMatch.p1Victory >= 1:
 		$win1P1.color = Color.GREEN
 		print('cambiandop1 1')
-	# Si el jugador 1 tiene al menos 2 victorias, cambia el color del segundo indicador a verde    
 	if CurrentMatch.p1Victory >= 2:
 		$win2P1.color = Color.GREEN
-		print('cambiandop1 2')    
-		
-	# Si el jugador 2 tiene al menos 1 victoria, cambia el color del primer indicador a verde
+		print('cambiandop1 2')
+
+	# Update victory indicators for Player 2 (green if player has >= 1 or 2 wins)
 	if CurrentMatch.p2Victory >= 1:
-		print('cambiandop2 1')
 		$win1P2.color = Color.GREEN
-	# Si el jugador 2 tiene al menos 2 victorias, cambia el color del segundo indicador a verde    
+		print('cambiandop2 1')
 	if CurrentMatch.p2Victory >= 2:
+		$win2P2.color = Color.GREEN
 		print('cambiandop2 2')
-		$win2P2.color = Color.GREEN    
-	
-	# Variables para almacenar los datos de los personajes
+
+	# Variables to hold character data
 	var characterp1
 	var characterp2
+
 	var p1 = $player1
-	
-	# Configuración de estadísticas del jugador 1
+	# Setup Player 1 stats: either default or from DB character data
 	if CharacterDataSource.DBcharacters.size() == 0:
-		# Si no hay personajes en la DB, usa valores por defecto
 		setDefaultStats(p1)
 	else:
-		# Obtiene los datos del personaje del jugador 1 desde la DB
-		characterp1 = CharacterDataSource.DBcharacters[(getcharid(Persistence.charname1))-1]
+		characterp1 = CharacterDataSource.DBcharacters[(getcharid(Persistence.charname1)) - 1]
 		print(characterp1.max_health)
-		# Configura la barra de vida y estadísticas según los datos del personaje
 		p1.HealthBar.max_value = characterp1.max_health
 		p1.currentHealth = characterp1.max_health
 		p1.HealthBar.value = characterp1.max_health
 		p1.damage = characterp1.damage
-	
-	# Configuración de estadísticas del jugador 2
+
 	var p2 = $player2
-	
+	# Setup Player 2 stats: either default or from DB character data
 	if CharacterDataSource.DBcharacters.size() == 0:
-		# Si no hay personajes en la DB, usa valores por defecto
 		setDefaultStats(p2)
 	else:
-		# Obtiene los datos del personaje del jugador 2 desde la DB
-		characterp2 = CharacterDataSource.DBcharacters[(getcharid(Persistence.charname2))-1]
+		characterp2 = CharacterDataSource.DBcharacters[(getcharid(Persistence.charname2)) - 1]
 		print(characterp2.max_health)
-		# Configura la barra de vida y estadísticas según los datos del personaje
 		p2.HealthBar.max_value = characterp2.max_health
 		p2.currentHealth = characterp2.max_health
 		p2.HealthBar.value = characterp2.max_health
 		p2.damage = characterp2.damage
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+## Called every frame. 'delta' is elapsed time since previous frame.
 func _process(delta: float) -> void:
 	pass
 
-# Establece estadísticas por defecto para un personaje
+## Sets default stats on a given character if no DB data is available.
 func setDefaultStats(char: pCharacter):
 	char.HealthBar.max_value = 100
 	char.currentHealth = 100
 	char.HealthBar.value = 100
 	char.damage = 10
-	
-# Devuelve el ID del personaje basado en su nombre
+
+## Returns the character ID based on the character's name.
+## If name is not recognized, returns 3 as default.
 func getcharid(name: String):
 	if name == 'Huntress':
 		return 1
@@ -84,117 +77,109 @@ func getcharid(name: String):
 	else:
 		return 3    
 
-# Se ejecuta cuando cambia el valor de la barra de vida del jugador 2 (cuando recibe daño)
+## Called when Player 2's health bar value changes.
+## Handles logic for when Player 2 receives damage or is defeated.
 func _on_progress_bar_value_changed(value: float) -> void:
-	# Verifica si la vida llegó a 0 y no es la primera partida
+	# If not the first match and Player 2's health drops to zero or less
 	if not CurrentMatch.firstTime and value <= 0:
-		# Incrementa las victorias del jugador 2
 		CurrentMatch.p2Victory += 1
-		
-		print("Victorias P2:", CurrentMatch.p2Victory)    
-		
-		# Si el jugador 2 alcanza 2 victorias
+		print("Victories P2:", CurrentMatch.p2Victory)
+
+		# If Player 2 reaches 2 victories, end match and record results
 		if CurrentMatch.p2Victory >= 2:
 			var p1 = $player1
 			var p2 = $player2
 			print(p1.name)
 			print(getcharid(p1.name))
-			
+
 			print("🏁 current health value:", value)
 			print("🏁 firstTime:", CurrentMatch.firstTime)
 			print("🏁 p1Victory:", CurrentMatch.p1Victory)
 			print("🏁 p2Victory:", CurrentMatch.p2Victory)
-			print("🏁 Llamando a SceneManager:", SceneManager)	
-			
+			print("🏁 Calling SceneManager:", SceneManager)
 
-			
-			# Reinicia contadores de victoria
+			# Reset victory counters for next match
 			CurrentMatch.p2Victory = 0
 			CurrentMatch.p1Victory = 0
-			
-			# Registra los IDs de los personajes ganador y perdedor
-			CurrentMatch.char_loser_id = (getcharid(Persistence.charname1))
-			CurrentMatch.char_winner_id =(getcharid(Persistence.charname2))
-			
+
+			# Record winner and loser character IDs
+			CurrentMatch.char_loser_id = getcharid(Persistence.charname1)
+			CurrentMatch.char_winner_id = getcharid(Persistence.charname2)
+
+			# Set winner and loser user IDs (assuming PlayerInfo.userID is local player)
 			if CurrentMatch.char_winner_id == getcharid(Persistence.charname1):
 				CurrentMatch.user_winner_id = PlayerInfo.userID
-				CurrentMatch.user_loser_id = -1  # Jugador 2 es IA/local, no tiene ID
+				CurrentMatch.user_loser_id = -1  # Player 2 is AI/local, no user ID
 			else:
 				CurrentMatch.user_winner_id = -1
 				CurrentMatch.user_loser_id = PlayerInfo.userID			
-			
-			# Registra la fecha actual
+
+			# Register current datetime for the match
 			CurrentMatch.date = Time.get_datetime_string_from_system()
-			
-			# Envía los datos del match
+
+			# Send match data to backend or processing system
 			CurrentMatch.sendMatch()
-			
+
+			# Navigate back to mode selector scene
 			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
-			Persistence.character=null
-			Persistence.character2=null
-			# Cambia a la escena del selector de modo
-			
-		# Si no ha ganado 2 veces pero perdió, recarga la escena    
+			Persistence.character = null
+			Persistence.character2 = null
+
+		# If Player 2 lost but hasn't reached 2 victories yet, reload the scene for a rematch
 		elif not CurrentMatch.firstTime:
 			get_tree().reload_current_scene()
-		
-	# Marca que ya no es la primera partida    
+
+	# After first damage event, mark firstTime as false
 	if CurrentMatch.firstTime:
 		CurrentMatch.firstTime = false
 
-# Se ejecuta cuando cambia el valor de la barra de vida del jugador 1 (cuando recibe daño)
+## Called when Player 1's health bar value changes.
+## Handles logic for when Player 1 receives damage or is defeated.
 func _on_progress_bar_2_value_changed(value: float) -> void:
-	# Verifica si la vida llegó a 0 y no es la primera partida
+	# If not the first match and Player 1's health drops to zero or less
 	if not CurrentMatch.firstTime and value <= 0:
-		# Incrementa las victorias del jugador 1
 		CurrentMatch.p1Victory += 1
-		
-		print("Victorias P1:", CurrentMatch.p1Victory)    
-		
-		# Si el jugador 1 alcanza 2 victorias
+		print("Victories P1:", CurrentMatch.p1Victory)
+
+		# If Player 1 reaches 2 victories, end match and record results
 		if CurrentMatch.p1Victory >= 2:
 			var p1 = $player1
 			var p2 = $player2
-			
-			
-			
-			
 
-			
 			print(p1.name)
 			print(getcharid(p1.name))
-			
-			# Registra los IDs de los personajes ganador y perdedor
-			CurrentMatch.char_loser_id = (getcharid(Persistence.charname2))
-			CurrentMatch.char_winner_id = (getcharid(Persistence.charname1))
-			
-			# En modo local, asumimos que el jugador 1 es el único logueado
+
+			# Record winner and loser character IDs
+			CurrentMatch.char_loser_id = getcharid(Persistence.charname2)
+			CurrentMatch.char_winner_id = getcharid(Persistence.charname1)
+
+			# Set winner and loser user IDs (assuming PlayerInfo.userID is local player)
 			if CurrentMatch.char_winner_id == getcharid(Persistence.charname1):
 				CurrentMatch.user_winner_id = PlayerInfo.userID
-				CurrentMatch.user_loser_id = -1  # Jugador 2 es IA/local, no tiene ID
+				CurrentMatch.user_loser_id = -1  # Player 2 is AI/local, no user ID
 			else:
 				CurrentMatch.user_winner_id = -1
 				CurrentMatch.user_loser_id = PlayerInfo.userID
 
-
-			# Reinicia contadores de victoria
+			# Reset victory counters for next match
 			CurrentMatch.p2Victory = 0
 			CurrentMatch.p1Victory = 0
-			
-			# Registra la fecha actual
+
+			# Register current datetime for the match
 			CurrentMatch.date = Time.get_datetime_string_from_system()
-			
-			# Envía los datos del match
+
+			# Send match data to backend or processing system
 			CurrentMatch.sendMatch()
-			
+
+			# Navigate back to mode selector scene
 			SceneManager.go_to("res://Myassets/Scenes/modeSelectorScene/modeSelector.tscn", false)
-			# Cambia a la escena del selector de modo
-			Persistence.character=null
-			Persistence.character2=null
-		# Si no ha ganado 2 veces pero perdió, recarga la escena    
+			Persistence.character = null
+			Persistence.character2 = null
+
+		# If Player 1 lost but hasn't reached 2 victories yet, reload the scene for a rematch
 		elif not CurrentMatch.firstTime:
 			get_tree().reload_current_scene()
-		
-	# Marca que ya no es la primera partida    
+
+	# After first damage event, mark firstTime as false
 	if CurrentMatch.firstTime:
 		CurrentMatch.firstTime = false

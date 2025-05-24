@@ -1,79 +1,99 @@
 extends Control
-
+class_name Register
 @onready var username_input = $Username
 @onready var password_input = $Password
 @onready var confirm_input = $ConfirmPassword
 
+## Called when the node enters the scene tree.
+## Sets metadata identifying the scene path for use with the SceneManager.
 func _ready() -> void:
-	# Asignamos la ruta de esta escena para que funcione con SceneManager
+	# Assign the scene path metadata for SceneManager navigation
 	set_meta("scene_path", "res://Myassets/Scenes/RegisterAndLogin/register.tscn")
 
+## Called when the register button is pressed.
+## Performs input validation and sends a registration request to the backend server.
 func _on_button_register_pressed() -> void:
-	# Limpiamos errores previos (en este caso solo por consola)
-	print("🔁 Intentando registrar nuevo usuario...")
+	# Clear previous errors (currently only logs to console)
+	print("🔁 Attempting to register new user...")
 
-	# Obtenemos los valores de los campos
+	# Get trimmed input values from the text fields
 	var username = username_input.text.strip_edges()
 	var password = password_input.text.strip_edges()
 	var confirm_password = confirm_input.text.strip_edges()
 
-	# Validación básica: campos vacíos
+	# Basic validation: all fields must be filled
 	if username.is_empty() or password.is_empty() or confirm_password.is_empty():
-		print("❗ Todos los campos son obligatorios.")
+		print("❗ All fields are required.")
 		return
 
-	# Validación: contraseñas deben coincidir
+	# Password confirmation validation
 	if password != confirm_password:
-		print("❗ Las contraseñas no coinciden.")
+		print("❗ Passwords do not match.")
 		return
 
-	# Creamos el nodo HTTPRequest (componente de Godot para hacer peticiones web)
+	# Create HTTPRequest node to perform web request
 	var http = HTTPRequest.new()
-	add_child(http)  # Importante: se debe agregar al árbol de nodos
+	add_child(http)  # Important: must be added to the scene tree
 
-	http.timeout = 5  # Tiempo máximo de espera (en segundos)
-	http.request_completed.connect(_on_register_response)  # Conectamos la señal de respuesta
+	# Set maximum timeout for the request in seconds
+	http.timeout = 5
+	# Connect the signal to handle the server response
+	http.request_completed.connect(_on_register_response)
 
-	# URL del backend para el registro
-	var url = PlayerInfo.urlSpring+"/auth/signup"
+	# Backend URL endpoint for user registration
+	var url = PlayerInfo.urlSpring + "/auth/signup"
 
-	# Encabezados HTTP que indican que estamos enviando JSON
+	# HTTP headers specifying JSON content type
 	var headers = ["Content-Type: application/json"]
 
-	# Creamos el cuerpo del mensaje en formato JSON con los datos del usuario
+	# Prepare JSON body with username and password
 	var request_body = JSON.stringify({
 		"name": username,
 		"password": password
 	})
 
-	# Enviamos la petición POST al servidor
+	# Send HTTP POST request to the server with the JSON data
 	var err = http.request(url, headers, HTTPClient.METHOD_POST, request_body)
 	if err != OK:
-		print("❌ Error al iniciar la petición HTTP. Código de error:", err)
+		print("❌ Failed to initiate HTTP request. Error code:", err)
 		http.queue_free()
 
-# Función que se ejecuta cuando llega la respuesta del servidor
+## Handles the server's response to the registration request.
+##
+## @param result Internal HTTPRequest result code (unused here).
+## @param response_code HTTP status code from the server.
+## @param headers Response headers.
+## @param body Response body as bytes.
+##
+## On success (HTTP 200):
+## - Prints confirmation.
+## - Clears input fields.
+## - Navigates back to the login screen.
+##
+## On failure:
+## - Prints HTTP status and error details.
 func _on_register_response(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray):
-	# Leemos la respuesta del servidor (puede contener info útil)
+	# Convert response body bytes to string
 	var response_text = body.get_string_from_utf8()
-	print("📨 Respuesta del servidor:", response_code, response_text)
+	print("📨 Server response:", response_code, response_text)
 
-	# Código 201 = Created (registro exitoso)
+	# HTTP 200 = OK (registration successful)
 	if response_code == 200:
-		print("✅ ¡Usuario registrado con éxito!")
+		print("✅ User successfully registered!")
 
-		# Limpiamos los campos
+		# Clear input fields
 		username_input.text = ""
 		password_input.text = ""
 		confirm_input.text = ""
 
-		# Esperamos un momento y luego volvemos a la pantalla anterior (login)
+		# Navigate back to the previous screen (login)
 		SceneManager.go_back()
 	else:
-		# Si algo salió mal, mostramos el código de error y el mensaje
-		print("❌ Registro fallido. Código HTTP:", response_code)
-		print("⚠️ Detalles del error:", response_text)
+		# Registration failed: print status code and error message
+		print("❌ Registration failed. HTTP code:", response_code)
+		print("⚠️ Error details:", response_text)
 
-# Función del botón para volver atrás (al login)
+## Called when the back button is pressed.
+## Navigates back to the previous screen (usually the login screen).
 func _on_button_back_pressed() -> void:
 	SceneManager.go_back()
