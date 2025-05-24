@@ -17,16 +17,49 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity to create or edit an enemy in the FightBall app.
+ *
+ * This activity allows the admin user to either add a new enemy (POST)
+ * or modify an existing enemy (PUT) depending on the "type" extra passed in the intent.
+ *
+ * It provides input fields for enemy name, health, and damage, and buttons to save or cancel.
+ * API calls are made using Retrofit to send the changes to the backend.
+ */
 public class EditEnemyActivity extends AppCompatActivity {
 
-    EditText enemyName, enemyHealth, enemyDamage;
-    Button btnSave, btnCancel;
+    /** Input field for the enemy's name */
+    EditText enemyName;
 
+    /** Input field for the enemy's maximum health */
+    EditText enemyHealth;
+
+    /** Input field for the enemy's damage */
+    EditText enemyDamage;
+
+    /** Button to save the changes */
+    Button btnSave;
+
+    /** Button to cancel and close the activity */
+    Button btnCancel;
+
+    /** SharedPreferences instance to retrieve stored data (e.g. API key) */
     SharedPreferences sp;
+
+    /** Retrofit instance for API calls */
     RetroFitBuilder retroFitBuilder = RetroFitBuilder.getInstance();
+
+    /** Position of the enemy in the list (used when editing) */
     int position;
+
+    /** Currently selected enemy (used when editing) */
     EnemyModel selectedEnemy;
 
+    /**
+     * Called when the activity is created.
+     * Initializes the layout and configures the screen based on the intent extras.
+     * @param savedInstanceState Saved state bundle (if any)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +67,10 @@ public class EditEnemyActivity extends AppCompatActivity {
         config();
     }
 
+    /**
+     * Configures the UI components and behavior of the activity.
+     * Determines whether to configure for creating a new enemy (POST) or editing (PUT).
+     */
     private void config() {
         sp = getSharedPreferences("FightBall", MODE_PRIVATE);
 
@@ -53,6 +90,10 @@ public class EditEnemyActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Configures the activity for editing an existing enemy (PUT request).
+     * Loads the enemy data into the input fields and sets the save button to update the enemy.
+     */
     private void configForPut() {
         position = getIntent().getIntExtra("pos", 0);
         selectedEnemy = AdminMainActivity.enemies.get(position);
@@ -74,6 +115,10 @@ public class EditEnemyActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Configures the activity for creating a new enemy (POST request).
+     * Sets the save button to send a create request with the entered data.
+     */
     private void configForPost() {
         btnSave.setOnClickListener(v -> {
             try {
@@ -88,6 +133,10 @@ public class EditEnemyActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sends a POST request to create a new enemy with the data entered by the user.
+     * On success, updates the enemy list and closes the activity.
+     */
     private void postCall() {
         String name = enemyName.getText().toString();
         int health = Integer.parseInt(enemyHealth.getText().toString());
@@ -105,11 +154,15 @@ public class EditEnemyActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<EnemyModel> call, Throwable t) {
-                System.out.println("Error al crear enemigo");
+                System.out.println("Error creating enemy");
             }
         });
     }
 
+    /**
+     * Sends a PUT request to update an existing enemy with the modified data.
+     * On success, updates the enemy list and closes the activity.
+     */
     private void editCall() {
         int id = selectedEnemy.getId();
         String name = enemyName.getText().toString();
@@ -128,7 +181,7 @@ public class EditEnemyActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<EnemyModel> call, Throwable t) {
-                System.out.println("Error al editar enemigo");
+                System.out.println("Error editing enemy");
             }
         });
     }

@@ -1,6 +1,6 @@
 package com.example.fightball.API;
 
-// Importación de modelos de datos utilizados en las llamadas
+// Import data models used in the calls
 import com.example.fightball.Models.CharacterModel;
 import com.example.fightball.Models.EnemyModel;
 import com.example.fightball.Models.ItemModel;
@@ -21,114 +21,114 @@ import retrofit2.http.Header;
 import retrofit2.http.Path;
 
 /**
- * Clase ApiCalls
- * Encapsula las llamadas a la API definidas en la interfaz ApiInterface.
- * Sirve como intermediario entre el cliente (app Android) y el backend REST.
+ * Class ApiCalls
+ * Encapsulates the API calls defined in the ApiInterface interface.
+ * Serves as an intermediary between the client (Android app) and the REST backend.
  */
 public class ApiCalls {
 
-    // Instancia de la interfaz Retrofit
+    // Instance of the Retrofit interface
     private ApiInterface apiInterface;
 
     /**
-     * Constructor que recibe una instancia de ApiInterface.
-     * @param apiInterface Interfaz que define las llamadas HTTP.
+     * Constructor that receives an instance of ApiInterface.
+     * @param apiInterface Interface that defines the HTTP calls.
      */
     public ApiCalls(ApiInterface apiInterface) {
         this.apiInterface = apiInterface;
     }
 
     // =========================================================================
-    // =                        AUTENTICACIÓN Y USUARIOS                       =
+    // =                        AUTHENTICATION AND USERS                      =
     // =========================================================================
 
     /**
-     * Inicia sesión con el modelo de login (usuario y contraseña).
-     * @param user Objeto LoginModel con credenciales.
-     * @return Llamada con token JWT (tipo String).
+     * Logs in with the login model (username and password).
+     * @param user LoginModel object with credentials.
+     * @return Call returning JWT token (String type).
      */
     public Call<String> login(LoginModel user) {
         return apiInterface.login(user);
     }
 
     /**
-     * Obtiene todos los usuarios del sistema.
-     * @param key Token de autorización.
-     * @return Lista de usuarios.
+     * Retrieves all users in the system.
+     * @param key Authorization token.
+     * @return List of users.
      */
     public Call<List<UserModel>> getAllUsers(String key) {
         return apiInterface.getAllUsers(key);
     }
 
-    public Call<RegisterResponse>registerUser(String authHeader, UserModel user){
+    public Call<RegisterResponse> registerUser(String authHeader, UserModel user){
         return  apiInterface.registerUser(authHeader,user);
     }
 
     /**
-     * Edita los roles de un usuario específico.
-     * @param authHeader Token de autorización.
-     * @param id ID del usuario a editar.
-     * @param user Objeto con los nuevos roles del usuario.
-     * @return Llamada con el objeto actualizado.
+     * Edits the roles of a specific user.
+     * @param authHeader Authorization token.
+     * @param id ID of the user to edit.
+     * @param user Object with the user's new roles.
+     * @return Call with the updated object.
      */
     public Call<UserRolesModel> editUser(String authHeader, int id, UserRolesModel user) {
         return apiInterface.editUser(authHeader, id, user);
     }
 
     /**
-     * Elimina un usuario por ID.
-     * @param authHeader Token de autorización.
-     * @param id ID del usuario a eliminar.
-     * @return Llamada con valor booleano de éxito.
+     * Deletes a user by ID.
+     * @param authHeader Authorization token.
+     * @param id ID of the user to delete.
+     * @return Call with a boolean success value.
      */
     public Call<Boolean> deleteUser(String authHeader, int id) {
         return apiInterface.deleteUser(authHeader, id);
     }
 
     // =========================================================================
-    // =                              ROLES                                    =
+    // =                              ROLES                                   =
     // =========================================================================
 
     /**
-     * Obtiene los IDs de roles a partir del nombre del rol.
-     * @param name Nombre del rol.
-     * @param key Token de autorización.
-     * @return Lista de IDs.
+     * Retrieves role IDs by role name.
+     * @param name Role name.
+     * @param key Authorization token.
+     * @return List of IDs.
      */
     public Call<List<Integer>> rolesIdsByname(String name, String key) {
         return apiInterface.rolesIdsByanme(name, key);
     }
 
     /**
-     * Obtiene todos los roles del sistema.
-     * @param key Token de autorización.
-     * @return Lista de roles.
+     * Retrieves all roles in the system.
+     * @param key Authorization token.
+     * @return List of roles.
      */
     public Call<List<RoleModel>> getAllRoles(String key) {
         return apiInterface.getAllRoles(key);
     }
 
     // =========================================================================
-    // =                             PERSONAJES                                =
+    // =                            CHARACTERS                                =
     // =========================================================================
 
     /**
-     * Obtiene todos los personajes disponibles.
-     * @param authHeader Token de autorización.
-     * @return Lista de personajes.
+     * Retrieves all available characters.
+     * @param authHeader Authorization token.
+     * @return List of characters.
      */
     public Call<List<CharacterModel>> getCharacters(String authHeader) {
         return apiInterface.getCharacters(authHeader);
     }
 
     // =========================================================================
-    // =                                ÍTEMS                                  =
+    // =                                ITEMS                                 =
     // =========================================================================
 
     /**
-     * Obtiene todos los ítems disponibles.
-     * @param key Token de autorización.
-     * @return Lista de ítems.
+     * Retrieves all available items.
+     * @param key Authorization token.
+     * @return List of items.
      */
     public Call<List<ItemModel>> getItems(String key) {
         return apiInterface.getItems(key);
@@ -139,168 +139,165 @@ public class ApiCalls {
     }
 
     /**
-     * Elimina un ítem por su ID.
-     * @param authHeader Token de autorización.
-     * @param id ID del ítem.
-     * @return Llamada con valor booleano de éxito.
+     * Deletes an item by its ID.
+     * @param authHeader Authorization token.
+     * @param id Item ID.
+     * @return Call with a boolean success value.
      */
     public Call<Boolean> deleteItem(String authHeader, int id) {
         return apiInterface.deleteItem(authHeader, id);
     }
 
     /**
-     * Crea un nuevo ítem.
-     * @param authHeader Token de autorización.
-     * @param item Objeto del nuevo ítem.
-     * @return Ítem creado.
+     * Creates a new item.
+     * @param authHeader Authorization token.
+     * @param item New item object.
+     * @return Created item.
      */
     public Call<ItemModelAdmin> createItem(String authHeader, ItemModelAdmin item) {
         return apiInterface.createItem(authHeader, item);
     }
+
     /**
-     * Edita un itemm
-     * @param authHeader Token de autorización.
-     * @param id id del item que se busca editar
-     * @param item Objeto del nuevo ítem.
-     * @return Ítem creado.
+     * Edits an item.
+     * @param authHeader Authorization token.
+     * @param id ID of the item to edit.
+     * @param item New item object.
+     * @return Edited item.
      */
     public Call<ItemModelAdmin> editItem(String authHeader, int id, ItemModelAdmin item){
         return apiInterface.EditItem(authHeader,id,item);
     }
 
-
     // =========================================================================
-    // =                               PARTIDAS                                =
+    // =                               MATCHES                                =
     // =========================================================================
 
     /**
-     * Obtiene todas las partidas registradas.
-     * @param key Token de autorización.
-     * @return Lista de partidas.
+     * Retrieves all registered matches.
+     * @param key Authorization token.
+     * @return List of matches.
      */
     public Call<List<MatchModel>> getALlMatches(String key) {
         return apiInterface.getAllMatches(key);
     }
 
     /**
-     * Obtiene las partidas ganadas por un usuario.
-     * @param name Nombre del usuario.
-     * @param key Token de autorización.
-     * @return Lista de partidas ganadas.
+     * Retrieves matches won by a user.
+     * @param name Username.
+     * @param key Authorization token.
+     * @return List of won matches.
      */
     public Call<List<MatchModel>> winMatchesbyName(String name, String key) {
         return apiInterface.getWinMatches(name, key);
     }
 
     /**
-     * Obtiene las partidas perdidas por un usuario.
-     * @param name Nombre del usuario.
-     * @param key Token de autorización.
-     * @return Lista de partidas perdidas.
+     * Retrieves matches lost by a user.
+     * @param name Username.
+     * @param key Authorization token.
+     * @return List of lost matches.
      */
     public Call<List<MatchModel>> lostMatchesbyName(String name, String key) {
         return apiInterface.getLostMatches(name, key);
     }
 
     /**
-     * Obtiene todas las partidas (ganadas y perdidas) por nombre de usuario.
-     * @param name Nombre del usuario.
-     * @param key Token de autorización.
-     * @return Lista de partidas del usuario.
+     * Retrieves all matches (won and lost) by username.
+     * @param name Username.
+     * @param key Authorization token.
+     * @return List of user's matches.
      */
     public Call<List<MatchModel>> geMatchesByName(String name, String key) {
         return apiInterface.geMatchesByName(name, key);
     }
 
     // =========================================================================
-    // =                               ENEMIES                             =
+    // =                               ENEMIES                                =
     // =========================================================================
 
     /**
-     * Obtiene todos los enemigos registrados.
-     * @param key Token de autorización.
-     * @return Lista de enemigos.
+     * Retrieves all registered enemies.
+     * @param key Authorization token.
+     * @return List of enemies.
      */
     public Call<List<EnemyModel>> getAllEnemies(String key) {
         return apiInterface.getenemys(key);
     }
 
     /**
-     * Elimina un enemigo específico.
-     * @param key Token de autorización.
-     * @param id ID del enemigo a eliminar.
-     * @return Resultado de la operación (true/false).
+     * Deletes a specific enemy.
+     * @param key Authorization token.
+     * @param id Enemy ID to delete.
+     * @return Operation result (true/false).
      */
     public Call<Boolean> deleteEnemy(String key, int id) {
         return apiInterface.deletEnemy(key, id);
     }
 
     /**
-     * Crea un nuevo enemigo.
-     * @param key Token de autorización.
-     * @param enemy Datos del enemigo a crear.
-     * @return Enemigo creado.
+     * Creates a new enemy.
+     * @param key Authorization token.
+     * @param enemy Enemy data to create.
+     * @return Created enemy.
      */
     public Call<EnemyModel> createEnemy(String key, EnemyModel enemy) {
         return apiInterface.creatEnemy(key, enemy);
     }
 
     /**
-     * Edita un enemigo existente.
-     * @param key Token de autorización.
-     * @param id ID del enemigo a editar.
-     * @param enemy Datos actualizados del enemigo.
-     * @return Enemigo actualizado.
+     * Edits an existing enemy.
+     * @param key Authorization token.
+     * @param id Enemy ID to edit.
+     * @param enemy Updated enemy data.
+     * @return Updated enemy.
      */
     public Call<EnemyModel> editEnemy(String key, int id, EnemyModel enemy) {
         return apiInterface.EditEnemy(key, id, enemy);
     }
 
-
     // =========================================================================
-    // =                               Tutorial                             =
+    // =                               TUTORIAL                               =
     // =========================================================================
-
 
     /**
-     * Obtiene todos los tutoriales.
-     * @param key Token de autorización.
-     * @return Lista de tutoriales.
+     * Retrieves all tutorials.
+     * @param key Authorization token.
+     * @return List of tutorials.
      */
     public Call<List<TutorialModel>> getTutorials(String key) {
         return apiInterface.getTutorials(key);
     }
 
     /**
-     * Elimina un tutorial por su ID.
-     * @param authHeader Token de autorización.
-     * @param id ID del tutorial.
-     * @return Llamada con valor booleano de éxito.
+     * Deletes a tutorial by its ID.
+     * @param authHeader Authorization token.
+     * @param id Tutorial ID.
+     * @return Call with a boolean success value.
      */
     public Call<Boolean> deleteTutorial(String authHeader, int id) {
         return apiInterface.deleteTutorial(authHeader, id);
     }
 
     /**
-     * Crea un nuevo tutorial.
-     * @param authHeader Token de autorización.
-     * @param tutorial Objeto del nuevo tutorial.
-     * @return Tutorial creado.
+     * Creates a new tutorial.
+     * @param authHeader Authorization token.
+     * @param tutorial New tutorial object.
+     * @return Created tutorial.
      */
     public Call<TutorialModel> createTutorial(String authHeader, TutorialModel tutorial) {
         return apiInterface.createTutorial(authHeader, tutorial);
     }
 
     /**
-     * Edita un tutorial existente.
-     * @param authHeader Token de autorización.
-     * @param id ID del tutorial.
-     * @param tutorial Objeto del tutorial actualizado.
-     * @return Tutorial actualizado.
+     * Edits an existing tutorial.
+     * @param authHeader Authorization token.
+     * @param id Tutorial ID.
+     * @param tutorial Updated tutorial object.
+     * @return Updated tutorial.
      */
     public Call<TutorialModel> editTutorial(String authHeader, int id, TutorialModel tutorial) {
         return apiInterface.editTutorial(authHeader, id, tutorial);
     }
-
 
 }
