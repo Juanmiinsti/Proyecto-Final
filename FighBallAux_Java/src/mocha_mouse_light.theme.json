@@ -1,0 +1,49 @@
+{
+  "name": "Mocha Mouse Light",
+  "dark": false,
+  "author": "Ingo Steinke (openmindculture)",
+  "editorScheme": "/mocha_mouse_light.xml",
+  "colors": {
+    "mochaMousse": "#a47864",
+    "lighterMousse": "#d1a28d",
+    "lightestFoam": "#eed5ae",
+    "blackishBrown": "#391704",
+    "darkLeather": "#471b03",
+    "brownishFoam": "#ffc6a6",
+    "lightBeigePink": "#dcc5b5",
+    "darkBrown": "#8f705f",
+    "darkRedBrown": "#51301d",
+    "earthyMiddleBrown": "#9a6a4b",
+    "earthyLighterTone": "#d8c3a1",
+    "whitishBeige": "#fdebcb"
+  },
+  "ui": {
+    "*": {
+      "background": "mochaMousse",
+      "selectedBackground": "lighterMousse",
+      "hoverBackground": "darkBrown",
+      "foreground": "lightBeigePink",
+      "disabledText": "lightBeigePink",
+      "selectionBackground": "darkLeather",
+      "selectionForeground": "brownishFoam",
+      "underlineColor": "earthyMiddleBrown",
+      "errorFocusColor": "earthyLighterTone"
+    },
+    "Editor.background": "mochaMousse",
+    "Button.default.foreground": "pinkLight",
+    "Borders": {
+      "color": "lightBeigePink",
+      "ContrastBorderColor": "lightBeigePink"
+    },
+    "Panel.foreground": "blackishBrown",
+    "Panel.foreground.hover": "blackishBrown",
+    "Panel.hoverForeground": "blackishBrown",
+    "ScrollPane.background": "whitishBeige",
+    "ScrollPane.foreground": "blackishBrown",
+    "TextArea.foreground": "blackishBrown",
+    "TextField.background": "whitishBeige",
+    "TextField.foreground": "blackishBrown",
+    "TextField.inactiveForeground": "blackishBrown",
+    "Viewport.foreground": "blackishBrown"
+  }
+}

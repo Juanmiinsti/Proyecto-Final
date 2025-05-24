@@ -1,0 +1,43 @@
+<idea-plugin>
+  <id>net.howyi.intellij-chicken-theme</id>
+  <name>Chicken Theme</name>
+  <version>1.0.4</version>
+  <vendor email="howyi.lq@gmail.com" url="https://github.com/howyi">howyi</vendor>
+
+  <description><![CDATA[
+  dark-brown theme
+
+  <br/><br/>
+  To install:
+  <ul>
+  <li>Go to <i>Settings (Preferences) | Plugins</i>, find the theme plugin, and install it</li>
+  <li>Restart the IDE</li>
+  <li>Go to <i>Settings (Preferences) | Appearance & Behavior | Appearance</i> and select Chicken in the <i>Theme</i> dropdown</li>
+  </ul>
+  <br/>
+
+  <a href="https://github.com/howyi/intellij-chicken-theme">GitHub: source code and issues</a>
+  ]]></description>
+
+  <change-notes><![CDATA[
+    <p>v1.0.0 <small>2021-05-16</small></p><ul>
+    <li>First version</li>
+    </ul>
+  ]]></change-notes>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+  <idea-version since-build="191.0"/>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="ef29b6ef-e306-45f0-919d-6264c9105242" path="/Chicken.theme.json"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>

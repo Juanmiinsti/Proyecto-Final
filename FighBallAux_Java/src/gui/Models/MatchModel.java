@@ -79,4 +79,17 @@ public class MatchModel {
 
     private int userWinnerId;
     private int userLoserId;
+
+    @Override
+    public String toString() {
+        return "MatchModel{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", length=" + length +
+                ", charWinnerId=" + charWinnerId +
+                ", charLoserId=" + charLoserId +
+                ", userWinnerId=" + userWinnerId +
+                ", userLoserId=" + userLoserId +
+                '}';
+    }
 }

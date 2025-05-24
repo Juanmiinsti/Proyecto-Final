@@ -1,12 +1,15 @@
 package gui;
 
+import gui.Models.CharacterModel;
+import gui.Models.ItemModel;
+import gui.Models.MatchModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.*;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class InfoViewerApp extends JFrame {
 
@@ -21,7 +24,7 @@ public class InfoViewerApp extends JFrame {
     private static Locale currentLocale = Locale.ENGLISH;
 
     public InfoViewerApp() {
-        setTitle("Info Viewer");
+        setTitle("WELCOME "+DataSource.userName);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800, 600);
         setLocationRelativeTo(null);
@@ -60,7 +63,7 @@ public class InfoViewerApp extends JFrame {
         topButtons.add(exportButton);
         topButtons.add(ftpButton);
 
-        usersButton.addActionListener(e -> showInfo(getSampleUsers()));
+        usersButton.addActionListener(e -> showInfo(getCharacters()));
         matchesButton.addActionListener(e -> showInfo(getSampleMatches()));
         objectsButton.addActionListener(e -> showInfo(getSampleObjects()));
         exportButton.addActionListener(e -> cardLayout.show(cardsPanel, "EXPORT"));
@@ -93,6 +96,7 @@ public class InfoViewerApp extends JFrame {
 
         panel.add(new JLabel(tr("label.selectData")));
         panel.add(dataTypeSelector);
+        panel.add(new JLabel(tr("label.selectData")));
         panel.add(exportFormatSelector);
         panel.add(exportBtn);
         panel.add(backButton);
@@ -195,17 +199,30 @@ public class InfoViewerApp extends JFrame {
     }
 
     // Simulaciones de datos
-    private List<String> getSampleUsers() {
-        return List.of("👤 User: Ana", "👤 User: Juan", "👤 User: María");
+    private List<String> getCharacters() {
+        List<String> list = new ArrayList<>();
+        for (CharacterModel c:DataSource.characters){
+            list.add(c.toString());
+        }
+
+        return list;
     }
 
     private List<String> getSampleMatches() {
-        return List.of("⚔️ Match: #001", "⚔️ Match: #002", "⚔️ Match: #003");
+
+        List<String> list = new ArrayList<>();
+        for (MatchModel c:DataSource.matches){
+            list.add(c.toString());
+        }
+        return list;
     }
 
     private List<String> getSampleObjects() {
-
-        return List.of("🎁 Object: Sword", "🎁 Object: Shield", "🎁 Object: Potion");
+        List<String> list = new ArrayList<>();
+        for (ItemModel c:DataSource.items){
+            list.add("🎁"+c.toString());
+        }
+        return list;
     }
 
     public static void main(String[] args) {

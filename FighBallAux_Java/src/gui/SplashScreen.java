@@ -13,16 +13,17 @@ public class SplashScreen extends JDialog {
         setContentPane(contentPane);
 
         JLabel lblImagen = new JLabel();
-        lblImagen.setIcon(new ImageIcon("src/img/omnitrix.png"));
-        contentPane.add(lblImagen, BorderLayout.CENTER);
+        ImageIcon originalIcon = new ImageIcon("src/img/logofightball2.png");
+        Image imagenOriginal = originalIcon.getImage();
+        Image imagenEscalada = imagenOriginal.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+        lblImagen.setIcon(new ImageIcon(imagenEscalada));        contentPane.add(lblImagen, BorderLayout.CENTER);
 
         JPanel panelInferior = new JPanel(new GridLayout(2, 1));
         barraProgreso = new JProgressBar();
         barraProgreso.setStringPainted(true);
         panelInferior.add(barraProgreso);
 
-        JLabel lblSoft = new JLabel("Software 2020");
-        lblSoft.setForeground(Color.BLUE);
+        JLabel lblSoft = new JLabel("FIGHBTALL APP");
         lblSoft.setHorizontalAlignment(SwingConstants.CENTER);
         panelInferior.add(lblSoft);
 

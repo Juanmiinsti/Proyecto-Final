@@ -35,4 +35,13 @@ public class ItemModel {
     }
 
     private String description;
+
+    @Override
+    public String toString() {
+        return "ItemModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

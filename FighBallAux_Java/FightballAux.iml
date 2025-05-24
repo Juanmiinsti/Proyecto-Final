@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="google.code.gson" level="project" />
+    <orderEntry type="library" name="flatlaf-3.6" level="project" />
+    <orderEntry type="library" name="intellij-mocha-mouse-light-theme-0.6.0" level="project" />
   </component>
 </module>

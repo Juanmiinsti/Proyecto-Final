@@ -1,9 +1,8 @@
 package gui;
 
 import com.google.gson.Gson;
-import gui.Models.CharacterModel;
-import gui.Models.LoginModel;
-import gui.Models.UserModel;
+import com.google.gson.reflect.TypeToken;
+import gui.Models.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +16,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class LoginForm extends JFrame {
 
@@ -43,7 +41,7 @@ public class LoginForm extends JFrame {
     }
 
     public LoginForm() {
-        
+
         initGeneral();
         configPanelLogin();
         createPaneLogin();
@@ -81,9 +79,9 @@ public class LoginForm extends JFrame {
                     dispose();
                     //pantalla de carga
                     SplashScreen.mostrarSplashYContinuar(() -> {
-                        InfoViewerApp.iniciarPrograma(); // Aquí empieza tu app real
+                        InfoViewerApp.iniciarPrograma();
                     });
-
+                    doRequests();
                 }else {
                     JOptionPane.showMessageDialog(null,"Datos Erroneos");
                 }
@@ -93,7 +91,7 @@ public class LoginForm extends JFrame {
         panelLoginCancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //System.exit(0);
-                doRequests();
+
             }
         });
 
@@ -128,32 +126,83 @@ public class LoginForm extends JFrame {
     }
 
     private void doRequests(){
-
+    getCharacters();
+    getItems();
+    getMatches();
     }
 
     private void getCharacters(){
         try {
-            List<CharacterModel> characters =new ArrayList<>();
-            Gson gson=new Gson();
-            String json=gson.toJson(characters);
+            Gson gson = new Gson();
 
-            HttpRequest postLogin= HttpRequest.newBuilder()
-                    .uri(new URI(DataSource.url+"auth/login"))
+            HttpRequest postLogin = HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url + "api/characters"))
                     .header("Content-Type", "application/json")
-                    .GET().build();
+                    .header("Authorization", DataSource.key)
+                    .GET()
+                    .build();
 
-            HttpClient httpClient=HttpClient.newHttpClient();
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpResponse<String> response = httpClient.send(postLogin, HttpResponse.BodyHandlers.ofString());
 
+            if (response.statusCode() == 200) {
+                java.lang.reflect.Type characterListType = new TypeToken<List<CharacterModel>>() {}.getType();
+                List<CharacterModel> characters = gson.fromJson(response.body(), characterListType);
+                DataSource.characters = new ArrayList<>(characters);
+            }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
-    private void getItems(){
 
-    }
-    private void getMatches(){
+    private void getItems() {
+        try {
+            Gson gson = new Gson();
 
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url + "api/items"))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", DataSource.key)
+                    .GET()
+                    .build();
+
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                java.lang.reflect.Type itemListType = new TypeToken<List<ItemModel>>() {}.getType();
+                List<ItemModel> items = gson.fromJson(response.body(), itemListType);
+                DataSource.items = new ArrayList<>(items);
+            }
+        } catch (Exception e) {
+            System.out.println("Error en getItems: " + e.getMessage());
+        }
     }
+    private void getMatches() {
+        try {
+            Gson gson = new Gson();
+            String userId = String.valueOf(DataSource.userId);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url + "api/matches/total/" + DataSource.userName))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", DataSource.key)
+                    .GET()
+                    .build();
+
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                java.lang.reflect.Type matchListType = new TypeToken<List<MatchModel>>() {}.getType();
+                List<MatchModel> matches = gson.fromJson(response.body(), matchListType);
+                DataSource.matches = new ArrayList<>(matches);
+            }
+        } catch (Exception e) {
+            System.out.println("Error en getMatches: " + e.getMessage());
+        }
+    }
+
 
     private boolean login(String username, String password) {
         try {
@@ -171,6 +220,9 @@ public class LoginForm extends JFrame {
 
             HttpResponse<String> response= httpClient.send(postLogin, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode()==200){
+                DataSource.key= "Bearer "+response.body();
+                DataSource.userName=panelLoginUsername.getText();
+                getUser();
                 return true;
             }
         }catch (Exception e){
@@ -178,6 +230,40 @@ public class LoginForm extends JFrame {
         }
         return false;
     }
+
+    private void getUser(){
+        try {
+            UserModel user=new UserModel(0,"","");
+            Gson gson=new Gson();
+            String json=gson.toJson(user);
+
+            HttpRequest getUser = HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url+"api/userByName/"+DataSource.userName))
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", DataSource.key)
+                    .GET()
+                    .build();
+
+
+            HttpClient httpClient=HttpClient.newHttpClient();
+            System.out.println( HttpRequest.BodyPublishers.ofString(json));
+
+            HttpResponse<String> response= httpClient.send(getUser, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode()==200){
+                user=gson.fromJson(response.body(), UserModel.class);
+
+                System.out.println(user.toString());
+                DataSource.userId=user.getId();
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
+
+
 
 }
 
