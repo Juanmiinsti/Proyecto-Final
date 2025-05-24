@@ -3,13 +3,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     android:orientation="vertical"
     android:padding="16dp">
 
     <ListView
         android:id="@+id/chatListView"
-        android:layout_width="wrap_content"
-        android:layout_height="564dp"
+        android:layout_width="360dp"
+        android:layout_height="528dp"
         android:layout_weight="1"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp" />

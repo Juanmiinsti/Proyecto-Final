@@ -10,15 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Título del Tutorial"
-        android:textStyle="bold"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        android:textColor="#000000" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tutorialDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Descripción del tutorial"
-        android:textSize="14sp"
-        android:textColor="#555555" />
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 </LinearLayout>

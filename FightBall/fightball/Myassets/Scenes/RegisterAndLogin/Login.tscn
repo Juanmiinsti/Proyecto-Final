@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_rwmrx")
 
 [node name="fondo" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -232.0
 offset_top = -54.0
 offset_right = 1238.0
@@ -28,12 +29,14 @@ texture = ExtResource("2_68b2j")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = 72.0
 offset_right = 826.0
 offset_bottom = 545.0
 texture = ExtResource("3_vinlh")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 251.0
 offset_top = 103.0
 offset_right = 585.0

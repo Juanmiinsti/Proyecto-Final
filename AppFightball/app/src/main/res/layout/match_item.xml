@@ -6,28 +6,32 @@
 
     <TextView
         android:id="@+id/matchDate"
-        android:text="Date"
-        android:textStyle="bold"
-        android:textSize="16sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/matchLength"
-        android:text="Length"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Length"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/matchWinner"
-        android:text="Winner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Winner"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/matchLoser"
-        android:text="Loser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Loser"
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -109,14 +109,11 @@ tasks.named<DokkaTask>("dokkaHtml") {
 
 
     }
-
-
-
-
     doFirst {
         println("📄 Generando documentación completa de todo el módulo app (Android)")
     }
 }
+
 
 
 
