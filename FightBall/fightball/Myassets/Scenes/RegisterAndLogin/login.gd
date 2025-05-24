@@ -42,7 +42,7 @@ func _on_button_accept_pressed() -> void:
 	}
 	
 	var json_body = JSON.stringify(login_data)
-	var url = PlayerInfo.urlSpring+"/auth/login" # Cambia esto por la IP real si hace falta
+	var url = PlayerInfo.urlSpring+"/auth/login" 
 
 	var headers = ["Content-Type: application/json"]
 	var result = http_request.request(url, headers, HTTPClient.METHOD_POST, json_body)
