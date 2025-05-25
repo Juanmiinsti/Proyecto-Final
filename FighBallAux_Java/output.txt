@@ -1,0 +1,2 @@
+MatchModel{id=2, date='2025-05-25T21:14:58', length=3.539, charWinnerId=1, charLoserId=3, userWinnerId=0, userLoserId=6}
+MatchModel{id=3, date='2025-05-25T21:15:11', length=2.973, charWinnerId=3, charLoserId=1, userWinnerId=6, userLoserId=0}

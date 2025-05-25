@@ -14,7 +14,7 @@ config/name="FightBall"
 run/main_scene="res://Myassets/Scenes/MainScene/Mainscene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://Resources/img/logofightball2.png"
-config/icon="res://icon.svg"
+config/icon="res://Resources/img/logofightball2.png"
 
 [autoload]
 

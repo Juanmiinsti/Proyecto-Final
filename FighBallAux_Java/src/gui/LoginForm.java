@@ -224,6 +224,8 @@ public class LoginForm extends JFrame {
                 DataSource.userName=panelLoginUsername.getText();
                 getUser();
                 return true;
+            }else{
+                return false;
             }
         }catch (Exception e){
             System.out.println(e.getMessage());

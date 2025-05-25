@@ -73,11 +73,28 @@ texture_normal = ExtResource("7_crnne")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Label" type="Label" parent="TextureRect/sendBt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -10.5
+offset_right = 48.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_xeda1")
+theme_override_font_sizes/font_size = 20
+text = "GUESS "
+
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 470.0
-offset_top = 24.0
-offset_right = 785.0
-offset_bottom = 148.0
+offset_left = 411.0
+offset_top = 28.0
+offset_right = 863.0
+offset_bottom = 152.0
 scale = Vector2(0.853276, 0.800895)
 texture = ExtResource("7_mjq6p")
 
@@ -96,7 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_xeda1")
 theme_override_font_sizes/font_size = 40
-text = "TUTORIALES"
+text = "GUESS THE NUMBER"
 
 [connection signal="pressed" from="TextureRect/goBack" to="." method="_on_go_back_pressed"]
 [connection signal="pressed" from="TextureRect/sendBt" to="." method="_on_send_pressed"]

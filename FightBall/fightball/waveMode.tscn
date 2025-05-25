@@ -1,18 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1oalifg374op"]
+[gd_scene load_steps=13 format=3 uid="uid://b1oalifg374op"]
 
 [ext_resource type="Script" path="res://wave_mode.gd" id="1_2hkax"]
+[ext_resource type="Texture2D" uid="uid://ximcya4xc8pf" path="res://Resources/img/partidafondo.png" id="2_io5hu"]
 [ext_resource type="PackedScene" uid="uid://8tj5l7mlmaq6" path="res://Myassets/Entities/PCharacter/PCharacter.tscn" id="2_rfm1d"]
 [ext_resource type="Script" path="res://Myassets/Scripts/ProgressBar/progress_bar.gd" id="3_rvj00"]
 [ext_resource type="PackedScene" uid="uid://crncnhf88qk78" path="res://Myassets/Entities/Enemy/enemy.tscn" id="4_6yeyr"]
+[ext_resource type="Texture2D" uid="uid://dmfg0gk5c4b1k" path="res://Resources/img/terreno.png" id="4_g6mwj"]
 [ext_resource type="Script" path="res://wave_manager.gd" id="5_81kkg"]
+[ext_resource type="FontFile" uid="uid://bqqowu4g2h81s" path="res://Resources/img/Minecraft.ttf" id="5_sbptg"]
 [ext_resource type="PackedScene" uid="uid://ciwyv0bh1opdl" path="res://pause.tscn" id="6_7pjic"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f5iur"]
 vertices = PackedVector2Array(108.992, 456, 10.0391, 456, 11.9531, 9.3125, 330.891, 19, 1139.04, 455, 1140.95, 12.0781)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2, -1, 332, -9, 1151, 2, 1149, 465, 109, 466, 0, 466)])
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_ucjas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uafo0"]
 size = Vector2(1152, 172)
@@ -22,6 +23,15 @@ size = Vector2(138, 580.25)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_2hkax")
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_left = -42.0
+offset_top = -7.0
+offset_right = 1445.0
+offset_bottom = 921.0
+scale = Vector2(0.880247, 0.826699)
+texture = ExtResource("2_io5hu")
+expand_mode = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-6, 14)
@@ -46,14 +56,14 @@ position = Vector2(832, 449)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(579, 557)
-scale = Vector2(1154, 170.75)
-texture = SubResource("AnimatedTexture_ucjas")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(578, 558)
 shape = SubResource("RectangleShape2D_uafo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(5.00012, 1.99994)
+scale = Vector2(0.782668, 0.21455)
+texture = ExtResource("4_g6mwj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -67,14 +77,16 @@ offset_left = 11.48
 offset_top = -375.0
 offset_right = 15.48
 offset_bottom = -348.0
+theme_override_fonts/font = ExtResource("5_sbptg")
 script = ExtResource("3_rvj00")
 metadata/_edit_use_anchors_ = true
 
 [node name="waveNumber" type="Label" parent="."]
-offset_left = 378.0
-offset_top = 60.0
-offset_right = 493.0
-offset_bottom = 98.0
+offset_left = 493.0
+offset_top = 82.0
+offset_right = 608.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("5_sbptg")
 text = "wave number: "
 
 [node name="WaveManager" type="Node2D" parent="."]

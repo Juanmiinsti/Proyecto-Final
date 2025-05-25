@@ -18,7 +18,7 @@ func checkApiStatus():
 	http.timeout = 5
 	http.request_completed.connect(_on_ping_response)
 
-	var url = "http://localhost:8080/api/prueba"
+	var url = PlayerInfo.urlSpring+"/api/prueba"
 	var headers = ["Accept: application/json"]
 	var error = http.request(url, headers)
 

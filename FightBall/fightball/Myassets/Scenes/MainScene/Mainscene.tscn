@@ -72,20 +72,12 @@ theme_override_fonts/font = ExtResource("9_0daop")
 text = "LOGIN"
 
 [node name="apiEstatus" type="Label" parent="."]
-offset_left = 1000.0
-offset_top = 24.0
-offset_right = 1163.0
-offset_bottom = 52.0
+offset_left = 911.0
+offset_top = 30.0
+offset_right = 1074.0
+offset_bottom = 58.0
 theme_override_fonts/font = ExtResource("9_0daop")
 text = "CONNECTED: FALSE"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 879.0
-offset_top = 25.0
-offset_right = 996.0
-offset_bottom = 53.0
-theme_override_fonts/font = ExtResource("9_0daop")
-text = "LOGIN: FALSE"
 
 [node name="buttonLogOut" type="TextureButton" parent="."]
 offset_left = 930.0

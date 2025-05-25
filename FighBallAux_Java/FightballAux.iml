@@ -10,5 +10,13 @@
     <orderEntry type="library" name="google.code.gson" level="project" />
     <orderEntry type="library" name="flatlaf-3.6" level="project" />
     <orderEntry type="library" name="intellij-mocha-mouse-light-theme-0.6.0" level="project" />
+    <orderEntry type="library" name="openpdf-2.0.3" level="project" />
+    <orderEntry type="library" name="poi-ooxml-5.2.3" level="project" />
+    <orderEntry type="library" name="ooxml-schemas-1.4" level="project" />
+    <orderEntry type="library" name="poi-5.2.3" level="project" />
+    <orderEntry type="library" name="commons-io-2.11.0" level="project" />
+    <orderEntry type="library" name="xmlbeans-5.1.1" level="project" />
+    <orderEntry type="library" name="log4j-api-2.17.2-javadoc" level="project" />
+    <orderEntry type="library" name="log4j-core-2.17.2-javadoc" level="project" />
   </component>
 </module>

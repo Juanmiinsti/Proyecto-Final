@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://8tj5l7mlmaq6" path="res://Myassets/Entities/PCharacter/PCharacter.tscn" id="2_f7s7o"]
 [ext_resource type="Script" path="res://Myassets/Scripts/ProgressBar/progress_bar.gd" id="4_g5rw5"]
 [ext_resource type="Texture2D" uid="uid://ximcya4xc8pf" path="res://Resources/img/partidafondo.png" id="4_k54s2"]
+[ext_resource type="Texture2D" uid="uid://dmfg0gk5c4b1k" path="res://Resources/img/terreno.png" id="5_3gcpm"]
 [ext_resource type="PackedScene" uid="uid://ciwyv0bh1opdl" path="res://pause.tscn" id="5_og21i"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_0pl2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyd6n"]
 size = Vector2(1159, 170)
@@ -102,13 +101,14 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(123.5, 30.8127)
-scale = Vector2(1155, 174.375)
-texture = SubResource("AnimatedTexture_0pl2h")
+position = Vector2(124.217, 29.6397)
+scale = Vector2(0.782668, 0.21455)
+texture = ExtResource("5_3gcpm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(120.5, 31.0002)
 shape = SubResource("RectangleShape2D_tyd6n")
+debug_color = Color(0.156863, 0.164706, 0.678431, 0.419608)
 
 [node name="pause" parent="." instance=ExtResource("5_og21i")]
 
