@@ -1,48 +1,89 @@
-[gd_scene load_steps=2 format=3 uid="uid://dakqknikdf5nk"]
+[gd_scene load_steps=14 format=3 uid="uid://dakqknikdf5nk"]
 
 [ext_resource type="Script" path="res://Myassets/Scenes/modeSelectorScene/mode_selector.gd" id="1_a7ebw"]
+[ext_resource type="Texture2D" uid="uid://21qllnbyshmf" path="res://Resources/img/modeselectorfondo.png" id="2_hywp4"]
+[ext_resource type="Texture2D" uid="uid://dc30hbou8vcxw" path="res://Resources/img/pergamino.png" id="3_k2iec"]
+[ext_resource type="Texture2D" uid="uid://d1emey1hxwx61" path="res://Resources/img/pvpLocalnormal.png" id="4_vdxw4"]
+[ext_resource type="Texture2D" uid="uid://8b1asfimn02q" path="res://Resources/img/pvpLocalpressed.PNG" id="5_01n0s"]
+[ext_resource type="Texture2D" uid="uid://cjg6mmnkyx18g" path="res://Resources/img/pvpLocalhover.PNG" id="6_uicuc"]
+[ext_resource type="Texture2D" uid="uid://cy38h6chs8gl7" path="res://Resources/img/backnormal.png" id="7_4w7ta"]
+[ext_resource type="Texture2D" uid="uid://bwwaxiw2emgiq" path="res://Resources/img/backpressPNG.PNG" id="8_mpjx8"]
+[ext_resource type="Texture2D" uid="uid://ct5rt2osqg3ix" path="res://Resources/img/backhover.PNG" id="9_n8csf"]
+[ext_resource type="Texture2D" uid="uid://dcorgpj6218m5" path="res://Resources/img/btPVPonline.png" id="10_lcmku"]
+[ext_resource type="Texture2D" uid="uid://cqhujj3pj2kxe" path="res://Resources/img/btPVPonlinePressed.PNG" id="11_jbgsv"]
+[ext_resource type="Texture2D" uid="uid://c1r7fqhwf3ce3" path="res://Resources/img/btPVPonlineHover.PNG" id="12_s02ou"]
+[ext_resource type="Texture2D" uid="uid://hr8bwj6oov5i" path="res://Resources/img/btNextNormal.png" id="13_jxyg5"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_a7ebw")
 
-[node name="ButtonJCJ" type="Button" parent="."]
-offset_left = 419.0
-offset_top = 336.0
-offset_right = 664.0
-offset_bottom = 388.0
-text = "J Vs J"
+[node name="fondo" type="TextureRect" parent="."]
+offset_left = -25.0
+offset_top = -27.0
+offset_right = 1445.0
+offset_bottom = 850.0
+scale = Vector2(0.880247, 0.826699)
+texture = ExtResource("2_hywp4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 402.0
+offset_top = 57.0
+offset_right = 786.0
+offset_bottom = 572.0
+texture = ExtResource("3_k2iec")
+
+[node name="ButtonJCJ" type="TextureButton" parent="."]
+offset_left = 524.0
+offset_top = 188.0
+offset_right = 671.0
+offset_bottom = 246.0
+texture_normal = ExtResource("4_vdxw4")
+texture_pressed = ExtResource("5_01n0s")
+texture_hover = ExtResource("6_uicuc")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ButtonJCIA" type="Button" parent="."]
-offset_left = 417.0
-offset_top = 268.0
-offset_right = 662.0
-offset_bottom = 317.0
+offset_left = 481.0
+offset_top = 132.0
+offset_right = 726.0
+offset_bottom = 181.0
 text = "J VS IA"
 
-[node name="ButtonTest" type="Button" parent="."]
-offset_left = 416.0
-offset_top = 195.0
-offset_right = 658.0
-offset_bottom = 250.0
-text = "TEST SCENE"
+[node name="ButtonBack" type="TextureButton" parent="."]
+offset_left = 528.0
+offset_top = 417.0
+offset_right = 665.0
+offset_bottom = 472.0
+texture_normal = ExtResource("7_4w7ta")
+texture_pressed = ExtResource("8_mpjx8")
+texture_hover = ExtResource("9_n8csf")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="ButtonBack" type="Button" parent="."]
-offset_left = 252.0
-offset_top = 186.0
-offset_right = 360.0
-offset_bottom = 244.0
-text = "BACK"
+[node name="button_online" type="TextureButton" parent="."]
+offset_left = 523.0
+offset_top = 250.0
+offset_right = 669.0
+offset_bottom = 310.0
+texture_normal = ExtResource("10_lcmku")
+texture_pressed = ExtResource("11_jbgsv")
+texture_hover = ExtResource("12_s02ou")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="button_online" type="Button" parent="."]
-offset_left = 417.0
-offset_top = 412.0
-offset_right = 667.0
-offset_bottom = 463.0
-text = "JCJ ONLINE
-"
+[node name="guess the number" type="TextureButton" parent="."]
+offset_left = 526.0
+offset_top = 336.0
+offset_right = 674.0
+offset_bottom = 392.0
+texture_normal = ExtResource("13_jxyg5")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="ButtonJCJ" to="." method="_on_button_jcj_pressed"]
 [connection signal="pressed" from="ButtonJCIA" to="." method="_on_button_jcia_pressed"]
-[connection signal="pressed" from="ButtonTest" to="." method="_on_button_test_pressed"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="button_online" to="." method="_on_button_online_pressed"]
+[connection signal="pressed" from="guess the number" to="." method="_on_guess_the_number_pressed"]

@@ -38,3 +38,7 @@ func _on_button_online_pressed() -> void:
 
 func _on_button_jcia_pressed() -> void:
 	SceneManager.go_to("res://singleCharSelection.tscn")
+
+
+func _on_guess_the_number_pressed() -> void:
+	SceneManager.go_to("res://numberGuess.tscn")

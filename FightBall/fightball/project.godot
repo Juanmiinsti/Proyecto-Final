@@ -13,6 +13,7 @@ config_version=5
 config/name="FightBall"
 run/main_scene="res://Myassets/Scenes/MainScene/Mainscene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://Resources/img/logofightball2.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,11 +26,13 @@ SceneManager="*res://SceneManager.gd"
 MultiplayerManager="*res://multiplayer_manager.gd"
 EnemyDataSource="*res://enemyDataSource.gd"
 ItemDataSource="*res://itemDataSource.gd"
+TutorialDataSource="*res://tutorialDataSource.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/image=""
 
 [input]
 

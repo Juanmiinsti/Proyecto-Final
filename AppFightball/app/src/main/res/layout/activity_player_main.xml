@@ -5,7 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Player.PlayerMainActivity">
+    android:background="@drawable/fondo"
+    tools:context=".Player.PlayerMainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
 
     <Button
         android:id="@+id/bttVerObjetos"
@@ -36,6 +39,8 @@
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:text="@string/voidtext"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.154"
@@ -48,6 +53,8 @@
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:text="@string/voidtext"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.767"
@@ -57,33 +64,39 @@
 
     <TextView
         android:id="@+id/Uregistrados"
-        android:layout_width="127dp"
-        android:layout_height="37dp"
+        android:layout_width="161dp"
+        android:layout_height="38dp"
         android:text="@string/partidasGanadas"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.479" />
 
     <TextView
         android:id="@+id/rDisponibles"
-        android:layout_width="127dp"
-        android:layout_height="37dp"
+        android:layout_width="181dp"
+        android:layout_height="39dp"
         android:text="@string/partidasPerdidas"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintVertical_bias="0.481" />
 
     <TextView
         android:id="@+id/userNameText"
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:text="@string/UserNameText"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,6 +108,8 @@
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:text="@string/bienvenido"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,24 +118,14 @@
 
     <TextView
         android:id="@+id/pJugadas"
-        android:layout_width="127dp"
+        android:layout_width="259dp"
         android:layout_height="37dp"
         android:text="@string/partidasJugadas"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
-
-    <TextView
-        android:id="@+id/Pusado"
-        android:layout_width="127dp"
-        android:layout_height="37dp"
-        android:text="@string/personajeMasUsado"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.357" />
@@ -130,21 +135,11 @@
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:text="@string/voidtext"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
-
-    <TextView
-        android:id="@+id/pUsadoText"
-        android:layout_width="127dp"
-        android:layout_height="37dp"
-        android:text="@string/voidtext"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.41" />
@@ -163,15 +158,15 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/barraMenu"
-        android:layout_width="353dp"
-        android:layout_height="57dp"
+        android:layout_width="408dp"
+        android:layout_height="74dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

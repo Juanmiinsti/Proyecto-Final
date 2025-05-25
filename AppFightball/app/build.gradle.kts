@@ -70,6 +70,13 @@ dependencies {
     implementation(libs.java.android.websocket.client)
     implementation(libs.spring.security.crypto)
     implementation(libs.dokka.gradle.plugin)
+
+    implementation (libs.java.websocket)
+    // https://mvnrepository.com/artifact/dev.gustavoavila/java-android-websocket-client
+    implementation("dev.gustavoavila:java-android-websocket-client:2.0.2")
+    implementation("com.github.NaikSoftware:StompProtocolAndroid:1.6.4")
+
+
 }
 
 
@@ -86,7 +93,7 @@ tasks.named<DokkaTask>("dokkaHtml") {
             includeNonPublic.set(true)
             skipDeprecated.set(false)
             skipEmptyPackages.set(false)
-            reportUndocumented.set(false)
+            reportUndocumented.set(true)
             suppress.set(false)
 
             // Configuración específica por paquete
@@ -99,12 +106,14 @@ tasks.named<DokkaTask>("dokkaHtml") {
             displayName.set("FightBall App")
             platform.set(org.jetbrains.dokka.Platform.jvm)
         }
-    }
 
+
+    }
     doFirst {
         println("📄 Generando documentación completa de todo el módulo app (Android)")
     }
 }
+
 
 
 

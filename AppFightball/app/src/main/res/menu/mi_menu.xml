@@ -13,6 +13,10 @@
     <item
         android:id="@+id/acercaDe"
         android:title="@string/acercade"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/joinChatId"
+        android:orderInCategory="4"
+        android:title="@string/entrarAlChat" />
 </menu>

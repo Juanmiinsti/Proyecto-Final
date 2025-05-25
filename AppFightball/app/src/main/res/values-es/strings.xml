@@ -58,6 +58,16 @@
     <string name="crear">Create</string>
     <string name="insertecantidad">Insert Quantity</string>
     <string name="verenemigos">View Enemies</string>
+    <string name="insertarnombre">Insert Name</string>
+    <string name="descripcion">Description</string>
+    <string name="entrarAlChat">Join into chat</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Your Password</string>
+    <string name="editTutorial">Edit Tutorial</string>
+    <string name="editItem">Edit Item</string>
+    <string name="viewCharacter">View Characters</string>
+
 
 
 

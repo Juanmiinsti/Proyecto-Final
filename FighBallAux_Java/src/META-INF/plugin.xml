@@ -1,0 +1,21 @@
+<idea-plugin url="https://github.com/openmindculture/intellij-mocha-mouse-light-theme">
+    <name>Mocha Mouse Light Theme</name>
+    <id>com.github.openmindculture.intellijmochamouselighttheme</id>
+    <description>Mocha Mouse Light Theme for IntelliJ Platform is inspired by Mocha Mousse, Pantone's Color of the Year 2025, based on openmindculture's Cute Pink Light Theme. The theme uses brown, beige, chocolate, sand, and coffee (mocha, espresso) colors. The beta version has some unintended low color contrast cobinations, as a workaround, you can try selecting text to improve readability. Open source code and issues are available on GitHub.</description>
+    <change-notes>Initial theme release. Basic theme functionality.</change-notes>
+    <version>0.6.0</version>
+    <vendor url="https://github.com/openmindculture/">Ingo Steinke (openmindculture)</vendor>
+
+    <!-- Compatible with the following versions of IntelliJ Platform:
+      version 2020.2 and newer. -->
+    <idea-version since-build="202" />
+
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <themeProvider id="org.jetbrains.plugins.mocha_mouse_light_theme" path="/mocha_mouse_light.theme.json"/>
+    </extensions>
+</idea-plugin>

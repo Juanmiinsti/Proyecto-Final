@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CharacterDT - Documentación</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+    h1, h2, h3 { color: #2c3e50; }
+    ul { margin-bottom: 20px; }
+    .property, .method { margin-bottom: 10px; }
+    code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <h1>Clase: CharacterDT</h1>
+  <p><strong>Herencia:</strong> Node &lt; Object</p>
+
+  <h2>Descripción</h2>
+  <p>
+    Este nodo realiza una petición HTTP para obtener la lista de personajes asociados al usuario actual, 
+    parsea la respuesta JSON y crea instancias de <code>CharacterDB</code> con los datos recibidos.
+    Controla la recarga de datos evitando cargar personajes si no han cambiado, basándose en el hash del JSON.
+    Conecta con <code>PlayerInfo</code> para obtener la sesión y token necesarios para la autorización.
+  </p>
+  <p>
+    <strong>Referencias:</strong><br>
+    Ver <code>_on_get_all_request_request_completed()</code> para la gestión de la respuesta HTTP.<br>
+    Ver <code>parseCharacter()</code> para el parseo individual de cada personaje.
+  </p>
+
+  <h2>Propiedades</h2>
+  <ul>
+    <li class="property"><code>Array[CharacterDB] DBcharacters</code> [predeterminado: []]<br>
+      <em>Actualmente no hay descripción para esta propiedad.</em>
+    </li>
+    <li class="property"><code>bool already_loaded</code> [predeterminado: false]<br>
+      <em>Actualmente no hay descripción para esta propiedad.</em>
+    </li>
+    <li class="property"><code>int data_hash</code> [predeterminado: 0]<br>
+      <em>Actualmente no hay descripción para esta propiedad.</em>
+    </li>
+    <li class="property"><code>HTTPRequest getAllCharacter</code><br>
+      <em>Actualmente no hay descripción para esta propiedad.</em>
+    </li>
+  </ul>
+
+  <h2>Métodos</h2>
+
+  <div class="method">
+    <h3><code>void _on_get_all_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray)</code></h3>
+    <p>
+      Señal que maneja la respuesta de la petición HTTP.<br>
+      <strong>Parámetros:</strong><br>
+      - <code>result</code>: Código de resultado interno de la petición.<br>
+      - <code>response_code</code>: Código HTTP recibido (200, 404, etc).<br>
+      - <code>headers</code>: Cabeceras HTTP recibidas.<br>
+      - <code>body</code>: Cuerpo de la respuesta en bytes.<br><br>
+
+      En caso de respuesta 200:<br>
+      - Convierte el cuerpo a string JSON.<br>
+      - Parsea el JSON a estructura nativa Godot.<br>
+      - Comprueba si los datos han cambiado comparando hash.<br>
+      - Si hay cambios, limpia y rellena <code>DBcharacters</code> con nuevos personajes.<br>
+      - Actualiza hash y flag <code>already_loaded</code>.<br><br>
+
+      En caso de error HTTP, imprime el código de error.
+    </p>
+  </div>
+
+  <div class="method">
+    <h3><code>void _on_session_ready()</code></h3>
+    <p>
+      Se ejecuta cuando la sesión está lista. Configura y realiza la petición HTTP para obtener todos los personajes autorizándose con Bearer Token.
+      Crea el nodo <code>HTTPRequest</code> y conecta su señal <code>request_completed</code> para gestionar la respuesta.
+    </p>
+  </div>
+
+  <div class="method">
+    <h3><code>void _ready()</code></h3>
+    <p>
+      Método que se ejecuta al iniciar el nodo. Comprueba si hay sesión activa (<code>PlayerInfo.userKey</code>), si no, conecta a la señal <code>session_ready</code> para esperar la sesión.
+      Si ya hay sesión, inicia la petición para obtener personajes.
+    </p>
+  </div>
+
+  <div class="method">
+    <h3><code>CharacterDB parseCharacter(char: Dictionary)</code></h3>
+    <p>
+      Convierte un diccionario recibido desde JSON a un objeto <code>CharacterDB</code>.<br>
+      <strong>Parámetro:</strong> <code>char</code> - Diccionario con datos de un personaje.<br>
+      <strong>Retorna:</strong> Una instancia de <code>CharacterDB</code> o <code>null</code> si faltan datos.
+    </p>
+  </div>
+
+</body>
+</html>

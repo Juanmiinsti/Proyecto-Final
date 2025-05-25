@@ -5,20 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
+    android:background="@drawable/fondo"
     tools:context=".AboutActivity">
 
     <Button
         android:id="@+id/verVideoBtn"
-        android:layout_width="121dp"
-        android:layout_height="66dp"
+        android:layout_width="187dp"
+        android:layout_height="72dp"
+        android:backgroundTintMode="src_atop"
+        android:fontFamily="@font/pixelify_sans"
         android:text="@string/VerMedia"
+        android:textSelectHandleRight="@drawable/bttstandarnormal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745" />
+        app:layout_constraintVertical_bias="0.744" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -34,13 +37,15 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="79dp"
-        android:layout_height="33dp"
+        android:layout_width="204dp"
+        android:layout_height="43dp"
         android:text="JUANMI"
+        android:textAlignment="center"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintVertical_bias="0.235" />
 </androidx.constraintlayout.widget.ConstraintLayout>

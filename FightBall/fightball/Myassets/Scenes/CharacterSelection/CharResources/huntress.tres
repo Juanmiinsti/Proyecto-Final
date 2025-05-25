@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://dui1o6sntgqrc"]
 
-[ext_resource type="Texture2D" uid="uid://7emydglicxhk" path="res://Resources/icons/Huntress.png" id="1_u4qcy"]
+[ext_resource type="Texture2D" uid="uid://57o1c7sldulw" path="res://Resources/Huntress/huntresLogo.png" id="1_oaggo"]
 [ext_resource type="Script" path="res://Resources/character.gd" id="2_ixkpv"]
 
 [resource]
 script = ExtResource("2_ixkpv")
 name = "Huntress"
-icon = ExtResource("1_u4qcy")
+icon = ExtResource("1_oaggo")
 animation_name = "huntress"

@@ -6,7 +6,9 @@ import com.example.fightball.Models.ItemModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.LoginModel;
 import com.example.fightball.Models.MatchModel;
+import com.example.fightball.Models.RegisterResponse;
 import com.example.fightball.Models.RoleModel;
+import com.example.fightball.Models.TutorialModel;
 import com.example.fightball.Models.UserModel;
 import com.example.fightball.Models.UserRolesModel;
 
@@ -85,6 +87,8 @@ public interface ApiInterface {
     @POST("/auth/login")
     Call<String> login(@Body LoginModel user);
 
+    @POST("/auth/signup")
+    Call<RegisterResponse>registerUser(@Header("Authorization") String authHeader, @Body UserModel user);
     @DELETE("/api/users/{id}")
     Call<Boolean> deleteUser(@Header("Authorization" ) String authHeader ,@Path("id") int id);
 
@@ -100,6 +104,24 @@ public interface ApiInterface {
 
     @PUT("/api/enemies/{id}")
     Call<EnemyModel> EditEnemy(@Header("Authorization")String authHeader, @Path("id") int id, @Body EnemyModel item);
+
+    //TUTORIALS------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------------------------------------//
+
+
+    @GET("/api/tutorials")
+    Call<List<TutorialModel>> getTutorials(@Header("Authorization") String authHeader);
+
+    @DELETE("/api/tutorials/{id}")
+    Call<Boolean> deleteTutorial(@Header("Authorization") String authHeader, @Path("id") int id);
+
+    @POST("/api/tutorials")
+    Call<TutorialModel> createTutorial(@Header("Authorization") String authHeader, @Body TutorialModel tutorial);
+
+    @PUT("/api/tutorials/{id}")
+    Call<TutorialModel> editTutorial(@Header("Authorization") String authHeader, @Path("id") int id, @Body TutorialModel tutorial);
+
 
 
 
