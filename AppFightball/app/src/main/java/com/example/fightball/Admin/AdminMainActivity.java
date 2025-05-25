@@ -3,6 +3,7 @@ package com.example.fightball.Admin;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fightball.API.RetroFitBuilder;
 import com.example.fightball.AboutActivity;
+import com.example.fightball.Adapters.TutorialAdapter;
 import com.example.fightball.Models.EnemyModel;
 import com.example.fightball.Models.ItemModelAdmin;
 import com.example.fightball.Models.MatchModel;
@@ -203,6 +205,7 @@ public class AdminMainActivity extends AppCompatActivity {
             getMatches();
             getItems();
             getEnemies();
+            getAllTutorials();
         } catch (Exception e) {
             System.out.println("Error in API calls: " + e.getMessage());
         }
@@ -294,6 +297,26 @@ public class AdminMainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<UserModel>> call, Throwable t) {
                 System.out.println("Error in getUsersMod API call");
+            }
+        });
+    }
+    private void getAllTutorials(){
+        Call<List<TutorialModel>> call = retroFitBuilder.callApi().getTutorials(sp.getString("key", ""));
+        call.enqueue(new Callback<List<TutorialModel>>() {
+            @Override
+            public void onResponse(Call<List<TutorialModel>> call, Response<List<TutorialModel>> response) {
+                if (response.code() == 200) {
+                    List<TutorialModel> tutorials = response.body();
+                    AdminMainActivity.tutorials = (ArrayList<TutorialModel>) tutorials;
+                    tutoriales.setText(String.valueOf(response.body().size()));
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TutorialModel>> call, Throwable t) {
+                // Log error if API call fails
+                Log.e("Tutorials", "Failed to fetch tutorials", t);
             }
         });
     }
