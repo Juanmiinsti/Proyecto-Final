@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89ea0795-5c70-410a-a894-b8ec249757a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/API/ApiCalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/API/ApiCalls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/API/RetroFitBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/API/RetroFitBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminEnemiesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminEnemiesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminItemsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminItemsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminMatchesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminMatchesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminTutorialsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminTutorialsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminUsersActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/AdminUsersActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditEnemyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditEnemyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditItemActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditItemActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditTutorialActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditTutorialActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Admin/EditUserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModAllMatchesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModAllMatchesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModRoleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModRoleActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModUsersActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Mod/ModUsersActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Player/PlayerCharactersActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Player/PlayerCharactersActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Player/PlayerItemActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Player/PlayerItemActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Player/PlayerMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AppFightball/app/src/main/java/com/example/fightball/Player/PlayerMainActivity.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="com.intellij.jpb.FlywayMigrationScript" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.2.3/spring-web-6.2.3.jar!/org/springframework/http/converter/HttpMessageConversionException.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2tS4sdfq1qJv2KwaPySlYfEVcEY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ProyectoFinalApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;test&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/juanmi/Documents/GitHub/Proyecto-Final/Database/local/proyectoFinal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;db2&quot;,
+      &quot;mariadb&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\juanmi\Documents\GitHub\Proyecto-Final\Database\proyectoFinal\src\main\java\com\example\proyectoFinal\service" />
+      <recent name="C:\Users\juanmi\Documents\GitHub\Proyecto-Final\Database\proyectoFinal\src\main\java\com\example\proyectoFinal\config" />
+      <recent name="C:\Users\juanmi\Documents\GitHub\Proyecto-Final\Database\proyectoFinal\src\main\java\com\example\proyectoFinal" />
+      <recent name="C:\Users\juanmi\Documents\GitHub\Proyecto-Final\Database\proyectoFinal\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.proyectoFinal.WebSocket" />
+      <recent name="com.example.proyectoFinal.Enums" />
+      <recent name="com.example.proyectoFinal.controller" />
+      <recent name="com.example.proyectoFinal.config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ProyectoFinalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="proyectoFinal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.proyectoFinal.ProyectoFinalApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89ea0795-5c70-410a-a894-b8ec249757a5" name="Changes" comment="" />
+      <created>1740332349787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740332349787</updated>
+      <workItem from="1740332350943" duration="2653000" />
+      <workItem from="1740508448521" duration="213000" />
+      <workItem from="1741693606785" duration="65000" />
+      <workItem from="1741694665680" duration="470000" />
+      <workItem from="1742491186033" duration="6436000" />
+      <workItem from="1742497899533" duration="55000" />
+      <workItem from="1742497979239" duration="2933000" />
+      <workItem from="1742501025993" duration="346000" />
+      <workItem from="1742543969237" duration="10000" />
+      <workItem from="1742752124901" duration="445000" />
+      <workItem from="1742840743273" duration="4905000" />
+      <workItem from="1742926796783" duration="1871000" />
+      <workItem from="1743173313118" duration="524000" />
+      <workItem from="1743177314579" duration="436000" />
+      <workItem from="1743765977582" duration="1294000" />
+      <workItem from="1744042373473" duration="2794000" />
+      <workItem from="1744051959556" duration="1366000" />
+      <workItem from="1744129973730" duration="1454000" />
+      <workItem from="1744131921772" duration="211000" />
+      <workItem from="1744135025526" duration="2844000" />
+      <workItem from="1744211385953" duration="4595000" />
+      <workItem from="1744301633073" duration="7885000" />
+      <workItem from="1744970508334" duration="3048000" />
+      <workItem from="1744987407758" duration="111000" />
+      <workItem from="1744987527707" duration="3222000" />
+      <workItem from="1745057724083" duration="3098000" />
+      <workItem from="1745230157149" duration="5529000" />
+      <workItem from="1745247585081" duration="3598000" />
+      <workItem from="1745251525344" duration="6547000" />
+      <workItem from="1745268175284" duration="640000" />
+      <workItem from="1745309423952" duration="4353000" />
+      <workItem from="1745315014191" duration="6496000" />
+      <workItem from="1745414448702" duration="6906000" />
+      <workItem from="1745592686780" duration="598000" />
+      <workItem from="1745648422959" duration="1814000" />
+      <workItem from="1745830616689" duration="1771000" />
+      <workItem from="1746084816775" duration="13463000" />
+      <workItem from="1746111320058" duration="9030000" />
+      <workItem from="1746136203132" duration="17000" />
+      <workItem from="1746159723668" duration="13747000" />
+      <workItem from="1746429786169" duration="323000" />
+      <workItem from="1746468801879" duration="761000" />
+      <workItem from="1746506150310" duration="4058000" />
+      <workItem from="1746521412670" duration="2254000" />
+      <workItem from="1746544644104" duration="1769000" />
+      <workItem from="1746552027049" duration="2711000" />
+      <workItem from="1746594875334" duration="5464000" />
+      <workItem from="1746623713229" duration="658000" />
+      <workItem from="1746765320309" duration="6752000" />
+      <workItem from="1746803179783" duration="3435000" />
+      <workItem from="1747067002902" duration="3947000" />
+      <workItem from="1747112074641" duration="7611000" />
+      <workItem from="1747150835327" duration="7774000" />
+      <workItem from="1747192147654" duration="4812000" />
+      <workItem from="1747207634118" duration="1961000" />
+      <workItem from="1747232801385" duration="3000" />
+      <workItem from="1747235068496" duration="3880000" />
+      <workItem from="1747241112482" duration="1916000" />
+      <workItem from="1747284571852" duration="7107000" />
+      <workItem from="1747294324303" duration="20000" />
+      <workItem from="1747294505473" duration="4105000" />
+      <workItem from="1747329216705" duration="5087000" />
+      <workItem from="1747378909638" duration="14586000" />
+      <workItem from="1747411307560" duration="355000" />
+      <workItem from="1747411916687" duration="2570000" />
+      <workItem from="1747425636165" duration="875000" />
+      <workItem from="1747449834187" duration="8031000" />
+      <workItem from="1747459772746" duration="473000" />
+      <workItem from="1748096330459" duration="1422000" />
+      <workItem from="1748110230549" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
