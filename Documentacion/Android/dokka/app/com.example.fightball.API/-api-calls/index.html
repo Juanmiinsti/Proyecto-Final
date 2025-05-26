@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ApiCalls</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            app
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":app:dokkaHtml/androidMain">FightBall App</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="app::com.example.fightball.API/ApiCalls///PointingToDeclaration//-1837717480">
+  <div class="breadcrumbs"><a href="../../../index.html">app</a><span class="delimiter">/</span><a href="../index.html">com.example.fightball.API</a><span class="delimiter">/</span><span class="current">ApiCalls</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Api</span><wbr></wbr><span><span>Calls</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">ApiCalls</a></div><p class="paragraph">Class ApiCalls Encapsulates the API calls defined in the ApiInterface interface. Serves as an intermediary between the client (Android app) and the REST backend.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="642535824%2FConstructors%2F-1837717480" anchor-label="ApiCalls" id="642535824%2FConstructors%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-api-calls.html"><span>Api</span><wbr></wbr><span><span>Calls</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="642535824%2FConstructors%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">apiInterface<span class="token operator">: </span><a href="../-api-interface/index.html">ApiInterface</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Constructor that receives an instance of ApiInterface.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1729030729%2FFunctions%2F-1837717480" anchor-label="createEnemy" id="1729030729%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-enemy.html"><span>create</span><wbr></wbr><span><span>Enemy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1729030729%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="create-enemy.html"><span class="token function">createEnemy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">enemy<span class="token operator">: </span><a href="../../com.example.fightball.Models/-enemy-model/index.html">EnemyModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;EnemyModel&gt;</div><div class="brief ">Creates a new enemy.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1437673360%2FFunctions%2F-1837717480" anchor-label="createItem" id="1437673360%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-item.html"><span>create</span><wbr></wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1437673360%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="create-item.html"><span class="token function">createItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">item<span class="token operator">: </span><a href="../../com.example.fightball.Models/-item-model-admin/index.html">ItemModelAdmin</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;ItemModelAdmin&gt;</div><div class="brief ">Creates a new item.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1595905241%2FFunctions%2F-1837717480" anchor-label="createTutorial" id="1595905241%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-tutorial.html"><span>create</span><wbr></wbr><span><span>Tutorial</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1595905241%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="create-tutorial.html"><span class="token function">createTutorial</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">tutorial<span class="token operator">: </span><a href="../../com.example.fightball.Models/-tutorial-model/index.html">TutorialModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;TutorialModel&gt;</div><div class="brief ">Creates a new tutorial.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1784482430%2FFunctions%2F-1837717480" anchor-label="deleteEnemy" id="1784482430%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-enemy.html"><span>delete</span><wbr></wbr><span><span>Enemy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1784482430%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="delete-enemy.html"><span class="token function">deleteEnemy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;Boolean&gt;</div><div class="brief ">Deletes a specific enemy.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1388730143%2FFunctions%2F-1837717480" anchor-label="deleteItem" id="1388730143%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-item.html"><span>delete</span><wbr></wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1388730143%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="delete-item.html"><span class="token function">deleteItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;Boolean&gt;</div><div class="brief ">Deletes an item by its ID.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-48827980%2FFunctions%2F-1837717480" anchor-label="deleteTutorial" id="-48827980%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-tutorial.html"><span>delete</span><wbr></wbr><span><span>Tutorial</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-48827980%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="delete-tutorial.html"><span class="token function">deleteTutorial</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;Boolean&gt;</div><div class="brief ">Deletes a tutorial by its ID.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1295732377%2FFunctions%2F-1837717480" anchor-label="deleteUser" id="-1295732377%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-user.html"><span>delete</span><wbr></wbr><span><span>User</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1295732377%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="delete-user.html"><span class="token function">deleteUser</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;Boolean&gt;</div><div class="brief ">Deletes a user by ID.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-138904021%2FFunctions%2F-1837717480" anchor-label="editEnemy" id="-138904021%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="edit-enemy.html"><span>edit</span><wbr></wbr><span><span>Enemy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-138904021%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="edit-enemy.html"><span class="token function">editEnemy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">enemy<span class="token operator">: </span><a href="../../com.example.fightball.Models/-enemy-model/index.html">EnemyModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;EnemyModel&gt;</div><div class="brief ">Edits an existing enemy.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1752076438%2FFunctions%2F-1837717480" anchor-label="editItem" id="1752076438%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="edit-item.html"><span>edit</span><wbr></wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1752076438%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="edit-item.html"><span class="token function">editItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">item<span class="token operator">: </span><a href="../../com.example.fightball.Models/-item-model-admin/index.html">ItemModelAdmin</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;ItemModelAdmin&gt;</div><div class="brief ">Edits an item.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1774403949%2FFunctions%2F-1837717480" anchor-label="editTutorial" id="-1774403949%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="edit-tutorial.html"><span>edit</span><wbr></wbr><span><span>Tutorial</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1774403949%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="edit-tutorial.html"><span class="token function">editTutorial</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">tutorial<span class="token operator">: </span><a href="../../com.example.fightball.Models/-tutorial-model/index.html">TutorialModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;TutorialModel&gt;</div><div class="brief ">Edits an existing tutorial.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-758241888%2FFunctions%2F-1837717480" anchor-label="editUser" id="-758241888%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="edit-user.html"><span>edit</span><wbr></wbr><span><span>User</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-758241888%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="edit-user.html"><span class="token function">editUser</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">user<span class="token operator">: </span><a href="../../com.example.fightball.Models/-user-roles-model/index.html">UserRolesModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;UserRolesModel&gt;</div><div class="brief ">Edits the roles of a specific user.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="108373770%2FFunctions%2F-1837717480" anchor-label="geMatchesByName" id="108373770%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ge-matches-by-name.html"><span>ge</span><wbr></wbr><span>Matches</span><wbr></wbr><span>By</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="108373770%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="ge-matches-by-name.html"><span class="token function">geMatchesByName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;MatchModel&gt;&gt;</div><div class="brief ">Retrieves all matches (won and lost) by username.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1386259148%2FFunctions%2F-1837717480" anchor-label="getAllEnemies" id="1386259148%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-enemies.html"><span>get</span><wbr></wbr><span>All</span><wbr></wbr><span><span>Enemies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1386259148%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-all-enemies.html"><span class="token function">getAllEnemies</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;EnemyModel&gt;&gt;</div><div class="brief ">Retrieves all registered enemies.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="89802367%2FFunctions%2F-1837717480" anchor-label="getALlMatches" id="89802367%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-a-ll-matches.html"><span>get</span><wbr></wbr><span>ALl</span><wbr></wbr><span><span>Matches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="89802367%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-a-ll-matches.html"><span class="token function">getALlMatches</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;MatchModel&gt;&gt;</div><div class="brief ">Retrieves all registered matches.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-477651307%2FFunctions%2F-1837717480" anchor-label="getAllRoles" id="-477651307%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-roles.html"><span>get</span><wbr></wbr><span>All</span><wbr></wbr><span><span>Roles</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-477651307%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-all-roles.html"><span class="token function">getAllRoles</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;RoleModel&gt;&gt;</div><div class="brief ">Retrieves all roles in the system.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-900919382%2FFunctions%2F-1837717480" anchor-label="getAllUsers" id="-900919382%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-users.html"><span>get</span><wbr></wbr><span>All</span><wbr></wbr><span><span>Users</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-900919382%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-all-users.html"><span class="token function">getAllUsers</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;UserModel&gt;&gt;</div><div class="brief ">Retrieves all users in the system.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1448584377%2FFunctions%2F-1837717480" anchor-label="getCharacters" id="-1448584377%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-characters.html"><span>get</span><wbr></wbr><span><span>Characters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1448584377%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-characters.html"><span class="token function">getCharacters</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;CharacterModel&gt;&gt;</div><div class="brief ">Retrieves all available characters.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1913315743%2FFunctions%2F-1837717480" anchor-label="getItems" id="1913315743%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-items.html"><span>get</span><wbr></wbr><span><span>Items</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1913315743%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-items.html"><span class="token function">getItems</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;ItemModel&gt;&gt;</div><div class="brief ">Retrieves all available items.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1238772706%2FFunctions%2F-1837717480" anchor-label="getItemsAdmin" id="1238772706%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-items-admin.html"><span>get</span><wbr></wbr><span>Items</span><wbr></wbr><span><span>Admin</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1238772706%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-items-admin.html"><span class="token function">getItemsAdmin</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;ItemModelAdmin&gt;&gt;</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1105778858%2FFunctions%2F-1837717480" anchor-label="getTutorials" id="1105778858%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-tutorials.html"><span>get</span><wbr></wbr><span><span>Tutorials</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1105778858%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-tutorials.html"><span class="token function">getTutorials</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;TutorialModel&gt;&gt;</div><div class="brief ">Retrieves all tutorials.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="829484363%2FFunctions%2F-1837717480" anchor-label="login" id="829484363%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="login.html"><span><span>login</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="829484363%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="login.html"><span class="token function">login</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">user<span class="token operator">: </span><a href="../../com.example.fightball.Models/-login-model/index.html">LoginModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;String&gt;</div><div class="brief ">Logs in with the login model (username and password).</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1209469532%2FFunctions%2F-1837717480" anchor-label="lostMatchesbyName" id="-1209469532%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="lost-matchesby-name.html"><span>lost</span><wbr></wbr><span>Matchesby</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1209469532%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="lost-matchesby-name.html"><span class="token function">lostMatchesbyName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;MatchModel&gt;&gt;</div><div class="brief ">Retrieves matches lost by a user.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1103750758%2FFunctions%2F-1837717480" anchor-label="registerUser" id="-1103750758%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-user.html"><span>register</span><wbr></wbr><span><span>User</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1103750758%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="register-user.html"><span class="token function">registerUser</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authHeader<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">user<span class="token operator">: </span><a href="../../com.example.fightball.Models/-user-model/index.html">UserModel</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;RegisterResponse&gt;</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1437048402%2FFunctions%2F-1837717480" anchor-label="rolesIdsByname" id="-1437048402%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="roles-ids-byname.html"><span>roles</span><wbr></wbr><span>Ids</span><wbr></wbr><span><span>Byname</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1437048402%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="roles-ids-byname.html"><span class="token function">rolesIdsByname</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;Integer&gt;&gt;</div><div class="brief ">Retrieves role IDs by role name.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1428260074%2FFunctions%2F-1837717480" anchor-label="winMatchesbyName" id="1428260074%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="win-matchesby-name.html"><span>win</span><wbr></wbr><span>Matchesby</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1428260074%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="win-matchesby-name.html"><span class="token function">winMatchesbyName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>Call&lt;List&lt;MatchModel&gt;&gt;</div><div class="brief ">Retrieves matches won by a user.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

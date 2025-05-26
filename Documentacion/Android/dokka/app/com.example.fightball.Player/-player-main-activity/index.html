@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>PlayerMainActivity</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            app
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":app:dokkaHtml/androidMain">FightBall App</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="app::com.example.fightball.Player/PlayerMainActivity///PointingToDeclaration//-1837717480">
+  <div class="breadcrumbs"><a href="../../../index.html">app</a><span class="delimiter">/</span><a href="../index.html">com.example.fightball.Player</a><span class="delimiter">/</span><span class="current">PlayerMainActivity</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Player</span><wbr></wbr><span>Main</span><wbr></wbr><span><span>Activity</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">PlayerMainActivity</a></div><p class="paragraph">Main activity for players. Displays a summary of user statistics (matches won, lost, and total), and provides access to character and item views. It also initializes API calls to retrieve the necessary data, handles the toolbar menu, and sets up a notification channel.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-15534836%2FConstructors%2F-1837717480" anchor-label="PlayerMainActivity" id="-15534836%2FConstructors%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-player-main-activity.html"><span>Player</span><wbr></wbr><span>Main</span><wbr></wbr><span><span>Activity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-15534836%2FConstructors%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1809188683%2FProperties%2F-1837717480" anchor-label="characters" id="1809188683%2FProperties%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="characters.html"><span><span>characters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1809188683%2FProperties%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="characters.html">characters</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/ArrayList.html">ArrayList</a><span class="token operator">&lt;</span><a href="../../com.example.fightball.Models/-character-model/index.html">CharacterModel</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-358957499%2FProperties%2F-1837717480" anchor-label="items" id="-358957499%2FProperties%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="items.html"><span><span>items</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-358957499%2FProperties%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="items.html">items</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/ArrayList.html">ArrayList</a><span class="token operator">&lt;</span><a href="../../com.example.fightball.Models/-item-model/index.html">ItemModel</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-184548491%2FProperties%2F-1837717480" anchor-label="partidas" id="-184548491%2FProperties%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="partidas.html"><span><span>partidas</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-184548491%2FProperties%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">var </span><a href="partidas.html">partidas</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/ArrayList.html">ArrayList</a><span class="token operator">&lt;</span><a href="../../com.example.fightball.Models/-match-model/index.html">MatchModel</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1460713125%2FFunctions%2F-1837717480" anchor-label="configurar" id="1460713125%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="configurar.html"><span><span>configurar</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1460713125%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="configurar.html"><span class="token function">configurar</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Configures the views, listeners, notification channel and toolbar.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1682296188%2FFunctions%2F-1837717480" anchor-label="onCreateOptionsMenu" id="-1682296188%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-create-options-menu.html"><span>on</span><wbr></wbr><span>Create</span><wbr></wbr><span>Options</span><wbr></wbr><span><span>Menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1682296188%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="on-create-options-menu.html"><span class="token function">onCreateOptionsMenu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">menu<span class="token operator">: </span>Menu</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Inflates the toolbar menu from XML.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1561036294%2FFunctions%2F-1837717480" anchor-label="onOptionsItemSelected" id="1561036294%2FFunctions%2F-1837717480" data-filterable-set=":app:dokkaHtml/androidMain"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/androidMain" data-filterable-set=":app:dokkaHtml/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-options-item-selected.html"><span>on</span><wbr></wbr><span>Options</span><wbr></wbr><span>Item</span><wbr></wbr><span><span>Selected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1561036294%2FFunctions%2F-1837717480"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/androidMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="on-options-item-selected.html"><span class="token function">onOptionsItemSelected</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">item<span class="token operator">: </span>MenuItem</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Handles selection of toolbar menu items and navigates to appropriate activities.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
