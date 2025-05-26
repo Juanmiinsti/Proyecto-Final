@@ -12,6 +12,7 @@ const SPEED = 30.0
 var player: Node2D
 
 func _ready() -> void:
+	
 	healthBar.update_health_bar(currentHealth)
 	set_physics_process(false)
 	call_deferred("wait_for_physics")
@@ -22,7 +23,7 @@ func initialize_navigation():
 		navigation_agent.target_position = targetTochase.global_position
 	
 func setStats(aux :EnemyDB)->void:
-	$name.text=aux.naame
+	$Label.text=aux.name
 	maxHealth=aux.max_health
 	damage=aux.damage
 

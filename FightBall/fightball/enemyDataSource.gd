@@ -1,4 +1,4 @@
-class_name EnemyDT
+class_name EnemyDatasource
 
 extends Node
 

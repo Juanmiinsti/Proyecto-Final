@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JcJ - Documentation</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #cccccc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #6cb2eb;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #eeeeee;
+    }
+
+    p {
+      max-width: 800px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li.property {
+      margin-bottom: 12px;
+    }
+
+    code {
+      background-color: #333333;
+      color: #88c0d0;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+
+    .class-name {
+      font-size: 20px;
+      color: #dddddd;
+    }
+
+    .inheritance {
+      font-size: 14px;
+      color: #999999;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .method {
+      margin-bottom: 25px;
+    }
+
+    em {
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="class-name">Class: <code>● JcJ</code></div>
+  <div class="inheritance">Inheritance: <code>● Node2D &lt; 🖼 CanvasItem &lt; 🗎 Node &lt; 🗎 Object</code></div>
+
+  <p><strong>Manages the Player-vs-Player (JcJ) match scene.</strong></p>
+
+  <div class="section">
+    <h2>Description</h2>
+    <p>
+      This node is responsible for initializing the characters' stats, displaying victory indicators, and handling match progression including determining winners, updating match data, and transitioning between rounds or scenes.
+      Character stats are loaded either from default values or from the database via <code>CharacterDataSource.DBcharacters</code>.
+      Victory states are tracked using <code>CurrentMatch</code>.
+      Scene transitions and match registration are performed using <code>SceneManager</code> and <code>CurrentMatch.sendMatch()</code>.
+    </p>
+    <p>
+      <strong>@see</strong> <code>setDefaultStats()</code> for assigning default character values.<br>
+      <strong>@see</strong> <code>getcharid()</code> for resolving character IDs from names.<br>
+      <strong>@see</strong> <code>_on_progress_bar_value_changed()</code> for handling Player 2 defeat.<br>
+      <strong>@see</strong> <code>_on_progress_bar_2_value_changed()</code> for handling Player 1 defeat.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Properties</h2>
+    <ul>
+      <li class="property"><code>PackedScene mode_selector_scene</code> [default: <code>&lt;Object&gt;</code>]<br>
+        <em>No description available for this property.</em>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Methods</h2>
+
+    <div class="method">
+      <h3><code>void _on_progress_bar_2_value_changed(value: float)</code></h3>
+      <p>
+        Handles Player 1 defeat logic.<br>
+        Triggered when Player 1’s health bar reaches zero.<br>
+        Updates victory count, checks for match end, and either reloads the scene or ends the match.<br>
+        <strong>@param</strong> <code>value</code>: Current value of Player 1’s health bar.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _on_progress_bar_value_changed(value: float)</code></h3>
+      <p>
+        Handles Player 2 defeat logic.<br>
+        Triggered when Player 2’s health bar reaches zero.<br>
+        Updates victory count, checks for match end, and either reloads the scene or ends the match.<br>
+        <strong>@param</strong> <code>value</code>: Current value of Player 2’s health bar.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _ready()</code></h3>
+      <p>
+        Called when the node enters the scene tree.<br>
+        Initializes UI indicators, character stats, and match timer.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>int getcharid(name: String)</code></h3>
+      <p>
+        Returns the character ID based on the name string.<br>
+        <strong>@param</strong> <code>name</code>: Character name.<br>
+        <strong>@return</strong> Integer ID of the character, or 3 if unrecognized.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void setDefaultStats(char: pCharacter)</code></h3>
+      <p>
+        Assigns default stats to a player character in case DB data is unavailable.<br>
+        <strong>@param</strong> <code>char</code>: Character node to assign default stats to.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

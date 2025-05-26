@@ -144,15 +144,15 @@ position = Vector2(2, 6)
 shape = SubResource("RectangleShape2D_6sopg")
 debug_color = Color(0, 0.627053, 0.505475, 0.42)
 
-[node name="name" type="Label" parent="."]
-offset_left = -24.0
-offset_top = -37.0
-offset_right = 38.0
-offset_bottom = -14.0
-text = "nombre"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -38.0
+offset_right = 33.0
+offset_bottom = -15.0
+text = "Enemy"
 
 [connection signal="value_changed" from="Sprite2D/ProgressBar" to="." method="_on_progress_bar_value_changed"]

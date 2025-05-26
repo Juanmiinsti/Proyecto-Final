@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Documentation</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #cccccc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #6cb2eb;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #eeeeee;
+    }
+
+    p {
+      max-width: 800px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li.property {
+      margin-bottom: 12px;
+    }
+
+    code {
+      background-color: #333333;
+      color: #88c0d0;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+
+    .class-name {
+      font-size: 20px;
+      color: #dddddd;
+    }
+
+    .inheritance {
+      font-size: 14px;
+      color: #999999;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .method {
+      margin-bottom: 25px;
+    }
+
+    em {
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="class-name">Class: <code>● Login</code></div>
+  <div class="inheritance">Inheritance: <code>● Control &lt; 🖼 CanvasItem &lt; 🗎 Node &lt; 🗎 Object</code></div>
+
+  <p><strong>Manages the login UI and process.</strong></p>
+
+  <div class="section">
+    <h2>Description</h2>
+    <p>
+      This node handles the user login process by sending credentials to a backend REST API.
+      On success, it receives an authentication token, fetches user info, and navigates to the main scene.
+      It also allows navigation to the registration scene and resets the scene history when changing scenes.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Properties</h2>
+    <ul>
+      <li class="property"><code>HTTPRequest http_request</code><br>
+        <em>No description currently available for this property.</em>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Methods</h2>
+
+    <div class="method">
+      <h3><code>void _on_button_accept_pressed()</code></h3>
+      <p>
+        Called when the login "accept" button is pressed.<br>
+        Validates the username and password fields.<br>
+        If valid, sends an HTTP POST request with a JSON body containing the login credentials.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _on_button_pressed()</code></h3>
+      <p>
+        Called when the button to return to the main scene is pressed.<br>
+        Resets the scene navigation history and navigates to the main scene without adding it to history.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _on_button_register_pressed()</code></h3>
+      <p>
+        Called when the register button is pressed.<br>
+        Navigates to the registration scene.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _on_request_completed(result: Variant, response_code: Variant, headers: Variant, body: Variant)</code></h3>
+      <p>
+        Handles the completion of the login HTTP request.<br><br>
+
+        <strong>Parameters:</strong><br>
+        - <code>result</code>: Internal result code from the <code>HTTPRequest</code>.<br>
+        - <code>response_code</code>: HTTP response code (200 = success).<br>
+        - <code>headers</code>: Response headers.<br>
+        - <code>body</code>: Response body in bytes.<br><br>
+
+        <strong>On HTTP 200 success:</strong><br>
+        - Extracts the authentication token from the response.<br>
+        - Saves the username, password, and token in <code>PlayerInfo</code>.<br>
+        - Sends a request to fetch user details by username.<br>
+        - If successful, stores the user ID and persists the user info.<br>
+        - Navigates to the main scene and resets scene history.<br><br>
+
+        <strong>On error:</strong><br>
+        - Logs the error and response code.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _process(delta: float)</code></h3>
+      <p>
+        Called every frame.<br>
+        <em>Currently not in use.</em>
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _ready()</code></h3>
+      <p>
+        Called when the node enters the scene tree.<br>
+        Sets the metadata that identifies the scene path.<br>
+        Initializes the <code>HTTPRequest</code> node and connects the request completed signal.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Signals</h2>
+    <ul>
+      <li><code>● session_ready()</code><br>
+        <em>No description currently available for this signal.</em>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CharacterDT - Documentation</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #cccccc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #6cb2eb;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #eeeeee;
+    }
+
+    p {
+      max-width: 800px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li.property {
+      margin-bottom: 12px;
+    }
+
+    code {
+      background-color: #333333;
+      color: #88c0d0;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+
+    .class-name {
+      font-size: 20px;
+      color: #dddddd;
+    }
+
+    .inheritance {
+      font-size: 14px;
+      color: #999999;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .method {
+      margin-bottom: 25px;
+    }
+
+    em {
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="class-name">Class: <code>● CharacterDT</code></div>
+  <div class="inheritance">Inheritance: <code>● Node &lt; 🗎 Object</code></div>
+
+  <p><strong>Handles loading and storing characters from the REST API.</strong></p>
+
+  <div class="section">
+    <h2>Description</h2>
+    <p>
+      This node sends an HTTP request to retrieve the list of characters associated with the current user, 
+      parses the JSON response, and creates instances of <code>CharacterDB</code> with the received data.
+      It avoids reloading characters if the data has not changed, based on the JSON hash.
+      It connects to <code>PlayerInfo</code> to obtain the session and token required for authorization.
+    </p>
+    <p>
+      References:<br>
+      See <code>_on_get_all_request_request_completed()</code> for handling the HTTP response.<br>
+      See <code>parseCharacter()</code> for parsing each character individually.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Properties</h2>
+    <ul>
+      <li class="property"><code>Array[CharacterDB] DBcharacters</code> [default: []]<br>
+        <em>Currently no description for this property.</em>
+      </li>
+      <li class="property"><code>bool already_loaded</code> [default: false]<br>
+        <em>Currently no description for this property.</em>
+      </li>
+      <li class="property"><code>int data_hash</code> [default: 0]<br>
+        <em>Currently no description for this property.</em>
+      </li>
+      <li class="property"><code>HTTPRequest getAllCharacter</code><br>
+        <em>Currently no description for this property.</em>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Methods</h2>
+
+    <div class="method">
+      <h3><code>void _on_get_all_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray)</code></h3>
+      <p>
+        Signal handler for the HTTP request response.<br><br>
+        <strong>Parameters:</strong><br>
+        - <code>result</code>: Internal result code of the request.<br>
+        - <code>response_code</code>: HTTP response code (200, 404, etc).<br>
+        - <code>headers</code>: Received HTTP headers.<br>
+        - <code>body</code>: Response body in bytes.<br><br>
+
+        If response is 200:<br>
+        - Converts the body to a JSON string.<br>
+        - Parses the JSON into a native Godot structure.<br>
+        - Checks if the data has changed by comparing the hash.<br>
+        - If changed, clears and fills <code>DBcharacters</code> with new characters.<br>
+        - Updates the hash and <code>already_loaded</code> flag.<br><br>
+
+        On HTTP error, logs the error code.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _on_session_ready()</code></h3>
+      <p>
+        Called when the session is ready. Configures and sends the HTTP request to fetch all characters, authorizing with a Bearer Token.
+        Creates the <code>HTTPRequest</code> node and connects its <code>request_completed</code> signal to handle the response.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>void _ready()</code></h3>
+      <p>
+        Called when the node enters the scene tree. Checks if there is an active session (<code>PlayerInfo.userKey</code>).
+        If not, connects to the <code>session_ready</code> signal to wait for the session.
+        If session is already available, it starts the character-fetching request.
+      </p>
+    </div>
+
+    <div class="method">
+      <h3><code>CharacterDB parseCharacter(char: Dictionary)</code></h3>
+      <p>
+        Converts a dictionary received from JSON into a <code>CharacterDB</code> object.<br>
+        <strong>Parameter:</strong> <code>char</code> - Dictionary with character data.<br>
+        <strong>Returns:</strong> An instance of <code>CharacterDB</code> or <code>null</code> if required data is missing.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

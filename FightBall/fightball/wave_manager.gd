@@ -29,6 +29,7 @@ func spawn_enemy():
 		var enemy_data: EnemyDB = EnemyDataSource.DBenemies.pick_random()
 		print(enemy_data)
 	# Asignar datos del EnemyDB
+		
 		enemy_instance.setStats(enemy_data)
 		
 	$"../enemies_alive".text="Enemmies alive" + str(enemies_alive)
@@ -36,7 +37,7 @@ func spawn_enemy():
 	var spawn_position = get_node(spawn_points.pick_random()).global_position
 	add_child(enemy_instance)
 	enemy_instance.global_position = spawn_position
-
+	
 	# Conectamos al jugador
 	
 	
