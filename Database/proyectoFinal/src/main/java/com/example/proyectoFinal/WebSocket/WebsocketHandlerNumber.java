@@ -11,32 +11,65 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * WebSocket handler that manages a simple "guess the number" game.
+ *
+ * Each connected client can send guesses in the format "username:number".
+ * The server responds with hints whether the guess is higher or lower
+ * than the number to guess. When the correct number is guessed,
+ * a new number is generated and broadcasted.
+ */
 @Component
 public class WebsocketHandlerNumber extends TextWebSocketHandler {
 
+    // List of active WebSocket sessions (connected clients)
     private final List<WebSocketSession> sessions = new ArrayList<>();
     private final Random random = new Random();
-    private int numeroadivinar = random.nextInt(0, 100); // de 0 a 99 inclusive
 
+    // Number to guess, randomly chosen between 0 and 99 inclusive
+    private int numeroadivinar = random.nextInt(0, 100);
+
+    /**
+     * Called after a new WebSocket connection is established.
+     * Adds the session to the active sessions list.
+     *
+     * @param session the WebSocket session
+     * @throws IOException
+     */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws IOException {
         sessions.add(session);
 
-        // Extraer el username del token de conexión, o en este caso por la URI (ej: ?username=Juan)
-
+        // TODO: Extract username from token or query params if needed
+        // Example: URI contains ?username=Juan
     }
 
+    /**
+     * Called after a WebSocket connection is closed.
+     * Removes the session from the active sessions list.
+     *
+     * @param session the WebSocket session
+     * @param status  the close status
+     */
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
         sessions.remove(session);
         System.out.println("🧹 Sesión eliminada: " + session.getId());
     }
 
+    /**
+     * Handles incoming text messages from clients.
+     *
+     * Expected message format: "username:number" (e.g. "Juan:45").
+     * Special command: "username:connected" sends a welcome message.
+     *
+     * Compares the guessed number with the number to guess and broadcasts hints.
+     *
+     * @param session the WebSocket session
+     * @param message the received text message
+     */
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) {
-
-
-
         String payload = message.getPayload();
 
         if (!payload.contains(":")) {
@@ -52,7 +85,7 @@ public class WebsocketHandlerNumber extends TextWebSocketHandler {
             if (numberStr.equals("connected")){
                 sendToSession(session,"welcome to guess the number "+username);
                 System.out.println("welcome to guess the number "+username);
-            }else {
+            } else {
                 int guess;
                 try {
                     guess = Integer.parseInt(numberStr);
@@ -71,16 +104,20 @@ public class WebsocketHandlerNumber extends TextWebSocketHandler {
                     numeroadivinar = random.nextInt(0, 100);
                 }
 
-                // Broadcast a todos los clientes
+                // Broadcast the response to all connected clients
                 broadcast(response);
             }
-        }catch (Exception e){
-            System.out.println("error in welcome message");
+        } catch (Exception e){
+            System.out.println("Error handling message: " + e.getMessage());
         }
-
-
     }
 
+    /**
+     * Sends a message to a single WebSocket session if open.
+     *
+     * @param session the target WebSocket session
+     * @param message the message to send
+     */
     private void sendToSession(WebSocketSession session, String message) {
         if (session.isOpen()) {
             try {
@@ -91,12 +128,16 @@ public class WebsocketHandlerNumber extends TextWebSocketHandler {
         }
     }
 
+    /**
+     * Broadcasts a message to all open WebSocket sessions.
+     * Cleans closed sessions before broadcasting.
+     *
+     * @param message the message to broadcast
+     */
     private void broadcast(String message) {
-        sessions.removeIf(s -> !s.isOpen()); // limpiar sesiones cerradas
+        sessions.removeIf(s -> !s.isOpen()); // Remove closed sessions
         for (WebSocketSession s : sessions) {
             sendToSession(s, message);
         }
     }
-
-
 }

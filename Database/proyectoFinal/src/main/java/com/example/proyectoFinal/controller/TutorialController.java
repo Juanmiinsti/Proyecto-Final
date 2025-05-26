@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST controller for managing tutorials.
+ */
 @CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/tutorials")
@@ -26,21 +29,35 @@ public class TutorialController {
     @Autowired
     private Mapper mapper;
 
-    // Obtener todos los tutoriales
+    /**
+     * Retrieve all tutorials.
+     *
+     * @return a list of TutorialDTO objects with HTTP status 200.
+     */
     @GetMapping
     public ResponseEntity<List<TutorialDTO>> getAllTutorials() {
         List<TutorialDTO> tutorialDTOs = mapper.mapList(tutorialService.getTutorials(), TutorialDTO.class);
         return new ResponseEntity<>(tutorialDTOs, HttpStatus.OK);
     }
 
-    // Obtener tutorial por ID
+    /**
+     * Retrieve a tutorial by its ID.
+     *
+     * @param id the tutorial's ID.
+     * @return the TutorialDTO object with HTTP status 200.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<TutorialDTO> getTutorialById(@PathVariable int id) {
         TutorialDTO tutorialDTO = mapper.mapType(tutorialService.getTutorialById(id), TutorialDTO.class);
         return new ResponseEntity<>(tutorialDTO, HttpStatus.OK);
     }
 
-    // Crear nuevo tutorial
+    /**
+     * Create a new tutorial.
+     *
+     * @param createDTO the DTO containing data to create the tutorial.
+     * @return the created TutorialDTO with HTTP status 201, or an error response with status 500.
+     */
     @PostMapping
     public ResponseEntity<?> createTutorial(@RequestBody CreateTutorialDTO createDTO) {
         try {
@@ -52,7 +69,13 @@ public class TutorialController {
         }
     }
 
-    // Modificar tutorial existente
+    /**
+     * Update an existing tutorial by ID.
+     *
+     * @param id        the tutorial's ID to update.
+     * @param createDTO the DTO containing updated tutorial data.
+     * @return the updated TutorialDTO with HTTP status 200, or an error response with status 500.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateTutorial(@PathVariable int id, @RequestBody CreateTutorialDTO createDTO) {
         try {
@@ -64,7 +87,12 @@ public class TutorialController {
         }
     }
 
-    // Eliminar tutorial
+    /**
+     * Delete a tutorial by its ID.
+     *
+     * @param id the tutorial's ID to delete.
+     * @return true with HTTP status 200 if deleted, or an error response with status 500.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTutorial(@PathVariable int id) {
         try {

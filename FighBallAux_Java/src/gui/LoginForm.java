@@ -6,10 +6,7 @@ import gui.Models.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -17,14 +14,23 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * LoginForm represents the login GUI window.
+ * It handles:
+ * - User authentication via REST API.
+ * - Language switching (Spanish / English).
+ * - Retrieval of characters, items, and matches upon successful login.
+ */
 public class LoginForm extends JFrame {
 
-    static JPanel panelLogin=new JPanel();
+    // Main login panel
+    static JPanel panelLogin = new JPanel();
 
+    // CardLayout to manage views if needed
     static CardLayout cardLayoutd = new CardLayout();
     static Container general = new Container();
 
-
+    // UI components for login
     static JLabel panelLoginJlabelIdiomas = new JLabel(traductor.getString("login.idiomas"));
     static JComboBox<String> panelLoginIdiomas = new JComboBox<>();
 
@@ -35,30 +41,40 @@ public class LoginForm extends JFrame {
     static JButton panelLoginCancelButton = new JButton(traductor.getString("login.cancel"));
     static JButton panelLoginLoginButton = new JButton(traductor.getString("login.login"));
 
-
+    /**
+     * Entry point of the program that launches the login form.
+     */
     public static void main(String[] args) {
-        LoginForm loginForm = new LoginForm();
+        new LoginForm();
     }
 
+    /**
+     * Constructor for initializing the login window UI and events.
+     */
     public LoginForm() {
-
-        initGeneral();
-        configPanelLogin();
-        createPaneLogin();
+        initGeneral();       // Setup card layout
+        configPanelLogin();  // Configure login panel actions
+        createPaneLogin();   // Add components to login panel
 
         add(general);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBackground(Color.red);
         setLocation(500, 300);
         setSize(700, 500);
         setVisible(true);
     }
+
+    /**
+     * Initializes the main container with CardLayout.
+     */
     static void initGeneral() {
         general.setLayout(cardLayoutd);
-        general.add("0",panelLogin);
+        general.add("0", panelLogin);
     }
 
+    /**
+     * Adds login UI components to the panel.
+     */
     static void createPaneLogin() {
         panelLogin.add(panelLoginJlabelIdiomas);
         panelLogin.add(panelLoginIdiomas);
@@ -70,52 +86,48 @@ public class LoginForm extends JFrame {
         panelLogin.add(panelLoginLoginButton);
     }
 
-    void configPanelLogin(){
-        panelLogin.setLayout(new GridLayout(4,2));
-        panelLoginLoginButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (login(panelLoginUsername.getText(),panelLoginPassword.getText())) {
+    /**
+     * Configures button actions and language switch behavior.
+     */
+    void configPanelLogin() {
+        panelLogin.setLayout(new GridLayout(4, 2));
 
-                    dispose();
-                    //pantalla de carga
-                    SplashScreen.mostrarSplashYContinuar(() -> {
-                        InfoViewerApp.iniciarPrograma();
-                    });
-                    doRequests();
-                }else {
-                    JOptionPane.showMessageDialog(null,"Datos Erroneos");
-                }
+        // Login button action
+        panelLoginLoginButton.addActionListener(e -> {
+            if (login(panelLoginUsername.getText(), panelLoginPassword.getText())) {
+                dispose(); // Close login window
+
+                // Show splash screen and then launch main app
+                SplashScreen.mostrarSplashYContinuar(() -> InfoViewerApp.iniciarPrograma());
+                doRequests(); // Load data
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid credentials ❌");
             }
         });
 
-        panelLoginCancelButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //System.exit(0);
-
-            }
+        // Cancel button can be customized to close app or clear fields
+        panelLoginCancelButton.addActionListener(e -> {
+            // Example: clear inputs or exit app
+            // System.exit(0);
         });
 
-
-
+        // Language selection dropdown
         panelLoginIdiomas.addItem("Spanish");
         panelLoginIdiomas.addItem("English");
 
-        panelLoginIdiomas.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (panelLoginIdiomas.getSelectedItem()=="Spanish"){
-                    traductor.setLocale(1);
-                }else {
-                    traductor.setLocale(2);
-                }
-                updateLanguage();
-
+        panelLoginIdiomas.addItemListener(e -> {
+            if (panelLoginIdiomas.getSelectedItem().equals("Spanish")) {
+                traductor.setLocale(1);
+            } else {
+                traductor.setLocale(2);
             }
+            updateLanguage(); // Refresh labels
         });
-
     }
 
-
+    /**
+     * Updates UI texts to reflect the selected language.
+     */
     private void updateLanguage() {
         panelLoginUserLabel.setText(traductor.getString("login.enterUsername"));
         panelLoginPasswordLabel.setText(traductor.getString("login.enterPassword"));
@@ -125,40 +137,47 @@ public class LoginForm extends JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }
 
-    private void doRequests(){
-    getCharacters();
-    getItems();
-    getMatches();
+    /**
+     * Fetches all necessary data from backend after login.
+     */
+    private void doRequests() {
+        getCharacters();
+        getItems();
+        getMatches();
     }
 
-    private void getCharacters(){
+    /**
+     * Fetches characters from the API and stores them in DataSource.
+     */
+    private void getCharacters() {
         try {
             Gson gson = new Gson();
-
-            HttpRequest postLogin = HttpRequest.newBuilder()
+            HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(DataSource.url + "api/characters"))
                     .header("Content-Type", "application/json")
                     .header("Authorization", DataSource.key)
                     .GET()
                     .build();
 
-            HttpClient httpClient = HttpClient.newHttpClient();
-            HttpResponse<String> response = httpClient.send(postLogin, HttpResponse.BodyHandlers.ofString());
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                java.lang.reflect.Type characterListType = new TypeToken<List<CharacterModel>>() {}.getType();
-                List<CharacterModel> characters = gson.fromJson(response.body(), characterListType);
+                java.lang.reflect.Type type = new TypeToken<List<CharacterModel>>() {}.getType();
+                List<CharacterModel> characters = gson.fromJson(response.body(), type);
                 DataSource.characters = new ArrayList<>(characters);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error in getCharacters: " + e.getMessage());
         }
     }
 
+    /**
+     * Fetches items from the API and stores them in DataSource.
+     */
     private void getItems() {
         try {
             Gson gson = new Gson();
-
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(DataSource.url + "api/items"))
                     .header("Content-Type", "application/json")
@@ -166,23 +185,25 @@ public class LoginForm extends JFrame {
                     .GET()
                     .build();
 
-            HttpClient httpClient = HttpClient.newHttpClient();
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                java.lang.reflect.Type itemListType = new TypeToken<List<ItemModel>>() {}.getType();
-                List<ItemModel> items = gson.fromJson(response.body(), itemListType);
+                java.lang.reflect.Type type = new TypeToken<List<ItemModel>>() {}.getType();
+                List<ItemModel> items = gson.fromJson(response.body(), type);
                 DataSource.items = new ArrayList<>(items);
             }
         } catch (Exception e) {
-            System.out.println("Error en getItems: " + e.getMessage());
+            System.out.println("Error in getItems: " + e.getMessage());
         }
     }
+
+    /**
+     * Fetches match history of the current user and stores them in DataSource.
+     */
     private void getMatches() {
         try {
             Gson gson = new Gson();
-            String userId = String.valueOf(DataSource.userId);
-
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(DataSource.url + "api/matches/total/" + DataSource.userName))
                     .header("Content-Type", "application/json")
@@ -190,83 +211,76 @@ public class LoginForm extends JFrame {
                     .GET()
                     .build();
 
-            HttpClient httpClient = HttpClient.newHttpClient();
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                java.lang.reflect.Type matchListType = new TypeToken<List<MatchModel>>() {}.getType();
-                List<MatchModel> matches = gson.fromJson(response.body(), matchListType);
+                java.lang.reflect.Type type = new TypeToken<List<MatchModel>>() {}.getType();
+                List<MatchModel> matches = gson.fromJson(response.body(), type);
                 DataSource.matches = new ArrayList<>(matches);
             }
         } catch (Exception e) {
-            System.out.println("Error en getMatches: " + e.getMessage());
+            System.out.println("Error in getMatches: " + e.getMessage());
         }
     }
 
-
+    /**
+     * Sends login credentials to the server and stores the auth token on success.
+     * @param username user input username
+     * @param password user input password
+     * @return true if login is successful, false otherwise
+     */
     private boolean login(String username, String password) {
         try {
-        LoginModel user =new LoginModel(username,password);
-        Gson gson=new Gson();
-        String json=gson.toJson(user);
+            LoginModel user = new LoginModel(username, password);
+            Gson gson = new Gson();
+            String json = gson.toJson(user);
 
-        HttpRequest postLogin= HttpRequest.newBuilder()
-                .uri(new URI(DataSource.url+"auth/login"))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json)).build();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url + "auth/login"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
 
-        HttpClient httpClient=HttpClient.newHttpClient();
-        System.out.println( HttpRequest.BodyPublishers.ofString(json));
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            HttpResponse<String> response= httpClient.send(postLogin, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode()==200){
-                DataSource.key= "Bearer "+response.body();
-                DataSource.userName=panelLoginUsername.getText();
-                getUser();
+            if (response.statusCode() == 200) {
+                DataSource.key = "Bearer " + response.body();
+                DataSource.userName = username;
+                getUser(); // Fetch user details
                 return true;
-            }else{
-                return false;
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Login error: " + e.getMessage());
         }
         return false;
     }
 
-    private void getUser(){
+    /**
+     * Fetches user details using username and stores the user ID.
+     */
+    private void getUser() {
         try {
-            UserModel user=new UserModel(0,"","");
-            Gson gson=new Gson();
-            String json=gson.toJson(user);
+            Gson gson = new Gson();
 
-            HttpRequest getUser = HttpRequest.newBuilder()
-                    .uri(new URI(DataSource.url+"api/userByName/"+DataSource.userName))
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(DataSource.url + "api/userByName/" + DataSource.userName))
                     .header("Content-Type", "application/json")
                     .header("Authorization", DataSource.key)
                     .GET()
                     .build();
 
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            HttpClient httpClient=HttpClient.newHttpClient();
-            System.out.println( HttpRequest.BodyPublishers.ofString(json));
-
-            HttpResponse<String> response= httpClient.send(getUser, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode()==200){
-                user=gson.fromJson(response.body(), UserModel.class);
-
-                System.out.println(user.toString());
-                DataSource.userId=user.getId();
+            if (response.statusCode() == 200) {
+                UserModel user = gson.fromJson(response.body(), UserModel.class);
+                DataSource.userId = user.getId();
+                System.out.println("User loaded: " + user);
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error in getUser: " + e.getMessage());
         }
-
-
     }
-
-
-
-
 }
-
-
