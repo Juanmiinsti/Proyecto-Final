@@ -229,7 +229,7 @@ public class InfoViewerApp extends JFrame {
                     }
                     break;
 
-                case "Items":
+                case "Objects":
                     for (ItemModel i : DataSource.items) {
                         document.add(new Paragraph("ID: " + i.getId()));
                         document.add(new Paragraph("Name: " + i.getName()));
@@ -291,7 +291,7 @@ public class InfoViewerApp extends JFrame {
                     }
                     break;
 
-                case "Items":
+                case "Objects":
                     for (ItemModel i : DataSource.items) {
                         createLine(document, "ID: " + i.getId());
                         createLine(document, "Name: " + i.getName());
