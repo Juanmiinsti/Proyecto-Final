@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FightBall" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/lighbrown</item>
+        <item name="colorSecondary">@color/lighbrown</item>
         <item name="fontFamily">@font/pixelify_sans</item>
     </style>
 </resources>
